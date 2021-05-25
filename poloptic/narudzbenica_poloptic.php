@@ -16,7 +16,10 @@ $result = $stmt->get_result();
 echo "<div class='naslov'></div>";
 echo "<div class='table-wrapper-scroll-y'>
 <table class='narudzbenica-tabela' id='narudzbenica'>
-<thead><tr><th class='tg-0lax'>Lag-Spec</th>
+<thead>
+<tr>
+<th class='tg-0lax'>R.br.</th>
+<th class='tg-0lax'>Lag-Spec</th>
 <th class='tg-0lax'>Od/Os/Ou</th>
 <th class='tg-0lax'>Vrsta \nsoč.</th>
 <th class='tg-0lax'>Dizajn</th>
@@ -43,8 +46,10 @@ echo "<div class='table-wrapper-scroll-y'>
 </tr>
 </thead>
 <tbody>";
+$rb = 0;
 while ($row = mysqli_fetch_object($result)) {
     echo "<tr id='$row->ID' onclick='updateEntireRowPol()'>";
+    echo "<td>" . ($rb = $rb + 1) . "</td>";
     echo "<td class='od_os_ou'>$row->lag_spec</td>";
     echo "<td class='od_os_ou'>$row->od_os_ou</td>";
     echo "<td>$row->vrsta_sociva</td>";

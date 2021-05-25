@@ -29,7 +29,7 @@ $result = $stmt->get_result();
 
 $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
 $schema_insert .= '<h2>Narudžbenica - Poloptic</h2>';
-$schema_insert .= '<br/>Narudžba od: ' . "$imeKorisnika" . '<br/>';
+$schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
 $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
 $schema_insert .= '<br/>';
 $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2">';
@@ -88,8 +88,8 @@ while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . $row->mjesto_isporuke . '</td>';
   $schema_insert .= '<td>' . $row->napomena . '</td>';
   $schema_insert .= '</tr>';
-  $schema_insert .= '</tbody>';
 }
+$schema_insert .= '</tbody>';
 file_put_contents('../orders/poloptic/narudzbenica_Pol_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 $to = "narudzba@mojaoptika.com";
@@ -123,16 +123,12 @@ $headers .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
 
 // no more headers after this, we start the body! //
 
-$body = "--" . $separator . $eol;
-$header .= "Content-Type: text/html; charset=utf-8" . $eol;
-$body .= "Content-Transfer-Encoding: 8bit" . $eol . $eol;
-$body .= $user_message . $eol;
-
 // message
+$body = "--" . $separator . $eol;
+$body .= $user_message . "" . $eol;
 $body .= "--" . $separator . $eol;
 $body .= "Content-Type: text/html; charset=\"utf-8\"" . $eol;
 $body .= "Content-Transfer-Encoding: 8bit" . $eol . $eol;
-//$body .= $message . $eol;
 
 // attachment
 $body .= "--" . $separator . $eol;
@@ -146,7 +142,6 @@ if (mail($to, $subject, $body, $headers)) {
 
 
   $uid = md5(uniqid(time()));
-  $name = basename($file);
 
   $header = "From: no-reply@mojaoptika.com" . "\r\n";;
   $header .= "MIME-Version: 1.0\r\n";
