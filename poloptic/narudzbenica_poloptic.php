@@ -14,7 +14,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 echo "<div class='naslov'></div>";
-echo "<div class='table-wrapper-scroll-y'>
+echo "<div class='table-wrapper-scroll-y table-hover'>
 <table class='narudzbenica-tabela' id='narudzbenica'>
 <thead>
 <tr>
@@ -79,12 +79,26 @@ while ($row = mysqli_fetch_object($result)) {
 echo "</tbody>";
 echo "</table>";
 echo "</br>";
-if (mysqli_num_rows($result) > 0) {
+
+$stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ');
+$stmt1->execute();
+$result1 = $stmt1->get_result();
+
+if (mysqli_num_rows($result1) > 0) {
     echo "<button type='button' onclick='sendPolopticSarajevo()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Sarajevo</button>&nbsp;&nbsp;";
-    echo "<button type='button' onclick='sendPolopticBeograd()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Beograd</button>";
-    echo "</br>";
-    echo "</br>";
 }
+
+$stmt2 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-bg" ');
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+if (mysqli_num_rows($result2) > 0) {
+    echo "<button type='button' onclick='sendPolopticBeograd()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Beograd</button>";
+}
+echo "</br>";
+echo "</br>";
+
+
 if (isset($_REQUEST['msg'])) {
     if ($_REQUEST['msg'] == '1') {
         echo "<script src=\"../js/alertify.min.js\"></script>";
