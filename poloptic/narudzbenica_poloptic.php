@@ -73,7 +73,7 @@ while ($row = mysqli_fetch_object($result)) {
     echo "<td>$row->mpc</td>";
     echo "<td>$row->broj_naloga</td>";
     echo "<td>$row->napomena</td>";
-    echo "<td class='tg-options'><i onclick='deleteRow();' id='$row->ID' title='Ukloni stavku' class='fas fa-trash fa-lg'></i></td>";
+    echo "<td class='tg-options'><i onclick='deleteRow(event);' id='$row->ID' title='Ukloni stavku' class='fas fa-trash fa-lg'></i></td>";
     echo "</tr>";
 }
 echo "</tbody>";
