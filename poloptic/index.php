@@ -1109,7 +1109,7 @@ setcookie('cica_maca', '', time() - 3600);
                             </div>
 
                             <div class="text-center">
-                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAdd">Add<i class="fa fa-plus-square ml-1"></i></a>
+                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAdd">Dodaj novi zapis<i class="fa fa-plus-square ml-1"></i></a>
                             </div>
                             &nbsp;
                             &nbsp;

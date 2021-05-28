@@ -96,7 +96,7 @@ function nije_realizovano($con)
                       $datum_narudzbe = date('d.m.Y', strtotime($originalDate));
                       echo '<tr>';
                       echo '<td>' . ($rb = $rb + 1) . ' </td>';
-                      echo "<td><a target='_blank' rel='noopener noreferrer' href='ordersDocumentPreview.php?id=$row->ID'>$row->ID</a></td>";
+                      echo "<td><a target='_blank' rel='noopener noreferrer' href='orders_document_preview.php?id=$row->ID'>$row->ID</a></td>";
                       echo "<td>$datum_narudzbe</td>";
 
                       //Upit koji na osnovu dobijenog ID korisnika čita naziv korisnika kojem pripada taj ID
