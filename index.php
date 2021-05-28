@@ -177,13 +177,14 @@ function novih_narudzbi_pol($con)
             <hr class="sidebar-divider">
             <div class="sidebar-heading"> Dobavljači </div>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
                 <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
+                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-
                     <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -249,7 +250,7 @@ function novih_narudzbi_pol($con)
 
                     <div class="cards">
                         <div class="card">
-                            <a href="moptic/index.php"><img src="images/moptic.svg" alt="M-OPTIC" style="width:100%">
+                            <a href="#"><img src="images/moptic.svg" alt="M-OPTIC" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: #</label>
                                 </div>
@@ -264,14 +265,14 @@ function novih_narudzbi_pol($con)
                             </a>
                         </div>
                         <div class="card">
-                            <a href="essilor/index.php"><img src="images/essilor.svg" alt="Essilor" style="width:100%">
+                            <a href="#"><img src="images/essilor.svg" alt="Essilor" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: #</label>
                                 </div>
                             </a>
                         </div>
                         <div class="card">
-                            <a href="hoya/index.php"> <img src="images/hoya.svg" alt="Hoya" style="width:100%">
+                            <a href="#"> <img src="images/hoya.svg" alt="Hoya" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: #</label>
                                 </div>
