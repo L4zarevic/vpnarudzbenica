@@ -36,7 +36,11 @@ $total_no_of_pages = ceil($total_records / $total_records_per_page);
 $second_last = $total_no_of_pages - 1;
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
-  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_pol WHERE dobavljac = 'Poloptic - Beograd' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
+  if ($_GET['realizovano'] == "asc") {
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_pol WHERE dobavljac = 'Poloptic - Beograd' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
+  } else {
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_pol WHERE dobavljac = 'Poloptic - Beograd' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
+  }
 } else {
   $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_pol WHERE dobavljac = 'Poloptic - Beograd' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
 }
@@ -81,7 +85,7 @@ $result = $stmt->get_result();
                       <th>Broj narudžbe</th>
                       <th>Datum</th>
                       <th>Naručio</th>
-                      <th>Realizovano</th>
+                      <th>Realizovano <a href="pol_history_bg.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="pol_history_bg.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>

@@ -720,7 +720,7 @@ setcookie('cica_maca', '', time() - 3600);
                                             <div id="ifLager">
                                                 <div class="md-form mb-5">
                                                     <label>Vrsta materijala:</label><label class="obavezna_polja">*</label>
-                                                    <input name="materijal_lager" title="Unesite vrstu materijala" maxlength="255" type="text" class="form-control" id="materijal_lager">
+                                                    <input name="materijal_lager" title="Unesite vrstu materijala" maxlength="255" type="text" class="form-control" id="materijal_lager" required>
                                                 </div>
                                             </div>
 
@@ -1100,7 +1100,7 @@ setcookie('cica_maca', '', time() - 3600);
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
-                                            <button type='button' onclick="return checkForm();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Sačuvaj stavku
+                                            <button type='submit' onclick="return checkForm();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd">Sačuvaj stavku
                                                 <i class="fas fa-paper-plane-o ml-1"></i>
                                             </button>
                                         </div>

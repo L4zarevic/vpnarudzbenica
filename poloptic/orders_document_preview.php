@@ -33,6 +33,5 @@ if ($realizovana == "&check;") {
     echo "</table></br></br> <center><button type='button' class='btn btn-success' onClick=window.location.href='\../poloptic/orders_document_preview.php?id=$id_stavke&realizovano=true'>Potvrdi prispeće ove narudžbe</button></center>";
 }
 
-
 // note that here the quotes aren't converted
 //echo htmlspecialchars_decode($str, ENT_NOQUOTES);
