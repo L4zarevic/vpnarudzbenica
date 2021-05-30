@@ -6,8 +6,6 @@ if (is_null($_SESSION['logged_in_user'])) {
 }
 require_once '../connection.php';
 
-$conn = OpenCon();
-
 $korisnik = $_SESSION['logged_in_user'];
 $ar = explode('#', $korisnik, 2);
 $ar[1] = rtrim($ar[1], '#');
@@ -16,20 +14,20 @@ $imeKorisnika = $ar[1];
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
-$user_message = mysqli_real_escape_string($conn, $_REQUEST['user_message']);
+$user_message = mysqli_real_escape_string($con, $_REQUEST['user_message']);
 
 $stmt = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
 JOIN mojaopt_optike.korisnici
   ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
-WHERE mojaopt_optike.korisnici.poloptic="pol-bg" ORDER BY lag_spec ASC');
+WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
 
 $stmt->execute();
 $result = $stmt->get_result();
 
 $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
 $schema_insert .= '<h2>Narudžbenica - Poloptic</h2>';
-$schema_insert .= '<br/>Narudžba od: ' . "$imeKorisnika" . '<br/>';
+$schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
 $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
 $schema_insert .= '<br/>';
 $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2">';
@@ -88,13 +86,12 @@ while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . $row->mjesto_isporuke . '</td>';
   $schema_insert .= '<td>' . $row->napomena . '</td>';
   $schema_insert .= '</tr>';
-  $schema_insert .= '</tbody>';
 }
+$schema_insert .= '</tbody>';
 file_put_contents('../orders/poloptic/narudzbenica_Pol_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
-$to = "polbeograd@mail.com";
+$to = "narudzba@mojaoptika.com";
 
-$con = OpenCon();
 $stmt = $con->prepare('SELECT email FROM korisnici WHERE ID =?');
 $stmt->bind_param('i', $idKorisnika);
 $stmt->execute();
@@ -120,25 +117,101 @@ $attachment = chunk_split(base64_encode(file_get_contents('../orders/poloptic/na
 $headers  = "From: " . $from . $eol;
 $headers .= "MIME-Version: 1.0" . $eol;
 $headers .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
+
 // no more headers after this, we start the body! //
 
-// message
+// message & attachment
 $body = "--" . $separator . $eol;
+$body .= "Content-type:text/plain; charset=iso-8859-1" . $eol;
+$body .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
 $body .= $user_message . $eol;
 $body .= "--" . $separator . $eol;
-$body .= "Content-Type: text/html; charset=\"utf-8\"" . $eol;
-$body .= "Content-Transfer-Encoding: 8bit" . $eol . $eol;
-
-// attachment
-$body .= "--" . $separator . $eol;
-$body .= "Content-Type: application/octet-stream; charset=utf-8;   name=\"" . $filename . "\"" . $eol;
+$body .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"" . $eol;
 $body .= "Content-Transfer-Encoding: base64" . $eol;
 $body .= "Content-Disposition: attachment;  filename=\"" . $filename . "\"" . $eol . $eol;
 $body .= $attachment . $eol;
 $body .= "--" . $separator . "--";
 
+
 if (mail($to, $subject, $body, $headers)) {
 
+  //Arhiviranje naružbe i slanje potvrdnog email-a
+  $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
+FROM mojaopt_vpnarudzbenica.narudzbenica_pol
+JOIN mojaopt_optike.korisnici
+  ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
+WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
+
+  $stmt1->execute();
+  $result1 = $stmt1->get_result();
+
+  $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
+  $schema_insert .= '<h2>Narudžbenica - Poloptic</h2>';
+  $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
+  $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
+  $schema_insert .= '<br/>';
+  $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2">';
+  $schema_insert .= '<thead>';
+  $schema_insert .= '<tr>';
+  $schema_insert .= '<th>R.br.</th>';
+  $schema_insert .= '<th>Lag-Spec</th>';
+  $schema_insert .= '<th>Od/Os/Ou</th>';
+  $schema_insert .= '<th>Vrsta soč.</th>';
+  $schema_insert .= '<th>Dizajn</th>';
+  $schema_insert .= '<th>PRL/OCHT</th>';
+  $schema_insert .= '<th>Segm.</th>';
+  $schema_insert .= '<th>Baza</th>';
+  $schema_insert .= '<th>Index</th>';
+  $schema_insert .= '<th>Vrsta materijala</th>';
+  $schema_insert .= '<th>Prečn.</th>';
+  $schema_insert .= '<th>SPH</th>';
+  $schema_insert .= '<th>CYL</th>';
+  $schema_insert .= '<th>Ugao</th>';
+  $schema_insert .= '<th>Add</th>';
+  $schema_insert .= '<th>JM</th>';
+  $schema_insert .= '<th>Kol.</th>';
+  $schema_insert .= '<th>Tr.1</th>';
+  $schema_insert .= '<th>Tr.2</th>';
+  $schema_insert .= '<th>PD</th>';
+  $schema_insert .= '<th>Mjesto ispor.</th>';
+  $schema_insert .= '<th>MPC/kom</th>';
+  $schema_insert .= '<th>Br. radnog naloga</th>';
+  $schema_insert .= '<th>Napomena</th>';
+  $schema_insert .= '<th></th>';
+  $schema_insert .= '</tr>';
+  $schema_insert .= '</thead>';
+  $schema_insert .= '<tbody>';
+  $schema_insert .= '<tr>';
+
+  $rb = 0;
+  while ($row1 = mysqli_fetch_object($result1)) {
+    $schema_insert .= '<td>' . ($rb = $rb + 1) . '</td>';
+    $schema_insert .= '<td>' . $row1->lag_spec . '</td>';
+    $schema_insert .= '<td>' . $row1->od_os_ou . '</td>';
+    $schema_insert .= '<td>' . $row1->vrsta_sociva . '</td>';
+    $schema_insert .= '<td>' . $row1->dizajn . '</td>';
+    $schema_insert .= '<td>' . $row1->visina . '</td>';
+    $schema_insert .= '<td>' . $row1->segment . '</td>';
+    $schema_insert .= '<td>' . $row1->baza . '</td>';
+    $schema_insert .= '<td>' . $row1->indeks . '</td>';
+    $schema_insert .= '<td>' . $row1->vrsta_materijala . '</td>';
+    $schema_insert .= '<td>' . $row1->precnik . '</td>';
+    $schema_insert .= '<td>' . $row1->sph . '</td>';
+    $schema_insert .= '<td>' . $row1->cyl . '</td>';
+    $schema_insert .= '<td>' . $row1->ugao . '</td>';
+    $schema_insert .= '<td>' . $row1->adicija . '</td>';
+    $schema_insert .= '<td>' . $row1->jm . '</td>';
+    $schema_insert .= '<td>' . $row1->kolicina . '</td>';
+    $schema_insert .= '<td>' . $row1->tretman1 . '</td>';
+    $schema_insert .= '<td>' . $row1->tretman2 . '</td>';
+    $schema_insert .= '<td>' . $row1->pd . '</td>';
+    $schema_insert .= '<td>' . $row1->mjesto_isporuke . '</td>';
+    $schema_insert .= '<td>' . $row1->mpc . '</td>';
+    $schema_insert .= '<td>' . $row1->broj_naloga . '</td>';
+    $schema_insert .= '<td>' . $row1->napomena . '</td>';
+    $schema_insert .= '</tr>';
+  }
+  $schema_insert .= '</tbody>';
 
   $uid = md5(uniqid(time()));
 
@@ -147,16 +220,16 @@ if (mail($to, $subject, $body, $headers)) {
   $header .= "Content-Type: multipart/mixed; boundary=\"" . $uid . "\"\r\n\r\n";
   $subject1 = "eNarudzbenica - Narudžba je poslata";
 
-  $message = "Narudžbenica - Poloptic Beograd";
-  $message .= 'Narudžba od: ' . "$imeKorisnika";
-  $message .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i');
-  $message .= "------------------------" . $eol;
-  $message .= "Email poslat putem aplikacije eNarudzbenica. https://mojaoptika.com/narudzbenica";
+  $message = "Narudžbenica - Poloptic Beograd \n";
+  $message .= "Narudžba od: " . $imeKorisnika . "\n";
+  $message .= "Datum narudžbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
+  $message .= "------------------------ \n" . $eol;
+  $message .= "Email poslat putem aplikacije eNarudzbenica VP. https://mojaoptika.com/vpnarudzbenica \n";
 
   // message & attachment
   $nmessage = "--" . $uid . "\r\n";
-  $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
-  $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
+  $nmessage .= "Content-type:text/plain; charset=utf-8\r\n";
+  $nmessage .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
   $nmessage .= $message . "\r\n\r\n";
   $nmessage .= "--" . $uid . "\r\n";
   $nmessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n";
@@ -167,11 +240,11 @@ if (mail($to, $subject, $body, $headers)) {
 
   mail($email, $subject1, $nmessage, $header);
 
-  $stmt1 = $conn->prepare('INSERT INTO istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Beograd")');
-  $stmt1->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
-  $stmt1->execute();
+  $stmt2 = $con->prepare('INSERT INTO istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Beograd")');
+  $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
+  $stmt2->execute();
 
-  $stmt = $conn->prepare('DELETE
+  $stmt = $con->prepare('DELETE
   FROM
       `narudzbenica_pol`
   WHERE
@@ -181,15 +254,15 @@ if (mail($to, $subject, $body, $headers)) {
       FROM
           mojaopt_optike.korisnici
       WHERE
-          mojaopt_vpnarudzbenica.narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID AND mojaopt_optike.korisnici.poloptic = "pol-bg"
+          mojaopt_vpnarudzbenica.narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID AND mojaopt_optike.korisnici.poloptic = "pol-beograd"
   )');
 
   $stmt->execute();
-  if (mysqli_error($conn)) {
-    die(mysqli_error($conn));
+  if (mysqli_error($con)) {
+    die(mysqli_error($con));
   }
 
-  CloseCon($conn);
+  CloseCon($con);
   header('Location: index.php?msg=0');
   die();
 } else {
