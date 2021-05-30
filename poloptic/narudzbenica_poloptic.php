@@ -88,7 +88,7 @@ if (mysqli_num_rows($result1) > 0) {
     echo "<button type='button' onclick='sendPolopticSarajevo()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Sarajevo</button>&nbsp;&nbsp;";
 }
 
-$stmt2 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-bg" ');
+$stmt2 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ');
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 
