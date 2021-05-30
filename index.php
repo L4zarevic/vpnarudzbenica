@@ -175,7 +175,7 @@ function novih_narudzbi_pol($con)
             <hr class="sidebar-divider my-0">
             <li class="nav-item active"> <a class="nav-link" href="index.php"> <i class="fas fa-home"></i> <span>Početna</span></a> </li>
             <hr class="sidebar-divider">
-            <div class="sidebar-heading"> Dobavljači </div>
+            <div class="sidebar-heading"> Narudžbe </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
@@ -188,8 +188,8 @@ function novih_narudzbi_pol($con)
                     <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../poloptic/pol_history_sa.php">Sarajevo</a>
-                        <a class="collapse-item" href=".#">Beograd</a>
+                        <a class="collapse-item" href="poloptic/pol_history_sa.php">Sarajevo</a>
+                        <a class="collapse-item" href="poloptic/pol_history_bg.php">Beograd</a>
                     </div>
                 </div>
 

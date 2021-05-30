@@ -1,12 +1,16 @@
 <?php
 include '../modules/header.php';
 require_once '../connection.php';
+$korisnik = $_SESSION['logged_in_user'];
+$ar = explode('#', $korisnik, 2);
+$ar[1] = rtrim($ar[1], '#');
+$idKorisnika = $ar[0];
 $con = OpenCon();
 $id_stavke = mysqli_real_escape_string($con, $_REQUEST['id']);
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
-    $stmt1 = $con->prepare('UPDATE istorijat_pol SET realizovana="&check;" WHERE ID=?');
-    $stmt1->bind_param('i', $id_stavke);
+    $stmt1 = $con->prepare('UPDATE istorijat_pol SET realizovana="&check;", IDKorisnika_realizovao=? WHERE ID=?');
+    $stmt1->bind_param('ii', $idKorisnika, $id_stavke);
     $stmt1->execute();
 }
 
@@ -19,7 +23,7 @@ while ($row = $result->fetch_object()) {
     $realizovana = $row->realizovana;
 }
 
-echo "<h5 style='font-weight:700;'>#" . $id_stavke."</h5>";
+echo "<h5 style='font-weight:700;'>#" . $id_stavke . "</h5>";
 $str = $narudzba;
 echo htmlspecialchars_decode($str);
 
