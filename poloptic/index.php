@@ -2,16 +2,6 @@
 <html lang="en">
 <?php
 include '../modules/header.php';
-
-//Uklanjanje kolačića
-setcookie('cica_maca', '', time() - 3600);
-
-//require_once 'connection.php';
-//$korisnik = $_SESSION['logged_in_user'];
-//$ar = explode('#', $korisnik, 2);
-//$ar[1] = rtrim($ar[1], '#');
-//$idKorisnika = $ar[0];
-//mysqli_set_charset($conn, 'utf8');
 ?>
 
 <body id="page-top">
