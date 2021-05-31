@@ -236,7 +236,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
 
   mail($email, $subject1, $nmessage, $header);
 
-  $stmt2 = $con->prepare('INSERT INTO istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Sarajevo")');
+  $stmt2 = $con->prepare('INSERT INTO  mojaopt_vpnarudzbenica.istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Sarajevo")');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 
