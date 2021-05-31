@@ -3,6 +3,7 @@
 
 require_once '../connection.php';
 $con = OpenCon();
+mysqli_set_charset($con, 'utf8');
 
 function nije_realizovano($con)
 {

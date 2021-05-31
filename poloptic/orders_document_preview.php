@@ -6,6 +6,7 @@ $ar = explode('#', $korisnik, 2);
 $ar[1] = rtrim($ar[1], '#');
 $idKorisnika = $ar[0];
 $con = OpenCon();
+mysqli_set_charset($con, 'utf8');
 $id_stavke = mysqli_real_escape_string($con, $_REQUEST['id']);
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
