@@ -53,7 +53,6 @@ $schema_insert .= '<th>Kol.</th>';
 $schema_insert .= '<th>Tr.1</th>';
 $schema_insert .= '<th>Tr.2</th>';
 $schema_insert .= '<th>PD</th>';
-$schema_insert .= '<th>Mjesto ispor.</th>';
 $schema_insert .= '<th>Napomena</th>';
 $schema_insert .= '<th></th>';
 $schema_insert .= '</tr>';
@@ -83,7 +82,6 @@ while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . $row->tretman1 . '</td>';
   $schema_insert .= '<td>' . $row->tretman2 . '</td>';
   $schema_insert .= '<td>' . $row->pd . '</td>';
-  $schema_insert .= '<td>' . $row->mjesto_isporuke . '</td>';
   $schema_insert .= '<td>' . $row->napomena . '</td>';
   $schema_insert .= '</tr>';
 }
@@ -213,30 +211,28 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
   }
   $schema_insert .= '</tbody>';
 
-  $uid = md5(uniqid(time()));
+  $header = "From: no-reply@mojaoptika.com" . $eol;
+  $header .= "MIME-Version: 1.0" . $eol;
+  $header .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
+  $subject1 = "eNarudzbenica - Narudzba je poslata";
 
-  $header = "From: no-reply@mojaoptika.com" . "\r\n";;
-  $header .= "MIME-Version: 1.0\r\n";
-  $header .= "Content-Type: multipart/mixed; boundary=\"" . $uid . "\"\r\n\r\n";
-  $subject1 = "eNarudzbenica - Narudžba je poslata";
-
-  $message = "Narudžbenica - Poloptic Sarajevo \n";
-  $message .= "Narudžba od: " . $imeKorisnika . "\n";
-  $message .= "Datum narudžbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
+  $message = "Narudzbenica - Poloptic Sarajevo \n";
+  $message .= "Narudzba od: " . $imeKorisnika . "\n";
+  $message .= "Datum narudzbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
   $message .= "------------------------ \n" . $eol;
   $message .= "Email poslat putem aplikacije eNarudzbenica VP. https://mojaoptika.com/vpnarudzbenica \n";
 
   // message & attachment
-  $nmessage = "--" . $uid . "\r\n";
-  $nmessage .= "Content-type:text/plain; charset=utf-8\r\n";
-  $nmessage .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-  $nmessage .= $message . "\r\n\r\n";
-  $nmessage .= "--" . $uid . "\r\n";
-  $nmessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n";
-  $nmessage .= "Content-Transfer-Encoding: base64\r\n";
-  $nmessage .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
-  $nmessage .= $attachment . "\r\n\r\n";
-  $nmessage .= "--" . $uid . "--";
+  $nmessage = "--" . $separator . $eol;
+  $nmessage .= "Content-type:text/plain; charset=iso-8859-1" . $eol;
+  $nmessage .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
+  $nmessage .= $message . $eol;
+  $nmessage .= "--" . $separator . $eol;
+  $nmessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"" . $eol;
+  $nmessage .= "Content-Transfer-Encoding: base64" . $eol;
+  $nmessage .= "Content-Disposition: attachment;  filename=\"" . $filename . "\"" . $eol . $eol;
+  $nmessage .= $attachment . $eol;
+  $nmessage .= "--" . $separator . "--";
 
   mail($email, $subject1, $nmessage, $header);
 
