@@ -91,7 +91,8 @@ include '../modules/header.php';
                                                         <option value="2" default></option>
                                                         <option id="103" value="2">FT28</option>
                                                         <option id="103" value="2">CT28</option>
-                                                        <option id="104" value="2">Bifo Invisio</option>
+                                                        <option id="104" value="2">Bifo Invisio Ulteh</option>
+                                                        <option id="104" value="2">Bifo Invisio Round</option>
                                                         <option value="2" default></option>
 
                                                         <option value="3" default></option>
@@ -119,7 +120,6 @@ include '../modules/header.php';
                                                         <option id="110" value="4">Tip B</option>
                                                         <option id="110" value="4">Tip C</option>
                                                         <option value="4" default></option>
-
                                                     </select>
                                                 </div>
 
