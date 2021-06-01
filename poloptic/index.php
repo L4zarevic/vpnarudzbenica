@@ -1061,7 +1061,8 @@ include '../modules/header.php';
                                                 <label>Mjesto isporuke</label>
                                                 <select class="form-control" id='mjesto_isporuke'>
                                                     <option disabled>--- M-Optic ---</option>
-                                                    <option value='1'>Bijeljina</option>
+                                                    <option value='1'>Centar - Bijeljina</option>
+                                                    <option value='7'>Mihajlović - Bijeljina</option>
                                                     <option value='3'>Delta - Banja Luka</option>
                                                     <option value='12'>Emporium - Banja Luka</option>
                                                     <option value='10'>Mercator - Banja Luka</option>
@@ -1114,7 +1115,7 @@ include '../modules/header.php';
             </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
-    $('#label_zvjezdica').hide();
+ $('#label_zvjezdica').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
         $select3 = $('#select3'),
