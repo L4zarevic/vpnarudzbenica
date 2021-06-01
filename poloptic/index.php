@@ -686,7 +686,7 @@ include '../modules/header.php';
                                                     <label>Ax</label>
                                                     <input name="ugao" title="Unesite ugao cilindra" type="text" maxlength="3" class="form-control" id="ugaoCilindra">
 
-                                                    <label>Add / Dig.</label>
+                                                    <label>Add / Dig.</label><label id="label_zvjezdica" class="obavezna_polja">*</label>
                                                     <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
                                                         <option default></option>
                                                         <option>0.75</option>
@@ -1080,7 +1080,7 @@ include '../modules/header.php';
                                             </div>
 
                                             <div class="md-form mb-5">
-                                                <label id='label_brnalog'>Broj radnog naloga (№)</label><label class="obavezna_polja">*</label>
+                                                <label id='label_brnalog'>Broj radnog naloga (№)</label>
                                                 <input name="broj_radnog_naloga" maxlength='30' class="form-control" type="text" title="Unesite broj radnog naloga" id="broj_radnog_naloga" placeholder="" />
                                             </div>
 
@@ -1114,10 +1114,12 @@ include '../modules/header.php';
             </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
+    $('#label_zvjezdica').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
         $select3 = $('#select3'),
         $select4 = $('#select4'),
+        $select12 = $('#select12'),
         $select15 = $('#select15'),
         $select16 = $('#select16'),
         $options1 = $select3.find('option');
@@ -1172,6 +1174,14 @@ include '../modules/header.php';
     $select4.on('change', function() {
         var id1 = $(this).children(":selected").attr("id");
         $select16.html($options4.filter('[value="' + id1 + '"]'));
+    }).trigger('change');
+
+    $select12.on('change', function() {
+        if ((($('#select2').find("option:selected").text() == "Bifokal") || ($('#select2').find("option:selected").text() == "Progresiv")) && ($('#select12').find("option:selected").text().length != 0)) {
+            $('#label_zvjezdica').show();
+        } else if ((($('#select2').find("option:selected").text() == "Bifokal") || ($('#select2').find("option:selected").text() == "Progresiv")) && ($('#select12').find("option:selected").text().length == 0)) {
+            $('#label_zvjezdica').hide();
+        }
     }).trigger('change');
 </script>
 
