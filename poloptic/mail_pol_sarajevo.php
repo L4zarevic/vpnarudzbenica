@@ -90,7 +90,7 @@ file_put_contents('../orders/poloptic/narudzbenica_Pol_' . $imeKorisnika . '_' .
 
 $to = "narudzba@mojaoptika.com";
 
-$stmt = $con->prepare('SELECT email FROM korisnici WHERE ID =?');
+$stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
 $stmt->bind_param('i', $idKorisnika);
 $stmt->execute();
 $result = $stmt->get_result();

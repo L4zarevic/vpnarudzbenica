@@ -50,7 +50,5 @@ echo "<form method='post' action='orders_document_preview.php?id=$id_stavke'><di
     </div></form>";
 
 
-    
-
 // note that here the quotes aren't converted
 //echo htmlspecialchars_decode($str, ENT_NOQUOTES);
