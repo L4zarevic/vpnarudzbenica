@@ -114,13 +114,13 @@ $attachment = chunk_split(base64_encode(file_get_contents('../orders/poloptic/na
 // main header
 $headers  = "From: " . $from . $eol;
 $headers .= "MIME-Version: 1.0" . $eol;
-$headers .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
+$headers .= "Content-Type: multipart/mixed; charset=UTF-8; boundary=\"" . $separator . "\"";
 
 // no more headers after this, we start the body! //
 
 // message & attachment
 $body = "--" . $separator . $eol;
-$body .= "Content-type:text/plain; charset=iso-8859-1" . $eol;
+$body .= "Content-type:text/plain; charset=UTF-8" . $eol;
 $body .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
 $body .= $user_message . $eol;
 $body .= "--" . $separator . $eol;

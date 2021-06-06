@@ -1106,6 +1106,7 @@ include '../modules/header.php';
                             &nbsp;
                             </br>
                             </br>
+                            </br>
 
                         </div>
 
@@ -1115,7 +1116,7 @@ include '../modules/header.php';
             </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
- $('#label_zvjezdica').hide();
+    $('#label_zvjezdica').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
         $select3 = $('#select3'),
