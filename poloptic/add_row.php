@@ -11,7 +11,7 @@ $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
 $stavka = mysqli_real_escape_string($con, $_REQUEST['stavka']);
-$arS = explode("###", $stavka, 24);
+$arS = explode("###", $stavka, 25);
 $arS[1] = rtrim($arS[1], "###");
 
 $lager_specijala = $arS[0];
@@ -34,10 +34,11 @@ $kolicina = $arS[16];
 $tretman1 = $arS[17];
 $tretman2 = $arS[18];
 $pd = $arS[19];
-$ID_mjesta_isporuke = $arS[20];
+$mjesto_isporuke = $arS[20];
 $mpc = $arS[21];
 $broj_naloga = $arS[22];
 $napomena1 = $arS[23];
+$dobavljac = $arS[24];
 
 $napomena = str_replace('\n', " ", $napomena1);
 
@@ -49,17 +50,9 @@ if ($precnik2 == "") {
 	$precnik = $precnik1 . "/" . $precnik2;
 }
 
-$stmt3 = $con->prepare('SELECT alias FROM mojaopt_optike.korisnici WHERE ID=?');
-$stmt3->bind_param('i', $ID_mjesta_isporuke);
-$stmt3->execute();
-$result3 = $stmt3->get_result();
-$mjesto_isporuke = "";
-while ($row3 = mysqli_fetch_object($result3)) {
-	$mjesto_isporuke = $row3->alias;
-}
 
-$stmt = $con->prepare('INSERT INTO narudzbenica_pol (IDOptike,lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-$stmt->bind_param('isssssssssssssssisssssss', $ID_mjesta_isporuke, $lager_specijala, $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $materijal, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mjesto_isporuke, $mpc, $broj_naloga, $napomena);
+$stmt = $con->prepare('INSERT INTO narudzbenica_pol (lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena,dobavljac) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+$stmt->bind_param('sssssssssssssssissssssss', $lager_specijala, $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $materijal, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mjesto_isporuke, $mpc, $broj_naloga, $napomena, $dobavljac);
 $stmt->execute();
 if (mysqli_error($con)) {
 	die(mysqli_error($con));

@@ -38,10 +38,11 @@ echo "<div class='table-wrapper-scroll-y table-hover'>
 <th class='tg-0lax'>Tr.1</th>
 <th class='tg-0lax'>Tr.2</th>
 <th class='tg-0lax'>PD</th>
-<th class='tg-0lax'>Mjesto isp.</th>
-<th class='tg-0lax'>MPC</th>
+<th class='tg-0lax'>Komitent/radnja</th>
+<th class='tg-0lax'>MPC/kom</th>
 <th class='tg-0lax'>Br. radnog naloga</th>
 <th class='tg-0lax'>Napomena</th>
+<th class='tg-0lax'>Dobavljač</th>
 <th class='tg-0lax'></th>
 </tr>
 </thead>
@@ -73,6 +74,7 @@ while ($row = mysqli_fetch_object($result)) {
     echo "<td>$row->mpc</td>";
     echo "<td>$row->broj_naloga</td>";
     echo "<td>$row->napomena</td>";
+    echo "<td>$row->dobavljac</td>";
     echo "<td class='tg-options'><i onclick='deleteRow(event);' id='$row->ID' title='Ukloni stavku' class='fas fa-trash fa-lg'></i></td>";
     echo "</tr>";
 }
@@ -80,7 +82,7 @@ echo "</tbody>";
 echo "</table>";
 echo "</br>";
 
-$stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ');
+$stmt1 = $con->prepare('SELECT * FROM narudzbenica_pol WHERE dobavljac="pol-sarajevo" ');
 $stmt1->execute();
 $result1 = $stmt1->get_result();
 
@@ -88,12 +90,20 @@ if (mysqli_num_rows($result1) > 0) {
     echo "<button type='button' onclick='sendPolopticSarajevo()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Sarajevo</button>&nbsp;&nbsp;";
 }
 
-$stmt2 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol JOIN mojaopt_optike.korisnici ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ');
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_pol WHERE dobavljac="pol-beograd" ');
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 
 if (mysqli_num_rows($result2) > 0) {
-    echo "<button type='button' onclick='sendPolopticBeograd()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Beograd</button>";
+    echo "<button type='button' onclick='sendPolopticBeograd()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Beograd</button>&nbsp;&nbsp;";
+}
+
+$stmt3 = $con->prepare('SELECT * FROM narudzbenica_pol WHERE dobavljac="pol-novi sad" ');
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+if (mysqli_num_rows($result3) > 0) {
+    echo "<button type='button' onclick='sendPolopticNoviSad()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Novi Sad</button>";
 }
 echo "</br>";
 echo "</br>";

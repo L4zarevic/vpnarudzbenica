@@ -18,9 +18,7 @@ $user_message = mysqli_real_escape_string($con, $_REQUEST['user_message']);
 
 $stmt = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-JOIN mojaopt_optike.korisnici
-  ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
-WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
+WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -136,9 +134,7 @@ if (mail($to, $subject, $body, $headers)) {
   //Arhiviranje naružbe i slanje potvrdnog email-a
   $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-JOIN mojaopt_optike.korisnici
-  ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
-WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
+WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
@@ -171,7 +167,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
   $schema_insert .= '<th>Tr.1</th>';
   $schema_insert .= '<th>Tr.2</th>';
   $schema_insert .= '<th>PD</th>';
-  $schema_insert .= '<th>Mjesto ispor.</th>';
+  $schema_insert .= '<th>Komitent/radnja</th>';
   $schema_insert .= '<th>MPC/kom</th>';
   $schema_insert .= '<th>Br. radnog naloga</th>';
   $schema_insert .= '<th>Napomena</th>';
@@ -240,18 +236,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-sarajevo" ORDER BY lag_spec ASC');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 
-  $stmt = $con->prepare('DELETE
-  FROM
-      `narudzbenica_pol`
-  WHERE
-      EXISTS(
-      SELECT
-          *
-      FROM
-          mojaopt_optike.korisnici
-      WHERE
-          mojaopt_vpnarudzbenica.narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID AND mojaopt_optike.korisnici.poloptic = "pol-sarajevo"
-  )');
+  $stmt = $con->prepare('DELETE FROM `narudzbenica_pol` WHERE dobavljac = "pol-sarajevo"');
 
   $stmt->execute();
   if (mysqli_error($con)) {
