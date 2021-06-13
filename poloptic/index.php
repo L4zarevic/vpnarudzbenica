@@ -51,7 +51,7 @@ include '../modules/header.php';
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">
-                                                <label>OD / OS / OU</label><label class="obavezna_polja">*</label>
+                                                <label>OD / OS / OU</label><label id="label_zvjezdica1" class="obavezna_polja">*</label>
                                                 <select name="od_os_ou" title="OD - za desno oko, OS - za lijevo oko, OU - ako je obostrano isto" class="form-control" id="select1">
                                                     <option>OD</option>
                                                     <option>OS</option>
@@ -686,7 +686,7 @@ include '../modules/header.php';
                                                     <label>Ax</label>
                                                     <input name="ugao" title="Unesite ugao cilindra" type="text" maxlength="3" class="form-control" id="ugaoCilindra">
 
-                                                    <label>Add / Dig.</label><label id="label_zvjezdica" class="obavezna_polja">*</label>
+                                                    <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
                                                     <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
                                                         <option default></option>
                                                         <option>0.75</option>
@@ -1150,16 +1150,14 @@ include '../modules/header.php';
                             </br>
                             </br>
                             </br>
-
                         </div>
-
                     </div>
-
                 </div>
             </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
-    $('#label_zvjezdica').hide();
+    $('#label_zvjezdica1').hide();
+    $('#label_zvjezdica2').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
         $select3 = $('#select3'),
@@ -1223,9 +1221,17 @@ include '../modules/header.php';
 
     $select12.on('change', function() {
         if ((($('#select2').find("option:selected").text() == "Bifokal") || ($('#select2').find("option:selected").text() == "Progresiv")) && ($('#select12').find("option:selected").text().length != 0)) {
-            $('#label_zvjezdica').show();
+            $('#label_zvjezdica2').show();
         } else if ((($('#select2').find("option:selected").text() == "Bifokal") || ($('#select2').find("option:selected").text() == "Progresiv")) && ($('#select12').find("option:selected").text().length == 0)) {
-            $('#label_zvjezdica').hide();
+            $('#label_zvjezdica2').hide();
+        }
+    }).trigger('change');
+
+    $select_lagspec.on('change', function() {
+        if ($('#select_lagspec').find("option:selected").text() == "Specijala") {
+            $('#label_zvjezdica1').show();
+        } else {
+            $('#label_zvjezdica1').hide();
         }
     }).trigger('change');
 </script>

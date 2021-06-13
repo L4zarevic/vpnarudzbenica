@@ -112,13 +112,13 @@ $attachment = chunk_split(base64_encode(file_get_contents('../orders/poloptic/na
 // main header
 $headers  = "From: " . $from . $eol;
 $headers .= "MIME-Version: 1.0" . $eol;
-$headers .= "Content-Type: multipart/mixed; charset=UTF-8; boundary=\"" . $separator . "\"";
+$headers .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
 
 // no more headers after this, we start the body! //
 
 // message & attachment
 $body = "--" . $separator . $eol;
-$body .= "Content-type:text/plain; charset=UTF-8" . $eol;
+$body .= "Content-type:text/plain; charset=utf-8" . $eol;
 $body .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
 $body .= $user_message . $eol;
 $body .= "--" . $separator . $eol;
@@ -209,7 +209,7 @@ WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
   $header = "From: no-reply@mojaoptika.com" . $eol;
   $header .= "MIME-Version: 1.0" . $eol;
-  $header .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
+  $header .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
   $subject1 = "eNarudzbenica - Narudzba je poslata";
 
   $message = "Narudzbenica - Poloptic Sarajevo \n";
@@ -220,7 +220,7 @@ WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
   // message & attachment
   $nmessage = "--" . $separator . $eol;
-  $nmessage .= "Content-type:text/plain; charset=iso-8859-1" . $eol;
+  $nmessage .= "Content-type:text/plain; charset=utf-8;" . $eol;
   $nmessage .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
   $nmessage .= $message . $eol;
   $nmessage .= "--" . $separator . $eol;
