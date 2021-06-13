@@ -18,9 +18,7 @@ $user_message = mysqli_real_escape_string($con, $_REQUEST['user_message']);
 
 $stmt = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-JOIN mojaopt_optike.korisnici
-  ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
-WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
+WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -114,13 +112,13 @@ $attachment = chunk_split(base64_encode(file_get_contents('../orders/poloptic/na
 // main header
 $headers  = "From: " . $from . $eol;
 $headers .= "MIME-Version: 1.0" . $eol;
-$headers .= "Content-Type: multipart/mixed; charset=UTF-8; boundary=\"" . $separator . "\"";
+$headers .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
 
 // no more headers after this, we start the body! //
 
 // message & attachment
 $body = "--" . $separator . $eol;
-$body .= "Content-type:text/plain; charset=UTF-8" . $eol;
+$body .= "Content-type:text/plain; charset=utf-8" . $eol;
 $body .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
 $body .= $user_message . $eol;
 $body .= "--" . $separator . $eol;
@@ -136,9 +134,7 @@ if (mail($to, $subject, $body, $headers)) {
   //Arhiviranje naružbe i slanje potvrdnog email-a
   $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-JOIN mojaopt_optike.korisnici
-  ON narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID
-WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
+WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
@@ -171,7 +167,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
   $schema_insert .= '<th>Tr.1</th>';
   $schema_insert .= '<th>Tr.2</th>';
   $schema_insert .= '<th>PD</th>';
-  $schema_insert .= '<th>Mjesto ispor.</th>';
+  $schema_insert .= '<th>Komitent/radnja</th>';
   $schema_insert .= '<th>MPC/kom</th>';
   $schema_insert .= '<th>Br. radnog naloga</th>';
   $schema_insert .= '<th>Napomena</th>';
@@ -213,7 +209,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
 
   $header = "From: no-reply@mojaoptika.com" . $eol;
   $header .= "MIME-Version: 1.0" . $eol;
-  $header .= "Content-Type: multipart/mixed; boundary=\"" . $separator . "\"";
+  $header .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
   $subject1 = "eNarudzbenica - Narudzba je poslata";
 
   $message = "Narudzbenica - Poloptic Beograd \n";
@@ -224,7 +220,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
 
   // message & attachment
   $nmessage = "--" . $separator . $eol;
-  $nmessage .= "Content-type:text/plain; charset=iso-8859-1" . $eol;
+  $nmessage .= "Content-type:text/plain; charset=utf-8;" . $eol;
   $nmessage .= "Content-Transfer-Encoding: 7bit" . $eol . $eol;
   $nmessage .= $message . $eol;
   $nmessage .= "--" . $separator . $eol;
@@ -240,18 +236,7 @@ WHERE mojaopt_optike.korisnici.poloptic="pol-beograd" ORDER BY lag_spec ASC');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 
-  $stmt = $con->prepare('DELETE
-  FROM
-      `narudzbenica_pol`
-  WHERE
-      EXISTS(
-      SELECT
-          *
-      FROM
-          mojaopt_optike.korisnici
-      WHERE
-          mojaopt_vpnarudzbenica.narudzbenica_pol.IDOptike = mojaopt_optike.korisnici.ID AND mojaopt_optike.korisnici.poloptic = "pol-beograd"
-  )');
+  $stmt = $con->prepare('DELETE FROM `narudzbenica_pol` WHERE dobavljac = "pol-beograd"');
 
   $stmt->execute();
   if (mysqli_error($con)) {
