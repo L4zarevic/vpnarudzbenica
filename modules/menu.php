@@ -20,6 +20,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="../poloptic/pol_history_sa.php">Sarajevo</a>
                 <a class="collapse-item" href="../poloptic/pol_history_bg.php">Beograd</a>
+                <a class="collapse-item" href="../poloptic/pol_history_ns.php">Novi Sad</a>
             </div>
         </div>
         <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
