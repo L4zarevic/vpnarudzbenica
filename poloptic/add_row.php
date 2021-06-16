@@ -11,7 +11,7 @@ $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
 $stavka = mysqli_real_escape_string($con, $_REQUEST['stavka']);
-$arS = explode("###", $stavka, 25);
+$arS = explode("###", $stavka, 26);
 $arS[1] = rtrim($arS[1], "###");
 
 $lager_specijala = $arS[0];
@@ -34,11 +34,12 @@ $kolicina = $arS[16];
 $tretman1 = $arS[17];
 $tretman2 = $arS[18];
 $pd = $arS[19];
-$mjesto_isporuke = $arS[20];
-$mpc = $arS[21];
-$broj_naloga = $arS[22];
-$napomena1 = $arS[23];
+$mpc = $arS[20];
+$broj_naloga = $arS[21];
+$napomena1 = $arS[22];
+$komitenti_radnje = $arS[23];
 $dobavljac = $arS[24];
+$mjesto_isporuke = $arS[25];
 
 $napomena = str_replace('\n', " ", $napomena1);
 
@@ -50,9 +51,8 @@ if ($precnik2 == "") {
 	$precnik = $precnik1 . "/" . $precnik2;
 }
 
-
-$stmt = $con->prepare('INSERT INTO narudzbenica_pol (lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena,dobavljac) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-$stmt->bind_param('sssssssssssssssissssssss', $lager_specijala, $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $materijal, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mjesto_isporuke, $mpc, $broj_naloga, $napomena, $dobavljac);
+$stmt = $con->prepare('INSERT INTO narudzbenica_pol (lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mpc,broj_naloga,napomena,komitenti_radnje,dobavljac,mjesto_isporuke) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+$stmt->bind_param('sssssssssssssssisssssssss', $lager_specijala, $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $materijal, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke);
 $stmt->execute();
 if (mysqli_error($con)) {
 	die(mysqli_error($con));

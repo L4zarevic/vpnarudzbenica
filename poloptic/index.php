@@ -51,8 +51,9 @@ include '../modules/header.php';
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">
-                                                <label>OD / OS / OU</label><label id="label_zvjezdica1" class="obavezna_polja">*</label>
+                                                <label id='label_odosou'>OD / OS / OU</label><label id="label_zvjezdica1" class="obavezna_polja">*</label>
                                                 <select name="od_os_ou" title="OD - za desno oko, OS - za lijevo oko, OU - ako je obostrano isto" class="form-control" id="select1">
+                                                    <option default></option>
                                                     <option>OD</option>
                                                     <option>OS</option>
                                                     <option>OU</option>
@@ -131,7 +132,7 @@ include '../modules/header.php';
                                                         <!-- Standard UC / Pollux / Polaris-->
                                                         <option value="100" default></option>
                                                         <option value="100">CR-39</option>
-                                                        <option value="100">CR-39 UV420</option>
+                                                        <option value="100">CR-39 UV420 Remove</option>
                                                         <option value="100">CR-39 UV420 Photo gray</option>
                                                         <option value="100">CR-39 UV420 Photo brown</option>
                                                         <option value="100">Transitions VII gray</option>
@@ -157,7 +158,7 @@ include '../modules/header.php';
                                                         <!-- Panorama / Anglera -->
                                                         <option value="101" default></option>
                                                         <option value="101">CR-39</option>
-                                                        <option value="101">CR-39 UV420</option>
+                                                        <option value="101">CR-39 UV420 Remove</option>
                                                         <option value="101">CR-39 UV420 Photo gray</option>
                                                         <option value="101">CR-39 UV420 Photo brown</option>
                                                         <option value="101">Transitions VII gray</option>
@@ -180,7 +181,7 @@ include '../modules/header.php';
                                                         <!-- Matrix Mono / Elegance / Matrix Sport -->
                                                         <option value="102" default></option>
                                                         <option value="102">CR-39</option>
-                                                        <option value="102">CR-39 UV420</option>
+                                                        <option value="102">CR-39 UV420 Remove</option>
                                                         <option value="102">CR-39 UV420 Photo gray</option>
                                                         <option value="102">CR-39 UV420 Photo brown</option>
                                                         <option value="102">Transitions VII gray</option>
@@ -218,7 +219,7 @@ include '../modules/header.php';
                                                         <!-- Bifo invision-->
                                                         <option value="104" default></option>
                                                         <option value="104">CR-39</option>
-                                                        <option value="104">CR-39 UV420</option>
+                                                        <option value="104">CR-39 UV420 Remove</option>
                                                         <option value="104">CR-39 UV420 Photo gray</option>
                                                         <option value="104">CR-39 UV420 Photo brown</option>
                                                         <option value="104">Transitions VII gray</option>
@@ -241,7 +242,7 @@ include '../modules/header.php';
                                                         <!-- Futura / Infini -->
                                                         <option value="105" default></option>
                                                         <option value="105">CR-39</option>
-                                                        <option value="105">CR-39 UV420</option>
+                                                        <option value="105">CR-39 UV420 Remove</option>
                                                         <option value="105">CR-39 UV420 Photo gray</option>
                                                         <option value="105">CR-39 UV420 Photo brown</option>
                                                         <option value="105">Transitions VII gray</option>
@@ -264,7 +265,7 @@ include '../modules/header.php';
                                                         <!-- Inoffis -->
                                                         <option value="106" default></option>
                                                         <option value="106">CR-39</option>
-                                                        <option value="106">CR-39 UV420</option>
+                                                        <option value="106">CR-39 UV420 Remove</option>
                                                         <option value="106">CR-39 UV420 Photo gray</option>
                                                         <option value="106">CR-39 UV420 Photo brown</option>
                                                         <option value="106">Transitions VII gray</option>
@@ -281,7 +282,7 @@ include '../modules/header.php';
                                                         <!-- Matrix Short / Matrix Pro / Lightform / Operative -->
                                                         <option value="107" default></option>
                                                         <option value="107">CR-39</option>
-                                                        <option value="107">CR-39 UV420</option>
+                                                        <option value="107">CR-39 UV420 Remove</option>
                                                         <option value="107">CR-39 UV420 Photo gray</option>
                                                         <option value="107">CR-39 UV420 Photo brown</option>
                                                         <option value="107">Transitions VII gray</option>
@@ -1057,9 +1058,24 @@ include '../modules/header.php';
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <div class="md-form mb-5">
+                                                <label id='label_mpc'>MPC po komadu</label><label class="obavezna_polja">*</label>
+                                                <input name="mpc" maxlength='15' title="Unesite MPC" type="text" class="form-control" id="mpc">
+                                            </div>
+
+                                            <div class="md-form mb-5">
+                                                <label id='label_brnalog'>Broj radnog naloga (№)</label>
+                                                <input name="broj_radnog_naloga" maxlength='30' class="form-control" type="text" title="Unesite broj radnog naloga" id="broj_radnog_naloga" placeholder="" />
+                                            </div>
+
+                                            <div class="md-form mb-5">
+                                                <label>Napomena</label>
+                                                <textarea name="napomena" class="form-control" type="text" title="NAPOMENA: Ovdje unosite: Stepen zatamnjenja; Decentracija; Ime i prezime; Vrijeme isporuke itd." id="napomena" row="5"></textarea>
+                                            </div>
                                             <div class="md-form mb-5">
                                                 <label>Komitent/radnja</label>
-                                                <input list="listaKomitenata" name="komitenti_radnje" title="Unesite komitenta/radnju" type="text" class="form-control" id="mjesto_isporuke">
+                                                <input list="listaKomitenata" name="komitenti_radnje" title="Unesite komitenta/radnju" type="text" class="form-control" id="komitenti_radnje">
                                                 <datalist id='listaKomitenata'>
                                                     <option>Centar - Bijeljina</option>
                                                     <option>Mihajlović - Bijeljina</option>
@@ -1109,21 +1125,6 @@ include '../modules/header.php';
                                                     <option>ZTR Očna optika Vid - Zvornik</option>
                                                 </datalist>
                                             </div>
-
-                                            <div class="md-form mb-5">
-                                                <label id='label_mpc'>MPC po komadu</label><label class="obavezna_polja">*</label>
-                                                <input name="mpc" maxlength='15' title="Unesite MPC" type="text" class="form-control" id="mpc">
-                                            </div>
-
-                                            <div class="md-form mb-5">
-                                                <label id='label_brnalog'>Broj radnog naloga (№)</label>
-                                                <input name="broj_radnog_naloga" maxlength='30' class="form-control" type="text" title="Unesite broj radnog naloga" id="broj_radnog_naloga" placeholder="" />
-                                            </div>
-
-                                            <div class="md-form mb-5">
-                                                <label>Napomena</label>
-                                                <textarea name="napomena" class="form-control" type="text" title="NAPOMENA: Ovdje unosite: Stepen zatamnjenja; Decentracija; Ime i prezime; Vrijeme isporuke itd." id="napomena" row="5"></textarea>
-                                            </div>
                                             <div class="md-form mb-5">
                                                 <label>Dobavljač</label><label class="obavezna_polja">*</label>
                                                 <select name="dobavljac" class="form-control" id="dobavljac">
@@ -1131,6 +1132,59 @@ include '../modules/header.php';
                                                     <option>pol-beograd</option>
                                                     <option>pol-novi sad</option>
                                                 </select>
+                                            </div>
+                                            <div class="md-form mb-5">
+                                                <label>Mjesto isporuke</label>
+                                                <input list="listaMjestaIsporuke" name="mjesto_isporuke" title="Unesite mjesto isporuke" type="text" class="form-control" id="mjesto_isporuke">
+                                                <datalist id='listaMjestaIsporuke'>
+                                                    <option>Bijeljina</option>
+                                                    <option>Centar - Bijeljina</option>
+                                                    <option>Mihajlović - Bijeljina</option>
+                                                    <option>Delta - Banja Luka</option>
+                                                    <option>Emporium - Banja Luka</option>
+                                                    <option>Mercator - Banja Luka</option>
+                                                    <option>Boska - Banja Luka</option>
+                                                    <option>Brčko</option>
+                                                    <option>Galerija - Beograd</option>
+                                                    <option>Big - Novi Sad</option>
+                                                    <option>Plaza - Kragujevac</option>
+                                                    <option>Novaoptik - Novi Grad</option>
+                                                    <option>Optika Isić - Orašje</option>
+                                                    <option>Lens d.o.o. - Kalesija</option>
+                                                    <option>Lens Optic - Tuzla</option>
+                                                    <option>Lotica d.o.o. - Travnik</option>
+                                                    <option>Lux Optika - Novi Grad</option>
+                                                    <option>Mak d.o.o. - Bihać</option>
+                                                    <option>OOptiks - Tuzla</option>
+                                                    <option>Optika Vid - Prijedor</option>
+                                                    <option>Optika Lukić - Bijeljina</option>
+                                                    <option>Optika Omazić - Livno</option>
+                                                    <option>Optika Visus - Lukavac</option>
+                                                    <option>Optika Čakrama - Maglaj</option>
+                                                    <option>Optika Đurbuzović - Sarajevo</option>
+                                                    <option>Optika Galić - Široki Brijeg</option>
+                                                    <option>Optika Karić - Konjic</option>
+                                                    <option>Optika Monako d.o.o - Brčko</option>
+                                                    <option>Optika Una - Banja Luka</option>
+                                                    <option>Optika Šimić - Prskalo d.o.o.- Ljubuški</option>
+                                                    <option>OR Optika - Gradačac</option>
+                                                    <option>Opto centar d.o.o. - Sarajevo</option>
+                                                    <option>OR N&S Optik - Tuzla</option>
+                                                    <option>OR Optika Samouk - Goradžde</option>
+                                                    <option>PR Optika Malinić - Prijedor</option>
+                                                    <option>SPPR Optika Visus - Ugljevik</option>
+                                                    <option>STR Optika Topić - Gračanica</option>
+                                                    <option>SZR Optika i foto - Vogošća</option>
+                                                    <option>SZR Optika - Sarajevo</option>
+                                                    <option>SZR Optika Iris - Mostar</option>
+                                                    <option>SZTR Optika Aleksić - Modriča</option>
+                                                    <option>SZTR Optika Pajić - Bratunac</option>
+                                                    <option>TR Optika Iris - Srebrenik</option>
+                                                    <option>ZR Optika Miro - Teslić</option>
+                                                    <option>ZTOR A&S - Derventa</option>
+                                                    <option>ZTR Optika Kojić - Zvornik</option>
+                                                    <option>ZTR Očna optika Vid - Zvornik</option>
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
@@ -1158,6 +1212,7 @@ include '../modules/header.php';
 <script type="text/javascript">
     $('#label_zvjezdica1').hide();
     $('#label_zvjezdica2').hide();
+    $('#select1').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
         $select3 = $('#select3'),
@@ -1175,11 +1230,11 @@ include '../modules/header.php';
     $('#ifLager').show();
     $select_lagspec.on('change', function() {
         if (this.value == 'Spec') {
-            $('#ifSpecijala,#ifSpecijalaTr').show();
+            $('#ifSpecijala,#ifSpecijalaTr,#label_odosou,#select1').show();
             $('#ifLager').hide();
         } else {
             $('#ifLager').show();
-            $('#ifSpecijala,#ifSpecijalaTr').hide();
+            $('#ifSpecijala,#ifSpecijalaTr,#label_odosou,#select1').hide();
 
         }
 
