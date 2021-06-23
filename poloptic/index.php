@@ -26,6 +26,7 @@ include '../modules/header.php';
                             <!-- <p>“M-OPTIC” d.o.o.</br> ul. Majevička br. 29, 76300 Bijeljina</br> <strong>Tel:</strong> +387 55 222 999, 222 990, 490 010</br> <strong>Fax:</strong> +387 55 222 998</br> <strong>Email:</strong> <a href="mailto:mopticvp@mojaoptika.com">mopticvp@mojaoptika.com</a></br> <a href="https://mojaoptika.com">www.mojaoptika.com</a></p>-->
                             </br>
                             </br>
+                            <label>*Označene kolone se ne šalju dobavljaču</label>
                         </div>
 
                         <?php
@@ -1204,6 +1205,7 @@ include '../modules/header.php';
                             </br>
                             </br>
                             </br>
+                          
                         </div>
                     </div>
                 </div>
