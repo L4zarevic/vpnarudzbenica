@@ -9,7 +9,7 @@ $idKorisnika = $ar[0];
 
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
-$stmt = $con->prepare('SELECT * FROM narudzbenica_pol ');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_pol ORDER BY dobavljac DESC ');
 $stmt->execute();
 $result = $stmt->get_result();
 
