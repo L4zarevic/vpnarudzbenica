@@ -132,9 +132,7 @@ $body .= "--" . $separator . "--";
 if (mail($to, $subject, $body, $headers)) {
 
   //Arhiviranje naružbe i slanje potvrdnog email-a
-  $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
-FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
+  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
