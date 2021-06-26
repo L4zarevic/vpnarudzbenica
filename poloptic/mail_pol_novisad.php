@@ -24,7 +24,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-$schema_insert .= '<h2>Narudžbenica - Poloptic</h2>';
+$schema_insert .= '<h2>Narudžbenica - Pol Optic</h2>';
 $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
 $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
 $schema_insert .= '<br/>';
@@ -140,7 +140,7 @@ WHERE dobavljac="pol-novi sad" ORDER BY lag_spec ASC');
   $result1 = $stmt1->get_result();
 
   $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-  $schema_insert .= '<h2>Narudžbenica - Poloptic</h2>';
+  $schema_insert .= '<h2>Narudžbenica - Pol Optic</h2>';
   $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
   $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
   $schema_insert .= '<br/>';
