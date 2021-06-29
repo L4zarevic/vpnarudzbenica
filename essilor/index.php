@@ -34,7 +34,7 @@ include '../modules/header.php';
                         ?>
 
                         <div class="row d-flex justify-content-center modalWrapper" id="add_edit_form">
-                            <div class="modal fade addNewInputs" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAdd" aria-hidden="true">
+                            <div class="modal fade addNewInputs" id="modalAddEssilor" tabindex="-1" role="dialog" aria-labelledby="modalAddEssilor" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header text-center">
@@ -128,15 +128,10 @@ include '../modules/header.php';
                                                     </select>
                                                 </div>
 
-
                                                 <div class="md-form mb-5">
                                                     <label>Dizajn - Naziv proizvoda</label><label class="obavezna_polja">*</label>
                                                     <input name="dizajn" title="Unesite dizajn" maxlength="255" type="text" class="form-control" id="dizajn" required>
                                                 </div>
-
-
-
-
 
                                                 <div class="md-form mb-5">
                                                     <label>Index</label><label class="obavezna_polja">*</label>
@@ -536,7 +531,7 @@ include '../modules/header.php';
 
                                             <div class="md-form mb-5">
                                                 <label>Tretmani i bojenja #2</label>
-                                                <input name="tretman2" title="Unesite tretman" maxlength="255" type="text" class="form-control" id="tretmna2F" required>
+                                                <input name="tretman2" title="Unesite tretman" maxlength="255" type="text" class="form-control" id="tretman2" required>
                                             </div>
 
 
@@ -558,9 +553,8 @@ include '../modules/header.php';
                                             <div class="md-form mb-5">
                                                 <label>Dobavljač</label><label class="obavezna_polja">*</label>
                                                 <select name="dobavljac" class="form-control" id="dobavljac">
-                                                    <option default>pol-sarajevo</option>
-                                                    <option>pol-beograd</option>
-                                                    <option>pol-novi sad</option>
+                                                    <option default>essilor-bih</option>
+                                                    <option>essilor-srbija</option>
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">
@@ -618,7 +612,7 @@ include '../modules/header.php';
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
-                                            <button type='submit' onclick="return checkForm();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd">Sačuvaj stavku
+                                            <button type='submit' onclick="return checkFormEssilor();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd">Sačuvaj stavku
                                                 <i class="fas fa-paper-plane-o ml-1"></i>
                                             </button>
                                         </div>
@@ -627,7 +621,7 @@ include '../modules/header.php';
                             </div>
 
                             <div class="text-center">
-                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAdd">Dodaj novi zapis<i class="fa fa-plus-square ml-1"></i></a>
+                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAddEssilor">Dodaj novi zapis<i class="fa fa-plus-square ml-1"></i></a>
                             </div>
                             &nbsp;
                             &nbsp;
@@ -644,7 +638,7 @@ include '../modules/header.php';
         </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
-    $('#label_zvjezdica1').hide();
+    // $('#label_zvjezdica1').hide();
     $('#label_zvjezdica2').hide();
     // $('#select1').hide();
     // var $select_lagspec = $('#select_lagspec'),
@@ -673,42 +667,6 @@ include '../modules/header.php';
         }
     }).trigger('change');
 
-
-    // $('#ifSpecijala,#ifSpecijalaTr').hide();
-    // $('#ifLager').show();
-    // $select_lagspec.on('change', function() {
-    //     if (this.value == 'Spec') {
-    //         $('#ifSpecijala,#ifSpecijalaTr,#label_odosou,#select1').show();
-    //         $('#ifLager').hide();
-    //     } else {
-    //         $('#ifLager').show();
-    //         $('#ifSpecijala,#ifSpecijalaTr,#label_odosou,#select1').hide();
-
-    //     }
-
-    // }).trigger('change');
-
-    // 
-
-    // $select2.on('change', function() {
-    //     $select4.html($options2.filter('[value="' + this.value + '"]'));
-    // }).trigger('change');
-
-    // $select4.on('change', function() {
-    //     var id = $(this).children(":selected").attr("id");
-    //     $select3.html($options1.filter('[value="' + id + '"]'));
-    // }).trigger('change');
-
-    // $select4.on('change', function() {
-    //     var id = $(this).children(":selected").attr("id");
-    //     $select15.html($options3.filter('[value="' + id + '"]'));
-    // }).trigger('change');
-
-    // $select4.on('change', function() {
-    //     var id1 = $(this).children(":selected").attr("id");
-    //     $select16.html($options4.filter('[value="' + id1 + '"]'));
-    // }).trigger('change');
-
     $select12.on('change', function() {
         if ((($('#select2').find("option:selected").text() == "Bifokal") || ($('#select2').find("option:selected").text() == "Progresiv")) && ($('#select12').find("option:selected").text().length != 0)) {
             $('#label_zvjezdica2').show();
@@ -716,14 +674,6 @@ include '../modules/header.php';
             $('#label_zvjezdica2').hide();
         }
     }).trigger('change');
-
-    // $select_lagspec.on('change', function() {
-    //     if ($('#select_lagspec').find("option:selected").text() == "Specijala") {
-    //         $('#label_zvjezdica1').show();
-    //     } else {
-    //         $('#label_zvjezdica1').hide();
-    //     }
-    // }).trigger('change');
 </script>
 
 </html>

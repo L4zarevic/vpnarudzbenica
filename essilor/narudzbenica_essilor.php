@@ -19,7 +19,6 @@ echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hov
 <thead>
 <tr>
 <th class='tg-0lax'>Rbr.</th>
-<th class='tg-0lax'>Lag\nSpec</th>
 <th class='tg-0lax'>OD\nOS\nOU</th>
 <th class='tg-0lax'>Vrsta\nsočiva</th>
 <th class='tg-0lax'>Dizajn</th>
@@ -27,7 +26,6 @@ echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hov
 <th class='tg-0lax'>Segment</th>
 <th class='tg-0lax'>Baza</th>
 <th class='tg-0lax'>Index</th>
-<th class='tg-0lax'>Vrsta materijala</th>
 <th class='tg-0lax'>&Oslash;</th>
 <th class='tg-0lax'>SPH</th>
 <th class='tg-0lax'>CYL</th>
@@ -52,7 +50,6 @@ $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
     echo "<tr id='$row->ID' onclick='updateEntireRowEssilor()'>";
     echo "<td>" . ($rb = $rb + 1) . "</td>";
-    echo "<td class='od_os_ou'>$row->lag_spec</td>";
     echo "<td class='od_os_ou'>$row->od_os_ou</td>";
     echo "<td>$row->vrsta_sociva</td>";
     echo "<td>$row->dizajn</td>";
@@ -60,7 +57,6 @@ while ($row = mysqli_fetch_object($result)) {
     echo "<td>$row->segment</td>";
     echo "<td>$row->baza</td>";
     echo "<td>$row->indeks</td>";
-    echo "<td>$row->vrsta_materijala</td>";
     echo "<td>$row->precnik</td>";
     echo "<td>$row->sph</td>";
     echo "<td>$row->cyl</td>";

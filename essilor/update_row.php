@@ -9,36 +9,36 @@ $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
 $stavka = mysqli_real_escape_string($con, $_REQUEST['stavka']);
-$arS = explode("###", $stavka, 27);
+$arS = explode("###", $stavka, 25);
 $arS[1] = rtrim($arS[1], "###");
 
 $id_stavke = $arS[0];
-$lager_specijala = $arS[1];
-$odOsOu = $arS[2];
-$vrstaSociva = $arS[3];
-$dizajn = $arS[4];
-$koridor_visina = $arS[5];
-$segment = $arS[6];
-$baza = $arS[7];
-$indeks = $arS[8];
-$materijal = $arS[9];
-$precnik1 = $arS[10];
-$precnik2 = $arS[11];
-$sph = $arS[12];
-$cyl = $arS[13];
-$ugao = $arS[14];
-$add = $arS[15];
-$jm = $arS[16];
-$kolicina = $arS[17];
-$tretman1 = $arS[18];
-$tretman2 = $arS[19];
-$pd = $arS[20];
-$mpc = $arS[21];
-$broj_naloga = $arS[22];
-$napomena1 = $arS[23];
-$komitenti_radnje = $arS[24];
-$dobavljac = $arS[25];
-$mjesto_isporuke = $arS[26];
+
+$odOsOu = $arS[1];
+$vrstaSociva = $arS[2];
+$dizajn = $arS[3];
+$koridor_visina = $arS[4];
+$segment = $arS[5];
+$baza = $arS[6];
+$indeks = $arS[7];
+
+$precnik1 = $arS[8];
+$precnik2 = $arS[9];
+$sph = $arS[10];
+$cyl = $arS[11];
+$ugao = $arS[12];
+$add = $arS[13];
+$jm = $arS[14];
+$kolicina = $arS[15];
+$tretman1 = $arS[16];
+$tretman2 = $arS[17];
+$pd = $arS[18];
+$mpc = $arS[19];
+$broj_naloga = $arS[20];
+$napomena1 = $arS[21];
+$komitenti_radnje = $arS[22];
+$dobavljac = $arS[23];
+$mjesto_isporuke = $arS[24];
 
 $napomena = str_replace('\n', " ", $napomena1);
 
@@ -50,8 +50,8 @@ if ($precnik2 == "") {
 	$precnik = $precnik1 . "/" . $precnik2;
 }
 
-$stmt = $con->prepare('UPDATE narudzbenica_essilor SET lag_spec=?,od_os_ou=?,vrsta_sociva=?,dizajn=?,visina=?,segment=?,baza=?,indeks=?,vrsta_materijala=?,precnik=?,sph=?,cyl=?,ugao=?,adicija=?,jm=?,kolicina=?,tretman1=?,tretman2=?,pd=?,mpc=?,broj_naloga=?,napomena=?, komitenti_radnje=?, dobavljac=?, mjesto_isporuke=? WHERE ID=?');
-$stmt->bind_param('sssssssssssssssisssssssssi', $lager_specijala, $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $materijal, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke, $id_stavke);
+$stmt = $con->prepare('UPDATE narudzbenica_essilor SET od_os_ou=?,vrsta_sociva=?,dizajn=?,visina=?,segment=?,baza=?,indeks=?,precnik=?,sph=?,cyl=?,ugao=?,adicija=?,jm=?,kolicina=?,tretman1=?,tretman2=?,pd=?,mpc=?,broj_naloga=?,napomena=?, komitenti_radnje=?, dobavljac=?, mjesto_isporuke=? WHERE ID=?');
+$stmt->bind_param('sssssssssssssisssssssssi', $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke, $id_stavke);
 $stmt->execute();
 if (mysqli_error($con)) {
 	die(mysqli_error($con));

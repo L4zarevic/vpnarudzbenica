@@ -34,7 +34,7 @@ include '../modules/header.php';
                         ?>
 
                         <div class="row d-flex justify-content-center modalWrapper" id="add_edit_form">
-                            <div class="modal fade addNewInputs" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAdd" aria-hidden="true">
+                            <div class="modal fade addNewInputs" id="modalAddPol" tabindex="-1" role="dialog" aria-labelledby="modalAddPol" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header text-center">
@@ -1199,7 +1199,7 @@ include '../modules/header.php';
                             </div>
 
                             <div class="text-center">
-                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAdd">Dodaj novi zapis<i class="fa fa-plus-square ml-1"></i></a>
+                                <a href="" class="btn btn-info btn-rounded btn-sm" id="addButton" data-toggle="modal" data-target="#modalAddPol">Dodaj novi zapis<i class="fa fa-plus-square ml-1"></i></a>
                             </div>
                             &nbsp;
                             &nbsp;
