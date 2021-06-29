@@ -18,7 +18,7 @@ $user_message = mysqli_real_escape_string($con, $_REQUEST['user_message']);
 
 $stmt = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,napomena
 FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
+WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_object($result)) {
 $schema_insert .= '</tbody>';
 file_put_contents('../orders/poloptic/narudzbenica_Pol_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
-$to = "order@poloptic.com";
+$to = "narudzba@mojaoptika.com";
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
 $stmt->bind_param('i', $idKorisnika);
@@ -98,7 +98,7 @@ while ($row = mysqli_fetch_object($result)) {
 }
 
 $from = $email;
-$subject = "eNarudzbenica - Optical Story d.o.o.";
+$subject = "eNarudzbenica - M-Optic d.o.o.";
 $separator = md5(date('r', time()));
 // carriage return type (we use a PHP end of line constant)
 $eol = PHP_EOL;
@@ -132,9 +132,7 @@ $body .= "--" . $separator . "--";
 if (mail($to, $subject, $body, $headers)) {
 
   //Arhiviranje naružbe i slanje potvrdnog email-a
-  $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
-FROM mojaopt_vpnarudzbenica.narudzbenica_pol
-WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
+  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol WHERE dobavljac="pol-sarajevo" ORDER BY lag_spec ASC');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
@@ -214,7 +212,7 @@ WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
   $header .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
   $subject1 = "eNarudzbenica - Narudzba je poslata";
 
-  $message = "Narudzbenica - Pol Optic Beograd \n";
+  $message = "Narudzbenica - Pol Optic Sarajevo \n";
   $message .= "Narudzba od: " . $imeKorisnika . "\n";
   $message .= "Datum narudzbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
   $message .= "------------------------ \n" . $eol;
@@ -234,11 +232,11 @@ WHERE dobavljac="pol-beograd" ORDER BY lag_spec ASC');
 
   mail($email, $subject1, $nmessage, $header);
 
-  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Beograd")');
+  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_pol (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Poloptic - Sarajevo")');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 
-  $stmt = $con->prepare('DELETE FROM `narudzbenica_pol` WHERE dobavljac = "pol-beograd"');
+  $stmt = $con->prepare('DELETE FROM `narudzbenica_pol` WHERE dobavljac = "pol-sarajevo"');
 
   $stmt->execute();
   if (mysqli_error($con)) {
