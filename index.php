@@ -112,11 +112,18 @@ function novih_narudzbi_hoya($con)
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="poloptic/pol_history_sa.php">Sarajevo</a>
                         <a class="collapse-item" href="poloptic/pol_history_bg.php">Beograd</a>
+                        <a class="collapse-item" href="poloptic/pol_history_ns.php">Novi Sad</a>
                     </div>
                 </div>
-
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="essilor/essilor_history_bih.php">BiH</a>
+                        <a class="collapse-item" href="essilor/essilor_history_srb.php">Srbija</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="hoya/hoya_history_srb.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
             </li>
             <hr class="sidebar-divider">
             <div class="text-center d-none d-md-inline"> <button class="rounded-circle border-0" id="sidebarToggle"></button> </div>
@@ -187,14 +194,14 @@ function novih_narudzbi_hoya($con)
                             </a>
                         </div>
                         <div class="card">
-                            <a href="#"><img src="images/essilor.svg" alt="Essilor" style="width:100%">
+                            <a href="essilor/index.php"><img src="images/essilor.svg" alt="Essilor" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_essilor($con); ?></label>
                                 </div>
                             </a>
                         </div>
                         <div class="card">
-                            <a href="#"> <img src="images/hoya.svg" alt="Hoya" style="width:100%">
+                            <a href="hoya/index.php"> <img src="images/hoya.svg" alt="Hoya" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_hoya($con); ?></label>
                                 </div>
