@@ -9,7 +9,7 @@ $idKorisnika = $ar[0];
 
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
-$stmt = $con->prepare('SELECT * FROM narudzbenica_essilor ORDER BY dobavljac DESC ');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_essilor ORDER BY dobavljac ASC ');
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -81,29 +81,22 @@ echo "</table>";
 echo "</div>";
 echo "</br>";
 
-$stmt1 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="pol-sarajevo" ');
+$stmt1 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-bih" ');
 $stmt1->execute();
 $result1 = $stmt1->get_result();
 
 if (mysqli_num_rows($result1) > 0) {
-    echo "<button type='button' onclick='sendPolopticSarajevo()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Sarajevo</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendEssilorBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor BiH</button>&nbsp;&nbsp;";
 }
 
-$stmt2 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="pol-beograd" ');
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-srbija" ');
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 
 if (mysqli_num_rows($result2) > 0) {
-    echo "<button type='button' onclick='sendPolopticBeograd()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Beograd</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendEssilorSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor Srbija</button>&nbsp;&nbsp;";
 }
 
-$stmt3 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="pol-novi sad" ');
-$stmt3->execute();
-$result3 = $stmt3->get_result();
-
-if (mysqli_num_rows($result3) > 0) {
-    echo "<button type='button' onclick='sendPolopticNoviSad()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Novi Sad</button>";
-}
 echo "</br>";
 echo "</br>";
 
