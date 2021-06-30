@@ -50,7 +50,7 @@ if ($precnik2 == "") {
 	$precnik = $precnik1 . "/" . $precnik2;
 }
 
-$stmt = $con->prepare('UPDATE narudzbenica_essilor SET od_os_ou=?,vrsta_sociva=?,dizajn=?,visina=?,segment=?,baza=?,indeks=?,precnik=?,sph=?,cyl=?,ugao=?,adicija=?,jm=?,kolicina=?,tretman1=?,tretman2=?,pd=?,mpc=?,broj_naloga=?,napomena=?, komitenti_radnje=?, dobavljac=?, mjesto_isporuke=? WHERE ID=?');
+$stmt = $con->prepare('UPDATE narudzbenica_hoya SET od_os_ou=?,vrsta_sociva=?,dizajn=?,visina=?,segment=?,baza=?,indeks=?,precnik=?,sph=?,cyl=?,ugao=?,adicija=?,jm=?,kolicina=?,tretman1=?,tretman2=?,pd=?,mpc=?,broj_naloga=?,napomena=?, komitenti_radnje=?, dobavljac=?, mjesto_isporuke=? WHERE ID=?');
 $stmt->bind_param('sssssssssssssisssssssssi', $odOsOu, $vrstaSociva, $dizajn, $koridor_visina, $segment, $baza, $indeks, $precnik, $sph, $cyl, $ugao, $add, $jm, $kolicina, $tretman1, $tretman2, $pd, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke, $id_stavke);
 $stmt->execute();
 if (mysqli_error($con)) {

@@ -9,7 +9,7 @@ $idKorisnika = $ar[0];
 
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
-$stmt = $con->prepare('SELECT * FROM narudzbenica_essilor ORDER BY dobavljac ASC ');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_hoya ORDER BY dobavljac ASC ');
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -48,7 +48,7 @@ echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hov
 <tbody>";
 $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
-    echo "<tr id='$row->ID' onclick='updateEntireRowEssilor()'>";
+    echo "<tr id='$row->ID' onclick='updateEntireRowHoya()'>";
     echo "<td>" . ($rb = $rb + 1) . "</td>";
     echo "<td class='od_os_ou'>$row->od_os_ou</td>";
     echo "<td>$row->vrsta_sociva</td>";
@@ -81,20 +81,20 @@ echo "</table>";
 echo "</div>";
 echo "</br>";
 
-$stmt1 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-bih" ');
-$stmt1->execute();
-$result1 = $stmt1->get_result();
+// $stmt1 = $con->prepare('SELECT * FROM narudzbenica_hoya WHERE dobavljac="hoya-bih" ');
+// $stmt1->execute();
+// $result1 = $stmt1->get_result();
 
-if (mysqli_num_rows($result1) > 0) {
-    echo "<button type='button' onclick='sendEssilorBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor BiH</button>&nbsp;&nbsp;";
-}
+// if (mysqli_num_rows($result1) > 0) {
+//     echo "<button type='button' onclick='sendHoyaBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor BiH</button>&nbsp;&nbsp;";
+// }
 
-$stmt2 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-srbija" ');
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_hoya WHERE dobavljac="hoya-srbija" ');
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 
 if (mysqli_num_rows($result2) > 0) {
-    echo "<button type='button' onclick='sendEssilorSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor Srbija</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendHoyaSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Hoya Srbija</button>&nbsp;&nbsp;";
 }
 
 echo "</br>";

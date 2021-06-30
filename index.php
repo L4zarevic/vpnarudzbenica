@@ -26,6 +26,26 @@ function novih_narudzbi_pol($con)
     }
 }
 
+function novih_narudzbi_essilor($con)
+{
+    $stmt = $con->prepare('SELECT COUNT(ID) AS brojRedova FROM narudzbenica_essilor');
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_object()) {
+        echo $row->brojRedova;
+    }
+}
+
+function novih_narudzbi_hoya($con)
+{
+    $stmt = $con->prepare('SELECT COUNT(ID) AS brojRedova FROM narudzbenica_hoya');
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_object()) {
+        echo $row->brojRedova;
+    }
+}
+
 //Metod za prikaz ukupno obavljenih pregleda ovog mjeseca
 // function sumMonthsExamination($conn, $idKorisnika)
 // {
@@ -267,14 +287,14 @@ function novih_narudzbi_pol($con)
                         <div class="card">
                             <a href="#"><img src="images/essilor.svg" alt="Essilor" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: #</label>
+                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_essilor($con); ?></label>
                                 </div>
                             </a>
                         </div>
                         <div class="card">
                             <a href="#"> <img src="images/hoya.svg" alt="Hoya" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: #</label>
+                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_hoya($con); ?></label>
                                 </div>
                             </a>
                         </div>

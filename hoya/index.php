@@ -553,8 +553,7 @@ include '../modules/header.php';
                                             <div class="md-form mb-5">
                                                 <label>Dobavljač</label><label class="obavezna_polja">*</label>
                                                 <select name="dobavljac" class="form-control" id="dobavljac">
-                                                    <option default>essilor-bih</option>
-                                                    <option>essilor-srbija</option>
+                                                    <option default>hoya-srbija</option>
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">

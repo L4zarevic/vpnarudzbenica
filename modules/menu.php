@@ -10,7 +10,7 @@
         <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
         <a class="nav-link collapsed" href="../poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
         <a class="nav-link collapsed" href="../essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
-        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+        <a class="nav-link collapsed" href="../hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
         <div class="sidebar-heading"></br></div>
         <div class="sidebar-heading"> Istorijat narudžbi </div>
         <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
@@ -31,7 +31,7 @@
                 <a class="collapse-item" href="../essilor/essilor_history_srb.php">Srbija</a>
             </div>
         </div>
-        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+        <a class="nav-link collapsed" href="../hoya/hoya_history_srb.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
     </li>
     <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline"> <button class="rounded-circle border-0" id="sidebarToggle"></button> </div>
