@@ -46,104 +46,6 @@ function novih_narudzbi_hoya($con)
     }
 }
 
-//Metod za prikaz ukupno obavljenih pregleda ovog mjeseca
-// function sumMonthsExamination($conn, $idKorisnika)
-// {
-//     //Na osnovu današnjeg datum, odbijamo dio stringa koji predstavlja dan i dodajemo stringu "-01". Na ovaj način dobijamo prvi datum u ovom mjesecu koji će biti početni datum za opseg u upitu
-//     $todayDate = date('Y-m-d');
-//     $dateSplit = explode('-', $todayDate, 3);
-//     $dateSplit[1] = rtrim($dateSplit[1], '-');
-//     $startDate = $dateSplit[0] . '-' . $dateSplit[1] . '-01';
-//     $stmt = $conn->prepare('SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE datum_pregleda BETWEEN ? AND ? AND ID_korisnika =?');
-//     $stmt->bind_param('ssi', $startDate, $todayDate, $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-
-//Metod za prikaz ukupno obavljenih pregleda naočara ovog mjeseca
-// function sumGlassesMonthsExamination($conn, $idKorisnika)
-// {
-//     $todayDate = date('Y-m-d');
-//     $dateSplit = explode('-', $todayDate, 3);
-//     $dateSplit[1] = rtrim($dateSplit[1], '-');
-//     $startDate = $dateSplit[0] . '-' . $dateSplit[1] . '-01';
-//     $stmt = $conn->prepare("SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE datum_pregleda BETWEEN ? AND ? AND ID_korisnika =? AND vrsta_pregleda ='naocare'");
-//     $stmt->bind_param('ssi', $startDate, $todayDate, $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-//Metod za prikaz ukupno obavljenih pregleda sočiva ovog mjeseca
-// function sumLensesMonthsExamination($conn, $idKorisnika)
-// {
-//     $todayDate = date('Y-m-d');
-//     $dateSplit = explode('-', $todayDate, 3);
-//     $dateSplit[1] = rtrim($dateSplit[1], '-');
-//     $startDate = $dateSplit[0] . '-' . $dateSplit[1] . '-01';
-//     $stmt = $conn->prepare("SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE datum_pregleda BETWEEN ? AND ? AND ID_korisnika =? AND vrsta_pregleda ='sociva'");
-//     $stmt->bind_param('ssi', $startDate, $todayDate, $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-//Metod za prikaz ukupno obavljenih pregleda
-// function sumExamination($conn, $idKorisnika)
-// {
-//     $stmt = $conn->prepare('SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE ID_korisnika=?');
-//     $stmt->bind_param('i', $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-//Metod za prikaz ukupno obavljenih pregleda naočare
-// function sumGlassesExamination($conn, $idKorisnika)
-// {
-//     $stmt = $conn->prepare("SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE ID_korisnika =? AND vrsta_pregleda='naocare'");
-//     $stmt->bind_param('i', $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-//Metod za prikaz ukupno obavljenih pregleda sočiva
-// function sumLensesExamination($conn, $idKorisnika)
-// {
-//     $stmt = $conn->prepare("SELECT COUNT(ID) AS brojPregleda FROM pregledi WHERE ID_korisnika =? AND vrsta_pregleda='sociva'");
-//     $stmt->bind_param('i', $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojPregleda;
-//     }
-// }
-
-//Metod za prikaz ukupno urađenih radnih naloga
-// function sumWorkOrderDocument($conn, $idKorisnika)
-// {
-//     $stmt = $conn->prepare('SELECT COUNT(ID) AS brojNaloga FROM radni_nalog WHERE ID_korisnika=?');
-//     $stmt->bind_param('i', $idKorisnika);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     while ($row = $result->fetch_object()) {
-//         echo $row->brojNaloga;
-//     }
-//     CloseCon($conn);
-// }
 ?>
 
 <head>
@@ -199,8 +101,8 @@ function novih_narudzbi_hoya($con)
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+                <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
+                <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
                 <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
