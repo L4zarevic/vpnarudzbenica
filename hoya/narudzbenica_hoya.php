@@ -1,50 +1,55 @@
-<?php if (is_null($_SESSION['login'])) {
+<?php if (is_null($_SESSION['logged_in_user'])) {
     header('Location: ../login.php');
 }
 require_once '../connection.php';
-$korisnik = $_SESSION['login'];
-$ar = explode('#', $korisnik, 4);
+$korisnik = $_SESSION['logged_in_user'];
+$ar = explode('#', $korisnik, 2);
 $ar[1] = rtrim($ar[1], '#');
 $idKorisnika = $ar[0];
-$dataBaseName = $ar[3];
-$conn = OpenStoreCon($dataBaseName);
-mysqli_set_charset($conn, 'utf8');
-$stmt = $conn->prepare('SELECT * FROM narudzbenica_hoya WHERE IDKorisnika =?');
-$stmt->bind_param('i', $idKorisnika);
+
+$con = OpenCon();
+mysqli_set_charset($con, 'utf8');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_essilor ORDER BY dobavljac ASC ');
 $stmt->execute();
 $result = $stmt->get_result();
-echo "<div class='naslov'><h1 id='naslovNarudzbenice'>Narudžbenica - Hoya</h1><hr></div>";
-echo "<div class='table-wrapper-scroll-y'>
+
+echo "<div class='naslov'></div>";
+echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hover'>
 <table class='narudzbenica-tabela' id='narudzbenica'>
 <thead>
 <tr>
-<th class='od_os_ou'>Od/Os/Ou</th>
-<th class='tg-0lax'>Vrsta\nsoč.</th>
+<th class='tg-0lax'>Rbr.</th>
+<th class='tg-0lax'>OD\nOS\nOU</th>
+<th class='tg-0lax'>Vrsta\nsočiva</th>
 <th class='tg-0lax'>Dizajn</th>
-<th class='tg-0lax'>PRL/OCHT</th>
-<th class='tg-0lax'>Segm.</th>
+<th class='tg-0lax'>PRL\nOCHT</th>
+<th class='tg-0lax'>Segment</th>
 <th class='tg-0lax'>Baza</th>
 <th class='tg-0lax'>Index</th>
 <th class='tg-0lax'>&Oslash;</th>
 <th class='tg-0lax'>SPH</th>
 <th class='tg-0lax'>CYL</th>
-<th class='tg-0lax'>Ugao</th>
-<th class='tg-0lax'>Add</th>
+<th class='tg-0lax'>Ax</th>
+<th class='tg-0lax'>Add\nDig</th>
 <th class='tg-0lax'>JM</th>
 <th class='tg-0lax'>Kol.</th>
-<th class='tg-0lax'>Tr.1</th>
-<th class='tg-0lax'>Tr.2</th>
+<th class='tg-0lax'>Tr1</th>
+<th class='tg-0lax'>Tr2</th>
 <th class='tg-0lax'>PD</th>
-<th class='tg-0lax'>Mjesto ispor.</th>
-<th class='tg-0lax'>MPC/kom</th>
-<th class='tg-0lax'>Br. radnog naloga</th>
+<th class='tg-0lax' style='background: #ffa;'>MPC\n(kom)</th>
+<th class='tg-0lax' style='background: #ffa;'>Br. radnog naloga</th>
 <th class='tg-0lax'>Napomena</th>
-<th ></th>
+<th class='tg-0lax' style='background: #ffa;'>Komitent\n Radnja</th>
+<th class='tg-0lax' style='background: #ffa;'>Dobavljač</th>
+<th class='tg-0lax'>Mjesto\nisporuke</th>
+<th class='tg-0lax'></th>
 </tr>
 </thead>
 <tbody>";
+$rb = 0;
 while ($row = mysqli_fetch_object($result)) {
-    echo "<tr id='$row->ID' onclick='updateEntireRow();'>";
+    echo "<tr id='$row->ID' onclick='updateEntireRowEssilor()'>";
+    echo "<td>" . ($rb = $rb + 1) . "</td>";
     echo "<td class='od_os_ou'>$row->od_os_ou</td>";
     echo "<td>$row->vrsta_sociva</td>";
     echo "<td>$row->dizajn</td>";
@@ -62,20 +67,40 @@ while ($row = mysqli_fetch_object($result)) {
     echo "<td>$row->tretman1</td>";
     echo "<td>$row->tretman2</td>";
     echo "<td>$row->pd</td>";
-    echo "<td>$row->mjesto_isporuke</td>";
-    echo "<td>$row->mpc</td>";
-    echo "<td>$row->broj_naloga</td>";
+    echo "<td style='background: #ffa;'>$row->mpc</td>";
+    echo "<td style='background: #ffa;'>$row->broj_naloga</td>";
     echo "<td>$row->napomena</td>";
-    echo "<td class='tg-options'>&nbsp;<i onclick='deleteRow();' id='$row->ID' title='Ukloni stavku' class='fas fa-trash fa-lg'></i>&nbsp;</td>";
+    echo "<td style='background: #ffa;'>$row->komitenti_radnje</td>";
+    echo "<td style='background: #ffa;'>$row->dobavljac</td>";
+    echo "<td>$row->mjesto_isporuke</td>";
+    echo "<td class='tg-options'><i onclick='deleteRow(event);' id='$row->ID' title='Ukloni stavku' class='fas fa-trash fa-lg'></i></td>";
     echo "</tr>";
 }
 echo "</tbody>";
 echo "</table>";
+echo "</div>";
 echo "</br>";
-if (mysqli_num_rows($result) > 0) {
-    echo "<button type='button' onclick='checkSpecialTable()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji narudžbenicu</button>";
+
+$stmt1 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-bih" ');
+$stmt1->execute();
+$result1 = $stmt1->get_result();
+
+if (mysqli_num_rows($result1) > 0) {
+    echo "<button type='button' onclick='sendEssilorBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor BiH</button>&nbsp;&nbsp;";
 }
-echo " <p id='info'>Da bi izbrisali stavku u tabeli, kliknite na ikonicu kantice <i class='fa fa-trash'></i></p>";
+
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_essilor WHERE dobavljac="essilor-srbija" ');
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+if (mysqli_num_rows($result2) > 0) {
+    echo "<button type='button' onclick='sendEssilorSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - Essilor Srbija</button>&nbsp;&nbsp;";
+}
+
+echo "</br>";
+echo "</br>";
+
+
 if (isset($_REQUEST['msg'])) {
     if ($_REQUEST['msg'] == '1') {
         echo "<script src=\"../js/alertify.min.js\"></script>";
@@ -97,4 +122,4 @@ if (isset($_REQUEST['msg'])) {
         echo "<script type=\"text/javascript\">window.history.replaceState(null, null, window.location.pathname); window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })</script>";
     }
 }
-CloseCon($conn);
+CloseCon($con);
