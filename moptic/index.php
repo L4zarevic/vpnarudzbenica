@@ -95,14 +95,22 @@ include '../modules/header.php';
                                                     <option>ZTR Očna optika Vid - Zvornik</option>
                                                 </datalist>
                                             </div>
-
+                                            <div class="md-form mb-5">
+                                                <label id='label_odosou'>OD / OS / OU</label>
+                                                <select name="od_os_ou" title="OD - za desno oko, OS - za lijevo oko, OU - ako je obostrano isto" class="form-control" id="select1">
+                                                    <option default></option>
+                                                    <option>OD</option>
+                                                    <option>OS</option>
+                                                    <option>OU</option>
+                                                </select>
+                                            </div>
 
                                             <div class="md-form mb-5">
                                                 <input name="id_stavke" type="hidden" class="form-control" id="id_stavke" value="">
                                             </div>
 
                                             <div class="md-form mb-5">
-                                                <label>Vrsta sočiva</label><label class="obavezna_polja">*</label>
+                                                <label>Vrsta sočiva</label>
                                                 <select name="vrsta_sociva" title="Unesite vrstu sočiva" class="form-control" id="select2">
                                                     <option default></option>
                                                     <option>Monofokal</option>
@@ -338,8 +346,7 @@ include '../modules/header.php';
                                             </div>
 
                                             <div class="md-form mb-5">
-
-                                                <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
+                                                <label>Add / Dig.</label>
                                                 <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
                                                     <option default></option>
                                                     <option>0.75</option>

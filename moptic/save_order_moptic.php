@@ -27,6 +27,7 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
+$schema_insert .= '<th>OD/OS/Ou</th>';
 $schema_insert .= "<th>Vrsta \nsočiva</th>";
 $schema_insert .= "<th>Vrsta \nmaterijala</th>";
 $schema_insert .= '<th>SPH</th>';
@@ -47,6 +48,7 @@ $schema_insert .= '<tr>';
 $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . ($rb = $rb + 1) . '</td>';
+  $schema_insert .= '<td>' . $row->od_os_ou . '</td>';
   $schema_insert .= '<td>' . $row->vrsta_sociva . '</td>';
   $schema_insert .= '<td>' . $row->vrsta_materijala . '</td>';
   $schema_insert .= '<td>' . $row->sph . '</td>';

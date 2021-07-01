@@ -19,6 +19,7 @@ echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hov
 <thead>
 <tr>
 <th class='tg-0lax'>Rbr.</th>
+<th class='tg-0lax'>OD/OS/OU</th>
 <th class='tg-0lax'>Vrsta\nsočiva</th>
 <th class='tg-0lax'>Vrsta\nmaterijala</th>
 <th class='tg-0lax'>SPH</th>
@@ -38,6 +39,7 @@ $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
     echo "<tr id='$row->ID' onclick='updateEntireRowMoptic()'>";
     echo "<td>" . ($rb = $rb + 1) . "</td>";
+    echo "<td>$row->od_os_ou</td>";
     echo "<td>$row->vrsta_sociva</td>";
     echo "<td>$row->vrsta_materijala</td>";
     echo "<td>$row->sph</td>";

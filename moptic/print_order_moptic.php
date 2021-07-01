@@ -14,7 +14,7 @@ $imeKorisnika = $ar[1];
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
-$stmt = $con->prepare('SELECT vrsta_sociva,vrsta_materijala,sph,cyl,adicija,jm,kolicina,mpc,broj_naloga,napomena,komitenti_radnje FROM mojaopt_vpnarudzbenica.narudzbenica_moptic');
+$stmt = $con->prepare('SELECT od_os_ou,vrsta_sociva,vrsta_materijala,sph,cyl,adicija,jm,kolicina,mpc,broj_naloga,napomena,komitenti_radnje FROM mojaopt_vpnarudzbenica.narudzbenica_moptic');
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -27,6 +27,7 @@ echo '<table rules="all" style="border-color:#000;" cellpadding="2">';
 echo '<thead>';
 echo '<tr>';
 echo '<th>R.br.</th>';
+echo '<th>OD/OS/OU</th>';
 echo "<th>Vrsta \nsočiva</th>";
 echo "<th>Vrsta \nmaterijala</th>";
 echo '<th>SPH</th>';
@@ -47,6 +48,7 @@ echo '<tr>';
 $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
   echo '<td>' . ($rb = $rb + 1) . '</td>';
+  echo '<td>' . $row->od_os_ou . '</td>';
   echo '<td>' . $row->vrsta_sociva . '</td>';
   echo '<td>' . $row->vrsta_materijala . '</td>';
   echo '<td>' . $row->sph . '</td>';
