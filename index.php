@@ -46,6 +46,16 @@ function novih_narudzbi_hoya($con)
     }
 }
 
+function novih_narudzbi_moptic($con)
+{
+    $stmt = $con->prepare('SELECT COUNT(ID) AS brojRedova FROM narudzbenica_moptic');
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_object()) {
+        echo $row->brojRedova;
+    }
+}
+
 ?>
 
 <head>
@@ -99,13 +109,13 @@ function novih_narudzbi_hoya($con)
             <hr class="sidebar-divider">
             <div class="sidebar-heading"> Narudžbe </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
+                <a class="nav-link collapsed" href="moptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
                 <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
+                <a class="nav-link collapsed" href="moptic/moptic_history.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -179,9 +189,9 @@ function novih_narudzbi_hoya($con)
 
                     <div class="cards">
                         <div class="card">
-                            <a href="#"><img src="images/moptic.svg" alt="M-OPTIC" style="width:100%">
+                            <a href="moptic/index.php"><img src="images/moptic.svg" alt="M-OPTIC" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: #</label>
+                                <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_moptic($con); ?></label>
                                 </div>
                             </a>
                         </div>

@@ -1190,7 +1190,7 @@ include '../modules/header.php';
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
-                                            <button type='submit' onclick="return checkForm();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd">Sačuvaj stavku
+                                            <button type='submit' onclick="return checkFormPolOptic();" id='dugmeNaruci' class="btn btn-outline-primary btn-block buttonAdd">Sačuvaj stavku
                                                 <i class="fas fa-paper-plane-o ml-1"></i>
                                             </button>
                                         </div>
