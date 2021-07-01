@@ -100,14 +100,14 @@ function novih_narudzbi_hoya($con)
             <div class="sidebar-heading"> Narudžbe </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>M-Optic</span> </a>
-                <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
+                <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
                 <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-glasses"></i> <span>Poloptic</span> </a>
+                    <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="poloptic/pol_history_sa.php">Sarajevo</a>
