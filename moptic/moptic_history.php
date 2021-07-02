@@ -85,7 +85,7 @@ $result = $stmt->get_result();
                       <th>#</th>
                       <th>Broj narudžbe</th>
                       <th>Datum</th>
-                      <th>Naručio</th>
+                      <th>Narudžbu obradio</th>
                       <th>Realizovano <a href="moptic_history.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="moptic_history.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
                     </tr>
                   </thead>
