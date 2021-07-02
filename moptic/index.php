@@ -130,6 +130,7 @@ include '../modules/header.php';
                                                     <option>1.56 SHMC</option>
                                                     <option>1.56 Anti Blue</option>
                                                     <option>1.56 Photocromic Gray</option>
+                                                    <option>1.56 Photocromic Gray HMC</option>
                                                     <option>1.56 Photocromic Brown</option>
                                                     <option>1.59 Polycarbonate</option>
                                                     <option>1.50 Lentikular</option>
