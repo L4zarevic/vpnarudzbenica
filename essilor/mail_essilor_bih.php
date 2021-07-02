@@ -32,10 +32,10 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
-$schema_insert .= '<th>Od/Os/Ou</th>';
+$schema_insert .= '<th>OD/OS/OU</th>';
 $schema_insert .= '<th>Vrsta soč.</th>';
 $schema_insert .= '<th>Dizajn</th>';
-$schema_insert .= '<th>PRL/OCHT</th>';
+$schema_insert .= '<th>FH</th>';
 $schema_insert .= '<th>Segm.</th>';
 $schema_insert .= '<th>Baza</th>';
 $schema_insert .= '<th>Index</th>';
@@ -147,7 +147,7 @@ if (mail($to, $subject, $body, $headers)) {
   $schema_insert .= '<th>Od/Os/Ou</th>';
   $schema_insert .= '<th>Vrsta soč.</th>';
   $schema_insert .= '<th>Dizajn</th>';
-  $schema_insert .= '<th>PRL/OCHT</th>';
+  $schema_insert .= '<th>FH</th>';
   $schema_insert .= '<th>Segm.</th>';
   $schema_insert .= '<th>Baza</th>';
   $schema_insert .= '<th>Index</th>';

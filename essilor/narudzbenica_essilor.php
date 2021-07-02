@@ -22,7 +22,7 @@ echo "<div class='table-responsive'><div class='table-wrapper-scroll-y table-hov
 <th class='tg-0lax'>OD\nOS\nOU</th>
 <th class='tg-0lax'>Vrsta\nsočiva</th>
 <th class='tg-0lax'>Dizajn</th>
-<th class='tg-0lax'>PRL\nOCHT</th>
+<th class='tg-0lax'>FH</th>
 <th class='tg-0lax'>Segment</th>
 <th class='tg-0lax'>Baza</th>
 <th class='tg-0lax'>Index</th>
