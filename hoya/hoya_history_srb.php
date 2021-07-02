@@ -86,7 +86,7 @@ $result = $stmt->get_result();
                       <th>Broj narudžbe</th>
                       <th>Datum</th>
                       <th>Naručio</th>
-                      <th>Realizovano <a href="pol_history_sa.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="pol_history_sa.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
+                      <th>Realizovano <a href="hoya_history_srb.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="hoya_history_srb.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>

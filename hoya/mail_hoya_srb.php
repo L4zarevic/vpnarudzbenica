@@ -32,8 +32,7 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
-$schema_insert .= '<th>Lag-Spec</th>';
-$schema_insert .= '<th>Od/Os/Ou</th>';
+$schema_insert .= '<th>OD/OS/OU</th>';
 $schema_insert .= '<th>Vrsta soč.</th>';
 $schema_insert .= '<th>Dizajn</th>';
 $schema_insert .= '<th>PRL/OCHT</th>';
@@ -61,7 +60,6 @@ $schema_insert .= '<tr>';
 $rb = 0;
 while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . ($rb = $rb + 1) . '</td>';
-  $schema_insert .= '<td>' . $row->lag_spec . '</td>';
   $schema_insert .= '<td>' . $row->od_os_ou . '</td>';
   $schema_insert .= '<td>' . $row->vrsta_sociva . '</td>';
   $schema_insert .= '<td>' . $row->dizajn . '</td>';
@@ -134,9 +132,7 @@ $body .= "--" . $separator . "--";
 if (mail($to, $subject, $body, $headers)) {
 
   //Arhiviranje naružbe i slanje potvrdnog email-a
-  $stmt1 = $con->prepare('SELECT lag_spec,od_os_ou,vrsta_sociva,dizajn,visina,segment,baza,indeks,vrsta_materijala,precnik,sph,cyl,ugao,adicija,jm,kolicina,tretman1,tretman2,pd,mjesto_isporuke,mpc,broj_naloga,napomena
-FROM mojaopt_vpnarudzbenica.narudzbenica_hoya
-WHERE dobavljac="hoya-srbija"');
+  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_hoya WHERE dobavljac="hoya-srbija"');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
@@ -150,8 +146,7 @@ WHERE dobavljac="hoya-srbija"');
   $schema_insert .= '<thead>';
   $schema_insert .= '<tr>';
   $schema_insert .= '<th>R.br.</th>';
-  $schema_insert .= '<th>Lag-Spec</th>';
-  $schema_insert .= '<th>Od/Os/Ou</th>';
+  $schema_insert .= '<th>OD/OS/OU</th>';
   $schema_insert .= '<th>Vrsta soč.</th>';
   $schema_insert .= '<th>Dizajn</th>';
   $schema_insert .= '<th>PRL/OCHT</th>';
@@ -183,7 +178,6 @@ WHERE dobavljac="hoya-srbija"');
   $rb = 0;
   while ($row1 = mysqli_fetch_object($result1)) {
     $schema_insert .= '<td>' . ($rb = $rb + 1) . '</td>';
-    $schema_insert .= '<td>' . $row1->lag_spec . '</td>';
     $schema_insert .= '<td>' . $row1->od_os_ou . '</td>';
     $schema_insert .= '<td>' . $row1->vrsta_sociva . '</td>';
     $schema_insert .= '<td>' . $row1->dizajn . '</td>';
