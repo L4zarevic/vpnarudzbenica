@@ -120,11 +120,11 @@ include '../modules/header.php';
                                                 <div class="md-form mb-5">
                                                     <label>Vrsta sočiva</label><label class="obavezna_polja">*</label>
                                                     <select name="vrsta_sociva" title="Unesite vrstu sočiva" class="form-control" id="select2">
-                                                        <option value="0" default></option>
-                                                        <option value="1">Monofokal</option>
-                                                        <option value="2">Bifokal</option>
-                                                        <option value="3">Progresiv</option>
-                                                        <option value="4">Lentikular</option>
+                                                        <option default></option>
+                                                        <option>Monofokal</option>
+                                                        <option>Bifokal</option>
+                                                        <option>Progresiv</option>
+                                                        <option>Lentikular</option>
                                                     </select>
                                                 </div>
 
