@@ -520,7 +520,7 @@ include '../modules/header.php';
 
                                             <div class="md-form mb-5">
                                                 <label>Jedinica mjere</label>
-                                                <select name="jm" title="Unesite jedinicu mjere" class="form-control" id="select14" disabled>
+                                                <select name="jm" title="Unesite jedinicu mjere" class="form-control" id="select14">
                                                     <option default>kom</option>
                                                 </select>
                                                 <label>Količina</label><label class="obavezna_polja">*</label>
@@ -643,6 +643,16 @@ include '../modules/header.php';
         </div><?php include '../modules/footer.php'; ?>
 </body>
 <script type="text/javascript">
+    $(document).keypress(function(e) {
+        if (e.which == 13) {
+            $('#modalAddEssilor').modal({
+                show: true
+            });
+            $("#modalAddEssilor").on('shown.bs.modal', function() {
+                $(this).find('#komitenti_radnje').focus();
+            });
+        }
+    });
     // $('#label_zvjezdica1').hide();
     $('#label_zvjezdica2').hide();
     // $('#select1').hide();
