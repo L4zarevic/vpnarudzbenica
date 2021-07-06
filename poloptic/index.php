@@ -34,7 +34,7 @@ include '../modules/header.php';
                         ?>
 
                         <div class="row d-flex justify-content-center modalWrapper" id="add_edit_form">
-                            <div class="modal fade addNewInputs" id="modalAddPol" tabindex="-1" role="dialog" aria-labelledby="modalAddPol" aria-hidden="true">
+                            <div class="modal fade addNewInputs" id="modalAddPol" tabindex="-1" role="dialog" aria-labelledby="modalAddPol" aria-hidden="true" >
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header text-center">
