@@ -51,6 +51,7 @@ $schema_insert .= '<th>Kol.</th>';
 $schema_insert .= '<th>Tr.1</th>';
 $schema_insert .= '<th>Tr.2</th>';
 $schema_insert .= '<th>PD</th>';
+$schema_insert .= '<th>Mjesto isporuke</th>';
 $schema_insert .= '<th>Napomena</th>';
 $schema_insert .= '<th></th>';
 $schema_insert .= '</tr>';
@@ -80,6 +81,7 @@ while ($row = mysqli_fetch_object($result)) {
   $schema_insert .= '<td>' . $row->tretman1 . '</td>';
   $schema_insert .= '<td>' . $row->tretman2 . '</td>';
   $schema_insert .= '<td>' . $row->pd . '</td>';
+  $schema_insert .= '<td>' . $row->mjesto_isporuke . '</td>';
   $schema_insert .= '<td>' . $row->napomena . '</td>';
   $schema_insert .= '</tr>';
 }
