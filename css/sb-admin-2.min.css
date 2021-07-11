@@ -476,3 +476,17 @@ div#success {
 	display:inline-block;
 	width:40% !important;
 }
+
+#ugao{
+	display:inline-block;
+	width:30% !important;
+}
+#bc{
+	display:inline-block;
+	width:30% !important;
+	margin-right:10%;
+}
+#td{
+	display:inline-block;
+	width:30% !important;
+}
