@@ -422,7 +422,7 @@ div#success {
 #ugaoCilindra{
 	display:inline-block;
 	width:30% !important;
-	margin-right:4%;
+	margin-right:3%;
 }
 
 #select13{
@@ -487,6 +487,11 @@ div#success {
 	margin-right:10%;
 }
 #td{
+	display:inline-block;
+	width:30% !important;
+}
+
+#addDig{
 	display:inline-block;
 	width:30% !important;
 }

@@ -747,8 +747,8 @@ include '../modules/header.php';
                                                     <input name="ugao" title="Unesite ugao cilindra" type="text" maxlength="3" class="form-control" id="ugaoCilindra">
 
                                                     <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
-                                                    <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
-                                                        <option default></option>
+                                                    <input list="addDigList" name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="addDig">
+                                                    <datalist id="addDigList">
                                                         <option>0.75</option>
                                                         <option>1.00</option>
                                                         <option>1.25</option>
@@ -763,7 +763,7 @@ include '../modules/header.php';
                                                         <option>3.50</option>
                                                         <option>3.75</option>
                                                         <option>4.00</option>
-                                                    </select>
+                                                    </datalist>
                                                 </div>
                                             </div>
 
