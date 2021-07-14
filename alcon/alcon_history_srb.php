@@ -7,7 +7,7 @@ mysqli_set_charset($con, 'utf8');
 
 function nije_realizovano($con)
 {
-  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - Srbija' AND realizovana=''");
+  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_alcon WHERE dobavljac = 'Alcon - Srbija' AND realizovana=''");
   $stmt->execute();
   $result = $stmt->get_result();
   while ($row = $result->fetch_object()) {
@@ -30,7 +30,7 @@ $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $adjacents = "2";
 
-$result_count = mysqli_query($con, "SELECT COUNT(*) As total_records FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - Srbija'");
+$result_count = mysqli_query($con, "SELECT COUNT(*) As total_records FROM istorijat_alcon WHERE dobavljac = 'Alcon - Srbija'");
 $total_records = mysqli_fetch_array($result_count);
 $total_records = $total_records['total_records'];
 $total_no_of_pages = ceil($total_records / $total_records_per_page);
@@ -38,12 +38,12 @@ $second_last = $total_no_of_pages - 1;
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
   if ($_GET['realizovano'] == "asc") {
-    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - Srbija' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_alcon WHERE dobavljac = 'Alcon - Srbija' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
   } else {
-    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - Srbija' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_alcon WHERE dobavljac = 'Alcon - Srbija' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
   }
 } else {
-  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - Srbija' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
+  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_alcon WHERE dobavljac = 'Alcon - Srbija' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
 }
 $stmt->execute();
 $result = $stmt->get_result();
@@ -71,7 +71,7 @@ $result = $stmt->get_result();
 
           <!-- Page Heading -->
 
-          <h1 class="h3 mb-4 text-gray-800">Johnson & Johnson - Srbija</h1>
+          <h1 class="h3 mb-4 text-gray-800">Alcon Srbija</h1>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -86,7 +86,7 @@ $result = $stmt->get_result();
                       <th>Broj narudžbe</th>
                       <th>Datum</th>
                       <th>Narudžbu obradio</th>
-                      <th>Realizovano <a href="johnson_johnson_history_srb.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="johnson_johnson_history_srb.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
+                      <th>Realizovano <a href="alcon_history_srb.php?realizovano=asc"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>&nbsp;<a href="alcon_history_srb.php?realizovano=desc"><i class="fas fa-arrow-down" aria-hidden="true"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>
