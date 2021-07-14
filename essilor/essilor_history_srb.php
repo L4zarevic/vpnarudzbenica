@@ -7,7 +7,7 @@ mysqli_set_charset($con, 'utf8');
 
 function nije_realizovano($con)
 {
-  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_pol WHERE dobavljac = 'Essilor - Srbija' AND realizovana=''");
+  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_essilor WHERE dobavljac = 'Essilor - Srbija' AND realizovana=''");
   $stmt->execute();
   $result = $stmt->get_result();
   while ($row = $result->fetch_object()) {
