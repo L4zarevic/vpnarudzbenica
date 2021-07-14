@@ -137,7 +137,8 @@ function novih_narudzbi_moptic($con)
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="hoya/hoya_history_srb.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
-                <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="#">BiH</a>
