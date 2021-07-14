@@ -105,7 +105,7 @@ $nmessage .= "Content-Disposition: attachment;  filename=\"" . $filename . "\"" 
 $nmessage .= $attachment . $eol;
 $nmessage .= "--" . $separator . "--";
 
-mail($email, $subject1, $nmessage, $header);
+//mail($email, $subject1, $nmessage, $header);
 
 $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_moptic (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"M-Optic")');
 $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
