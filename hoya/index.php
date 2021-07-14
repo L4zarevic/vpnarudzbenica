@@ -96,13 +96,7 @@ include '../modules/header.php';
                                                     <option>ZTR Očna optika Vid - Zvornik</option>
                                                 </datalist>
                                             </div>
-                                            <!--<div class="md-form mb-5">
-                                                <label>Lager / Specijala</label><label class="obavezna_polja">*</label>
-                                                <select name="lag_spec" title="Izaberite Lager ili Specijala" class="form-control" id="select_lagspec">
-                                                    <option value='Lager'>Lager</option>
-                                                    <option value='Spec'>Specijala</option>
-                                                </select>
-                                            </div>-->
+
                                             <div class="md-form mb-5">
                                                 <label id='label_odosou'>OD / OS / OU</label><label id="label_zvjezdica1" class="obavezna_polja">*</label>
                                                 <select name="od_os_ou" title="OD - za desno oko, OS - za lijevo oko, OU - ako je obostrano isto" class="form-control" id="select1">

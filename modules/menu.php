@@ -11,9 +11,9 @@
         <a class="nav-link collapsed" href="../poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
         <a class="nav-link collapsed" href="../essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
         <a class="nav-link collapsed" href="../hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
-        <a class="nav-link collapsed" href="../johnson_johnson/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
-        <a class="nav-link collapsed" href="../alcon/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
-        <a class="nav-link collapsed" href="../bausch_lomb/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
+        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
         <div class="sidebar-heading"></br></div>
         <div class="sidebar-heading"> Istorijat narudžbi </div>
         <a class="nav-link collapsed" href="../moptic/moptic_history.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
@@ -35,6 +35,30 @@
             </div>
         </div>
         <a class="nav-link collapsed" href="../hoya/hoya_history_srb.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">BiH</a>
+                <a class="collapse-item" href="#">Srbija</a>
+            </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+            <i class="fas fa-eye"></i> <span>Alcon</span> </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">BiH</a>
+                <a class="collapse-item" href="#">Srbija</a>
+            </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+            <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="#">BiH</a>
+                <a class="collapse-item" href="#">Srbija</a>
+            </div>
+        </div>
     </li>
     <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline"> <button class="rounded-circle border-0" id="sidebarToggle"></button> </div>

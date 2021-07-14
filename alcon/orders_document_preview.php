@@ -10,19 +10,19 @@ mysqli_set_charset($con, 'utf8');
 $id_stavke = mysqli_real_escape_string($con, $_REQUEST['id']);
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
-    $stmt1 = $con->prepare('UPDATE istorijat_jj SET realizovana="&check;", IDKorisnika_realizovao=? WHERE ID=?');
+    $stmt1 = $con->prepare('UPDATE istorijat_alcon SET realizovana="&check;", IDKorisnika_realizovao=? WHERE ID=?');
     $stmt1->bind_param('ii', $idKorisnika, $id_stavke);
     $stmt1->execute();
 }
 
 if (isset($_REQUEST['napomena'])) {
     $napomena = mysqli_real_escape_string($con, $_REQUEST['napomena']);
-    $stmt2 = $con->prepare('UPDATE istorijat_jj SET napomena=? WHERE ID=?');
+    $stmt2 = $con->prepare('UPDATE istorijat_alcon SET napomena=? WHERE ID=?');
     $stmt2->bind_param('si', $napomena, $id_stavke);
     $stmt2->execute();
 }
 
-$stmt = $con->prepare('SELECT * FROM istorijat_jj WHERE ID=?');
+$stmt = $con->prepare('SELECT * FROM istorijat_alcon WHERE ID=?');
 $stmt->bind_param('i', $id_stavke);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -39,7 +39,7 @@ echo htmlspecialchars_decode($str);
 if ($realizovana == "&check;") {
     echo "</table></br></br><center><h6 style='color:green;font-weight:700;'>Narudžba je realizovana!</h6></center>";
 } else {
-    echo "</table></br></br> <center><button type='button' class='btn btn-success' onClick=window.location.href='\../johnson_johnson/orders_document_preview.php?id=$id_stavke&realizovano=true'>Potvrdi prispeće ove narudžbe</button></center>";
+    echo "</table></br></br> <center><button type='button' class='btn btn-success' onClick=window.location.href='\../alcon/orders_document_preview.php?id=$id_stavke&realizovano=true'>Potvrdi prispeće ove narudžbe</button></center>";
 }
 
 

@@ -22,7 +22,7 @@ include '../modules/header.php';
 
                         </div>
                         </br>
-                        <div class="companyInfo"> <img id="logo" src="../images/j&j.svg" style="width:100%">
+                        <div class="companyInfo"> <img id="logo" src="../images/alcon.svg" style="width:100%">
                             <!-- <p>“M-OPTIC” d.o.o.</br> ul. Majevička br. 29, 76300 Bijeljina</br> <strong>Tel:</strong> +387 55 222 999, 222 990, 490 010</br> <strong>Fax:</strong> +387 55 222 998</br> <strong>Email:</strong> <a href="mailto:mopticvp@mojaoptika.com">mopticvp@mojaoptika.com</a></br> <a href="https://mojaoptika.com">www.mojaoptika.com</a></p>-->
                             </br>
                             </br>
@@ -364,8 +364,8 @@ include '../modules/header.php';
                                             <div class="md-form mb-5">
                                                 <label>Dobavljač</label><label class="obavezna_polja">*</label>
                                                 <select name="dobavljac" class="form-control" id="dobavljac">
-                                                    <option default>johnson_johnson-bih</option>
-                                                    <option>johnson_johnson-srbija</option>
+                                                    <option default>alcon-bih</option>
+                                                    <option>alcon-srbija</option>
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">

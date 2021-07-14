@@ -113,10 +113,10 @@ function novih_narudzbi_moptic($con)
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
-                <a class="nav-link collapsed" href="johnson_johnson/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
-                <a class="nav-link collapsed" href="alcon/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
-                <a class="nav-link collapsed" href="bausch_lomb/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
-             <div class="sidebar-heading"></br></div>
+                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
+                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+                <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
                 <a class="nav-link collapsed" href="moptic/moptic_history.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -137,6 +137,29 @@ function novih_narudzbi_moptic($con)
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="hoya/hoya_history_srb.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
+                <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">BiH</a>
+                        <a class="collapse-item" href="#">Srbija</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                    <i class="fas fa-eye"></i> <span>Alcon</span> </a>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">BiH</a>
+                        <a class="collapse-item" href="#">Srbija</a>
+                    </div>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">BiH</a>
+                        <a class="collapse-item" href="#">Srbija</a>
+                    </div>
+                </div>
             </li>
             <hr class="sidebar-divider">
             <div class="text-center d-none d-md-inline"> <button class="rounded-circle border-0" id="sidebarToggle"></button> </div>
@@ -194,7 +217,7 @@ function novih_narudzbi_moptic($con)
                         <div class="card">
                             <a href="moptic/index.php"><img src="images/moptic.svg" alt="M-OPTIC" style="width:100%">
                                 <div class="container">
-                                <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_moptic($con); ?></label>
+                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_moptic($con); ?></label>
                                 </div>
                             </a>
                         </div>
@@ -226,7 +249,7 @@ function novih_narudzbi_moptic($con)
                         <div class="card">
                             <a href="johnson_johnson/index.php"><img src="images/j&j.svg" alt="Johnson & Johnson" style="width:100%">
                                 <div class="container">
-                                <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_moptic($con); ?></label>
+                                    <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
                             </a>
                         </div>
@@ -234,14 +257,14 @@ function novih_narudzbi_moptic($con)
                         <div class="card">
                             <a href="alcon/index.php"><img src="images/alcon.svg" alt="Alcon" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_pol($con); ?></label>
+                                    <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
                             </a>
                         </div>
                         <div class="card">
                             <a href="bausch_lomb/index.php"><img src="images/bausch_and_lomb.svg" alt="Bausch Lomb" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_essilor($con); ?></label>
+                                    <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
                             </a>
                         </div>
