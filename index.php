@@ -247,7 +247,7 @@ function novih_narudzbi_moptic($con)
                     </br>
                     <div class="cards">
                         <div class="card">
-                            <a href="johnson_johnson/index.php"><img src="images/j&j.svg" alt="Johnson & Johnson" style="width:100%">
+                            <a href="#"><img src="images/j&j.svg" alt="Johnson & Johnson" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
@@ -255,14 +255,14 @@ function novih_narudzbi_moptic($con)
                         </div>
 
                         <div class="card">
-                            <a href="alcon/index.php"><img src="images/alcon.svg" alt="Alcon" style="width:100%">
+                            <a href="#"><img src="images/alcon.svg" alt="Alcon" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
                             </a>
                         </div>
                         <div class="card">
-                            <a href="bausch_lomb/index.php"><img src="images/bausch_and_lomb.svg" alt="Bausch Lomb" style="width:100%">
+                            <a href="#"><img src="images/bausch_and_lomb.svg" alt="Bausch Lomb" style="width:100%">
                                 <div class="container">
                                     <label>Novih narudžbi: &nbsp;#</label>
                                 </div>
