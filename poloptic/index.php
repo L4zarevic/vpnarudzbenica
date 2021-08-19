@@ -180,205 +180,35 @@ include '../modules/header.php';
 
                                                 <div class="md-form mb-5">
                                                     <label>Vrsta materijala</label><label class="obavezna_polja">*</label>
-                                                    <select name="materijal" title="Unesite vrstu materijala za recepturu" class="form-control" id="select3">
-                                                        <option value="0" default></option>
-                                                        <!-- Standard UC / Pollux / Polaris-->
-                                                        <option value="100" default></option>
-                                                        <option value="100">CR-39</option>
-                                                        <option value="100">CR-39 UV420 Remove</option>
-                                                        <option value="100">CR-39 UV420 Photo gray</option>
-                                                        <option value="100">CR-39 UV420 Photo brown</option>
-                                                        <option value="100">Transitions VII gray</option>
-                                                        <option value="100">Transitions VII brown</option>
-                                                        <option value="100">Transitions VII green</option>
-                                                        <option value="100">Polycarbonate</option>
-                                                        <option value="100">Polycarbonate Transitions gray</option>
-                                                        <option value="100">Polycarbonate Transitions brown</option>
-                                                        <option value="100">Polycarbonate Transitions green</option>
-                                                        <option value="100">Nupolar gray</option>
-                                                        <option value="100">Nupolar brown</option>
-                                                        <option value="100">Nupolar G-15</option>
-                                                        <option value="100">Nupolar-Polycarbonate gray</option>
-                                                        <option value="100">Nupolar-Polycarbonate brown</option>
-                                                        <option value="100">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="100">Photomatic gray</option>
-                                                        <option value="100">Photomatic brown</option>
-                                                        <option value="100">Mineralni materijali</option>
-                                                        <option value="100">Photo gray mineralni materijali</option>
-                                                        <option value="100">Photo brown mineralni materijali</option>
-                                                        <option value="100" default></option>
+                                                    <input list="vrsta_materija_spec_list" name="materijal" title="Unesite vrstu materijala za recepturu" class="form-control" id="materijal_spec">
+                                                    <datalist id="vrsta_materija_spec_list">
+                                                        <option>CR-39</option>
+                                                        <option>CR-39 UV420 Remove</option>
+                                                        <option>CR-39 UV420 Photo gray</option>
+                                                        <option>CR-39 UV420 Photo brown</option>
+                                                        <option>Transitions VII gray</option>
+                                                        <option>Transitions VII brown</option>
+                                                        <option>Transitions VII green</option>
+                                                        <option>Polycarbonate</option>
+                                                        <option>Polycarbonate Transitions gray</option>
+                                                        <option>Polycarbonate Transitions brown</option>
+                                                        <option>Polycarbonate Transitions green</option>
+                                                        <option>Nupolar gray</option>
+                                                        <option>Nupolar brown</option>
+                                                        <option>Nupolar G-15</option>
+                                                        <option>Nupolar-Polycarbonate gray</option>
+                                                        <option>Nupolar-Polycarbonate brown</option>
+                                                        <option>Nupolar-Polycarbonate G-15</option>
+                                                        <option>Photomatic gray</option>
+                                                        <option>Photomatic brown</option>
+                                                        <option>Mineralni materijali</option>
+                                                        <option>Photo gray mineralni materijali</option>
+                                                        <option>Photo brown mineralni materijali</option>
 
-                                                        <!-- Panorama / Anglera -->
-                                                        <option value="101" default></option>
-                                                        <option value="101">CR-39</option>
-                                                        <option value="101">CR-39 UV420 Remove</option>
-                                                        <option value="101">CR-39 UV420 Photo gray</option>
-                                                        <option value="101">CR-39 UV420 Photo brown</option>
-                                                        <option value="101">Transitions VII gray</option>
-                                                        <option value="101">Transitions VII brown</option>
-                                                        <option value="101">Transitions VII green</option>
-                                                        <option value="101">Polycarbonate</option>
-                                                        <option value="101">Polycarbonate Transitions gray</option>
-                                                        <option value="101">Polycarbonate Transitions brown</option>
-                                                        <option value="101">Polycarbonate Transitions green</option>
-                                                        <option value="101">Nupolar gray</option>
-                                                        <option value="101">Nupolar brown</option>
-                                                        <option value="101">Nupolar G-15</option>
-                                                        <option value="101">Nupolar-Polycarbonate gray</option>
-                                                        <option value="101">Nupolar-Polycarbonate brown</option>
-                                                        <option value="101">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="101">Photomatic gray</option>
-                                                        <option value="101">Photomatic brown</option>
-                                                        <option value="101" default></option>
-
-                                                        <!-- Matrix Mono / Elegance / Matrix Sport -->
-                                                        <option value="102" default></option>
-                                                        <option value="102">CR-39</option>
-                                                        <option value="102">CR-39 UV420 Remove</option>
-                                                        <option value="102">CR-39 UV420 Photo gray</option>
-                                                        <option value="102">CR-39 UV420 Photo brown</option>
-                                                        <option value="102">Transitions VII gray</option>
-                                                        <option value="102">Transitions VII brown</option>
-                                                        <option value="102">Transitions VII green</option>
-                                                        <option value="102">Polycarbonate</option>
-                                                        <option value="102">Polycarbonate Transitions gray</option>
-                                                        <option value="102">Polycarbonate Transitions brown</option>
-                                                        <option value="102">Polycarbonate Transitions green</option>
-                                                        <option value="102">Nupolar gray</option>
-                                                        <option value="102">Nupolar brown</option>
-                                                        <option value="102">Nupolar G-15</option>
-                                                        <option value="102">Nupolar-Polycarbonate gray</option>
-                                                        <option value="102">Nupolar-Polycarbonate brown</option>
-                                                        <option value="102">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="102" default></option>
-
-                                                        <!-- FT28 / CT28-->
-                                                        <option value="103" default></option>
-                                                        <option value="103">CR-39</option>
-                                                        <option value="103">Transitions VII gray</option>
-                                                        <option value="103">Transitions VII brown</option>
-                                                        <option value="103">Trivex</option>
-                                                        <option value="103">Polycarbonate Transitions gray</option>
-                                                        <option value="103">Polycarbonate Transitions brown</option>
-                                                        <option value="103">Polycarbonate Transitions green</option>
-                                                        <option value="103">Nupolar-Polycarbonate gray</option>
-                                                        <option value="103">Nupolar-Polycarbonate brown</option>
-                                                        <option value="103">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="103">Mineralni materijali</option>
-                                                        <option value="103">Photo gray mineralni materijali</option>
-                                                        <option value="103">Photo brown mineralni materijali</option>
-                                                        <option value="103" default></option>
-
-                                                        <!-- Bifo invision-->
-                                                        <option value="104" default></option>
-                                                        <option value="104">CR-39</option>
-                                                        <option value="104">CR-39 UV420 Remove</option>
-                                                        <option value="104">CR-39 UV420 Photo gray</option>
-                                                        <option value="104">CR-39 UV420 Photo brown</option>
-                                                        <option value="104">Transitions VII gray</option>
-                                                        <option value="104">Transitions VII brown</option>
-                                                        <option value="104">Transitions VII green</option>
-                                                        <option value="104">Polycarbonate</option>
-                                                        <option value="104">Polycarbonate Transitions gray</option>
-                                                        <option value="104">Polycarbonate Transitions brown</option>
-                                                        <option value="104">Polycarbonate Transitions green</option>
-                                                        <option value="104">Nupolar gray</option>
-                                                        <option value="104">Nupolar brown</option>
-                                                        <option value="104">Nupolar G-15</option>
-                                                        <option value="104">Nupolar-Polycarbonate gray</option>
-                                                        <option value="104">Nupolar-Polycarbonate brown</option>
-                                                        <option value="104">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="104">Photomatic gray</option>
-                                                        <option value="104">Photomatic brown</option>
-                                                        <option value="104" default></option>
-
-                                                        <!-- Futura / Infini -->
-                                                        <option value="105" default></option>
-                                                        <option value="105">CR-39</option>
-                                                        <option value="105">CR-39 UV420 Remove</option>
-                                                        <option value="105">CR-39 UV420 Photo gray</option>
-                                                        <option value="105">CR-39 UV420 Photo brown</option>
-                                                        <option value="105">Transitions VII gray</option>
-                                                        <option value="105">Transitions VII brown</option>
-                                                        <option value="105">Transitions VII green</option>
-                                                        <option value="105">Polycarbonate</option>
-                                                        <option value="105">Polycarbonate Transitions gray</option>
-                                                        <option value="105">Polycarbonate Transitions brown</option>
-                                                        <option value="105">Polycarbonate Transitions green</option>
-                                                        <option value="105">Nupolar gray</option>
-                                                        <option value="105">Nupolar brown</option>
-                                                        <option value="105">Nupolar G-15</option>
-                                                        <option value="105">Nupolar-Polycarbonate gray</option>
-                                                        <option value="105">Nupolar-Polycarbonate brown</option>
-                                                        <option value="105">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="105">Photomatic gray</option>
-                                                        <option value="105">Photomatic brown</option>
-                                                        <option value="105" default></option>
-
-                                                        <!-- Inoffis -->
-                                                        <option value="106" default></option>
-                                                        <option value="106">CR-39</option>
-                                                        <option value="106">CR-39 UV420 Remove</option>
-                                                        <option value="106">CR-39 UV420 Photo gray</option>
-                                                        <option value="106">CR-39 UV420 Photo brown</option>
-                                                        <option value="106">Transitions VII gray</option>
-                                                        <option value="106">Transitions VII brown</option>
-                                                        <option value="106">Transitions VII green</option>
-                                                        <option value="106">Polycarbonate</option>
-                                                        <option value="106">Polycarbonate Transitions gray</option>
-                                                        <option value="106">Polycarbonate Transitions brown</option>
-                                                        <option value="106">Polycarbonate Transitions green</option>
-                                                        <option value="106">Photomatic gray</option>
-                                                        <option value="106">Photomatic brown</option>
-                                                        <option value="106" default></option>
-
-                                                        <!-- Matrix Short / Matrix Pro / Lightform / Operative -->
-                                                        <option value="107" default></option>
-                                                        <option value="107">CR-39</option>
-                                                        <option value="107">CR-39 UV420 Remove</option>
-                                                        <option value="107">CR-39 UV420 Photo gray</option>
-                                                        <option value="107">CR-39 UV420 Photo brown</option>
-                                                        <option value="107">Transitions VII gray</option>
-                                                        <option value="107">Transitions VII brown</option>
-                                                        <option value="107">Transitions VII green</option>
-                                                        <option value="107">Polycarbonate</option>
-                                                        <option value="107">Polycarbonate Transitions gray</option>
-                                                        <option value="107">Polycarbonate Transitions brown</option>
-                                                        <option value="107">Polycarbonate Transitions green</option>
-                                                        <option value="107">Nupolar gray</option>
-                                                        <option value="107">Nupolar brown</option>
-                                                        <option value="107">Nupolar G-15</option>
-                                                        <option value="107">Nupolar-Polycarbonate gray</option>
-                                                        <option value="107">Nupolar-Polycarbonate brown</option>
-                                                        <option value="107">Nupolar-Polycarbonate G-15</option>
-                                                        <option value="107" default></option>
-
-                                                        <!-- Varia 3D / Varia Pro / Varia Pix / Varia Zon-->
-                                                        <option value="108" default></option>
-                                                        <option value="108">CR-39</option>
-                                                        <option value="108">Transitions VII gray</option>
-                                                        <option value="108">Transitions VII brown</option>
-                                                        <option value="108">Polycarbonate</option>
-                                                        <option value="108">Polycarbonate Transitions gray</option>
-                                                        <option value="108">Polycarbonate Transitions brown</option>
-                                                        <option value="108">Nupolar gray</option>
-                                                        <option value="108">Nupolar brown</option>
-                                                        <option value="108" default></option>
-
-                                                        <!-- Mineralni materijali-->
-                                                        <option value="109" default></option>
-                                                        <option value="109">Mineralni materijali</option>
-                                                        <option value="109">Photo gray mineralni materijali</option>
-                                                        <option value="109">Photo brown mineralni materijali</option>
-                                                        <option value="109" default></option>
-
-                                                        <!-- Tip A / Tip B / Tip C-->
-                                                        <option value="110" default></option>
-                                                        <option value="110">Ortas</option>
-                                                        <option value="110">Stand</option>
-                                                        <option value="110">Expert</option>
-                                                        <option value="110" default></option>
-                                                    </select>
+                                                        <option>Ortas</option>
+                                                        <option>Stand</option>
+                                                        <option>Expert</option>
+                                                    </datalist>
                                                 </div>
 
 
@@ -785,338 +615,44 @@ include '../modules/header.php';
 
                                             <div id="ifSpecijalaTr">
                                                 <div class="md-form mb-5">
-                                                    <label>Tretmani i bojenja #1</label>
-                                                    <select name="tretman1" class="form-control" id="select15">
-                                                        <option value="100" default></option>
-                                                        <option value="100">HC</option>
-                                                        <option value="100">MultiPlus</option>
-                                                        <option value="100">UltraGlide</option>
-                                                        <option value="100">NanoGlide</option>
-                                                        <option value="100">PolarGlide</option>
-                                                        <option value="100">BlueGlide</option>
-                                                        <option value="100">PureGlide</option>
-                                                        <option value="100">UltraGlide BackSide</option>
-                                                        <option value="100">Mirror/UltraBS</option>
-                                                        <option value="100" disabled>--- Bojenje ---</option>
-                                                        <option value="100">Unicolor</option>
-                                                        <option value="100">Unicolor Hi index</option>
-                                                        <option value="100">Color po uzorku</option>
-                                                        <option value="100">Color po uzorku Hi index</option>
-                                                        <option value="100">Gradient</option>
-                                                        <option value="100">Gradient Hi index</option>
-                                                        <option value="100" default></option>
-
-                                                        <option value="101" default></option>
-                                                        <option value="101">MultiPlus</option>
-                                                        <option value="101">UltraGlide</option>
-                                                        <option value="101">NanoGlide</option>
-                                                        <option value="101">PolarGlide</option>
-                                                        <option value="101">BlueGlide</option>
-                                                        <option value="101">PureGlide</option>
-                                                        <option value="101">UltraGlide BackSide</option>
-                                                        <option value="101">Mirror/UltraBS</option>
-                                                        <option value="101" disabled>--- Bojenje ---</option>
-                                                        <option value="101">Unicolor</option>
-                                                        <option value="101">Unicolor Hi index</option>
-                                                        <option value="101">Color po uzorku</option>
-                                                        <option value="101">Color po uzorku Hi index</option>
-                                                        <option value="101">Gradient</option>
-                                                        <option value="101">Gradient Hi index</option>
-                                                        <option value="101" default></option>
-
-                                                        <option value="102" default></option>
-                                                        <option value="102">UltraGlide</option>
-                                                        <option value="102">NanoGlide</option>
-                                                        <option value="102">PolarGlide</option>
-                                                        <option value="102">BlueGlide</option>
-                                                        <option value="102">PureGlide</option>
-                                                        <option value="102">UltraGlide BackSide</option>
-                                                        <option value="102">Mirror/UltraBS</option>
-                                                        <option value="102" disabled>--- Bojenje ---</option>
-                                                        <option value="102">Unicolor</option>
-                                                        <option value="102">Unicolor Hi index</option>
-                                                        <option value="102">Color po uzorku</option>
-                                                        <option value="102">Color po uzorku Hi index</option>
-                                                        <option value="102">Gradient</option>
-                                                        <option value="102">Gradient Hi index</option>
-                                                        <option value="102" default></option>
-
-                                                        <option value="103" default></option>
-                                                        <option value="103">HC</option>
-                                                        <option value="103">MultiPlus</option>
-                                                        <option value="103">UltraGlide</option>
-                                                        <option value="103">NanoGlide</option>
-                                                        <option value="103">PolarGlide</option>
-                                                        <option value="103">BlueGlide</option>
-                                                        <option value="103">PureGlide</option>
-                                                        <option value="103">UltraGlide BackSide</option>
-                                                        <option value="103">Mirror/UltraBS</option>
-                                                        <option value="103" disabled>--- Bojenje ---</option>
-                                                        <option value="103">Unicolor</option>
-                                                        <option value="103">Unicolor Hi index</option>
-                                                        <option value="103">Color po uzorku</option>
-                                                        <option value="103">Color po uzorku Hi index</option>
-                                                        <option value="103">Gradient</option>
-                                                        <option value="103">Gradient Hi index</option>
-                                                        <option value="103" default></option>
-
-                                                        <option value="104" default></option>
-                                                        <option value="104">MultiPlus</option>
-                                                        <option value="104">UltraGlide</option>
-                                                        <option value="104">NanoGlide</option>
-                                                        <option value="104">PolarGlide</option>
-                                                        <option value="104">BlueGlide</option>
-                                                        <option value="104">PureGlide</option>
-                                                        <option value="104">UltraGlide BackSide</option>
-                                                        <option value="104">Mirror/UltraBS</option>
-                                                        <option value="104" disabled>--- Bojenje ---</option>
-                                                        <option value="104">Unicolor</option>
-                                                        <option value="104">Unicolor Hi index</option>
-                                                        <option value="104">Color po uzorku</option>
-                                                        <option value="104">Color po uzorku Hi index</option>
-                                                        <option value="104">Gradient</option>
-                                                        <option value="104">Gradient Hi index</option>
-                                                        <option value="104" default></option>
-
-                                                        <option value="105" default></option>
-                                                        <option value="105">MultiPlus</option>
-                                                        <option value="105">UltraGlide</option>
-                                                        <option value="105">NanoGlide</option>
-                                                        <option value="105">PolarGlide</option>
-                                                        <option value="105">BlueGlide</option>
-                                                        <option value="105">PureGlide</option>
-                                                        <option value="105">UltraGlide BackSide</option>
-                                                        <option value="105">Mirror/UltraBS</option>
-                                                        <option value="105" disabled>--- Bojenje ---</option>
-                                                        <option value="105">Unicolor</option>
-                                                        <option value="105">Unicolor Hi index</option>
-                                                        <option value="105">Color po uzorku</option>
-                                                        <option value="105">Color po uzorku Hi index</option>
-                                                        <option value="105">Gradient</option>
-                                                        <option value="105">Gradient Hi index</option>
-                                                        <option value="105" default></option>
-
-                                                        <option value="107" default></option>
-                                                        <option value="107">UltraGlide</option>
-                                                        <option value="107">NanoGlide</option>
-                                                        <option value="107">PolarGlide</option>
-                                                        <option value="107">BlueGlide</option>
-                                                        <option value="107">PureGlide</option>
-                                                        <option value="107">UltraGlide BackSide</option>
-                                                        <option value="107">Mirror/UltraBS</option>
-                                                        <option value="107" disabled>--- Bojenje ---</option>
-                                                        <option value="107">Unicolor</option>
-                                                        <option value="107">Unicolor Hi index</option>
-                                                        <option value="107">Color po uzorku</option>
-                                                        <option value="107">Color po uzorku Hi index</option>
-                                                        <option value="107">Gradient</option>
-                                                        <option value="107">Gradient Hi index</option>
-                                                        <option value="107" default></option>
-
-                                                        <option value="108" default></option>
-                                                        <option value="108">UltraGlide</option>
-                                                        <option value="108">NanoGlide</option>
-                                                        <option value="108">PolarGlide</option>
-                                                        <option value="108">BlueGlide</option>
-                                                        <option value="108">PureGlide</option>
-                                                        <option value="108">UltraGlide BackSide</option>
-                                                        <option value="108">Mirror/UltraBS</option>
-                                                        <option value="108" disabled>--- Bojenje ---</option>
-                                                        <option value="108">Unicolor</option>
-                                                        <option value="108">Unicolor Hi index</option>
-                                                        <option value="108">Color po uzorku</option>
-                                                        <option value="108">Color po uzorku Hi index</option>
-                                                        <option value="108">Gradient</option>
-                                                        <option value="108">Gradient Hi index</option>
-                                                        <option value="108" default></option>
-
-                                                        <option value="109" default></option>
-                                                        <option value="109">MultiPlus</option>
-                                                        <option value="109">UltraGlide</option>
-                                                        <option value="109">NanoGlide</option>
-                                                        <option value="109">PolarGlide</option>
-                                                        <option value="109">BlueGlide</option>
-                                                        <option value="109">PureGlide</option>
-                                                        <option value="109">UltraGlide BackSide</option>
-                                                        <option value="109">Mirror/UltraBS</option>
-                                                        <option value="109" disabled>--- Bojenje ---</option>
-                                                        <option value="109">Unicolor</option>
-                                                        <option value="109">Unicolor Hi index</option>
-                                                        <option value="109">Color po uzorku</option>
-                                                        <option value="109">Color po uzorku Hi index</option>
-                                                        <option value="109">Gradient</option>
-                                                        <option value="109">Gradient Hi index</option>
-                                                        <option value="109" default></option>
-                                                    </select>
+                                                    <label>Tretmani #1</label>
+                                                    <input list="tretman1lista" name="tretman1" class="form-control" id="tretman1">
+                                                    <datalist id="tretman1lista">
+                                                        <option>HC</option>
+                                                        <option>MultiPlus</option>
+                                                        <option>UltraGlide</option>
+                                                        <option>NanoGlide</option>
+                                                        <option>PolarGlide</option>
+                                                        <option>BlueGlide</option>
+                                                        <option>PureGlide</option>
+                                                        <option>UltraGlide BackSide</option>
+                                                        <option>Mirror/UltraBS</option>
+                                                    </datalist>
                                                 </div>
 
 
 
                                                 <div class="md-form mb-5">
                                                     <label>Tretmani i bojenja #2</label>
-                                                    <select name="tretman2" class="form-control" id="select16">
+                                                    <input list="tretman2lista" name="tretman2" class="form-control" id="tretman2">
+                                                    <datalist id="tretman2lista">
+                                                        <option>HC</option>
+                                                        <option>MultiPlus</option>
+                                                        <option>UltraGlide</option>
+                                                        <option>NanoGlide</option>
+                                                        <option>PolarGlide</option>
+                                                        <option>BlueGlide</option>
+                                                        <option>PureGlide</option>
+                                                        <option>UltraGlide BackSide</option>
+                                                        <option>Mirror/UltraBS</option>
 
-                                                        <option value="100" default></option>
-                                                        <option value="100">HC</option>
-                                                        <option value="100">MultiPlus</option>
-                                                        <option value="100">UltraGlide</option>
-                                                        <option value="100">NanoGlide</option>
-                                                        <option value="100">PolarGlide</option>
-                                                        <option value="100">BlueGlide</option>
-                                                        <option value="100">PureGlide</option>
-                                                        <option value="100">UltraGlide BackSide</option>
-                                                        <option value="100">Mirror/UltraBS</option>
-                                                        <option value="100" disabled>--- Bojenje ---</option>
-                                                        <option value="100">Unicolor</option>
-                                                        <option value="100">Unicolor Hi index</option>
-                                                        <option value="100">Color po uzorku</option>
-                                                        <option value="100">Color po uzorku Hi index</option>
-                                                        <option value="100">Gradient</option>
-                                                        <option value="100">Gradient Hi index</option>
-                                                        <option value="100" default></option>
-
-                                                        <option value="101" default></option>
-                                                        <option value="101">MultiPlus</option>
-                                                        <option value="101">UltraGlide</option>
-                                                        <option value="101">NanoGlide</option>
-                                                        <option value="101">PolarGlide</option>
-                                                        <option value="101">BlueGlide</option>
-                                                        <option value="101">PureGlide</option>
-                                                        <option value="101">UltraGlide BackSide</option>
-                                                        <option value="101">Mirror/UltraBS</option>
-                                                        <option value="101" disabled>--- Bojenje ---</option>
-                                                        <option value="101">Unicolor</option>
-                                                        <option value="101">Unicolor Hi index</option>
-                                                        <option value="101">Color po uzorku</option>
-                                                        <option value="101">Color po uzorku Hi index</option>
-                                                        <option value="101">Gradient</option>
-                                                        <option value="101">Gradient Hi index</option>
-                                                        <option value="101" default></option>
-
-                                                        <option value="102" default></option>
-                                                        <option value="102">UltraGlide</option>
-                                                        <option value="102">NanoGlide</option>
-                                                        <option value="102">PolarGlide</option>
-                                                        <option value="102">BlueGlide</option>
-                                                        <option value="102">PureGlide</option>
-                                                        <option value="102">UltraGlide BackSide</option>
-                                                        <option value="102">Mirror/UltraBS</option>
-                                                        <option value="102" disabled>--- Bojenje ---</option>
-                                                        <option value="102">Unicolor</option>
-                                                        <option value="102">Unicolor Hi index</option>
-                                                        <option value="102">Color po uzorku</option>
-                                                        <option value="102">Color po uzorku Hi index</option>
-                                                        <option value="102">Gradient</option>
-                                                        <option value="102">Gradient Hi index</option>
-                                                        <option value="102" default></option>
-
-                                                        <option value="103" default></option>
-                                                        <option value="103">HC</option>
-                                                        <option value="103">MultiPlus</option>
-                                                        <option value="103">UltraGlide</option>
-                                                        <option value="103">NanoGlide</option>
-                                                        <option value="103">PolarGlide</option>
-                                                        <option value="103">BlueGlide</option>
-                                                        <option value="103">PureGlide</option>
-                                                        <option value="103">UltraGlide BackSide</option>
-                                                        <option value="103">Mirror/UltraBS</option>
-                                                        <option value="103" disabled>--- Bojenje ---</option>
-                                                        <option value="103">Unicolor</option>
-                                                        <option value="103">Unicolor Hi index</option>
-                                                        <option value="103">Color po uzorku</option>
-                                                        <option value="103">Color po uzorku Hi index</option>
-                                                        <option value="103">Gradient</option>
-                                                        <option value="103">Gradient Hi index</option>
-                                                        <option value="103" default></option>
-
-                                                        <option value="104" default></option>
-                                                        <option value="104">MultiPlus</option>
-                                                        <option value="104">UltraGlide</option>
-                                                        <option value="104">NanoGlide</option>
-                                                        <option value="104">PolarGlide</option>
-                                                        <option value="104">BlueGlide</option>
-                                                        <option value="104">PureGlide</option>
-                                                        <option value="104">UltraGlide BackSide</option>
-                                                        <option value="104">Mirror/UltraBS</option>
-                                                        <option value="104" disabled>--- Bojenje ---</option>
-                                                        <option value="104">Unicolor</option>
-                                                        <option value="104">Unicolor Hi index</option>
-                                                        <option value="104">Color po uzorku</option>
-                                                        <option value="104">Color po uzorku Hi index</option>
-                                                        <option value="104">Gradient</option>
-                                                        <option value="104">Gradient Hi index</option>
-                                                        <option value="104" default></option>
-
-                                                        <option value="105" default></option>
-                                                        <option value="105">MultiPlus</option>
-                                                        <option value="105">UltraGlide</option>
-                                                        <option value="105">NanoGlide</option>
-                                                        <option value="105">PolarGlide</option>
-                                                        <option value="105">BlueGlide</option>
-                                                        <option value="105">PureGlide</option>
-                                                        <option value="105">UltraGlide BackSide</option>
-                                                        <option value="105">Mirror/UltraBS</option>
-                                                        <option value="105" disabled>--- Bojenje ---</option>
-                                                        <option value="105">Unicolor</option>
-                                                        <option value="105">Unicolor Hi index</option>
-                                                        <option value="105">Color po uzorku</option>
-                                                        <option value="105">Color po uzorku Hi index</option>
-                                                        <option value="105">Gradient</option>
-                                                        <option value="105">Gradient Hi index</option>
-                                                        <option value="105" default></option>
-
-                                                        <option value="107" default></option>
-                                                        <option value="107">UltraGlide</option>
-                                                        <option value="107">NanoGlide</option>
-                                                        <option value="107">PolarGlide</option>
-                                                        <option value="107">BlueGlide</option>
-                                                        <option value="107">PureGlide</option>
-                                                        <option value="107">UltraGlide BackSide</option>
-                                                        <option value="107">Mirror/UltraBS</option>
-                                                        <option value="107" disabled>--- Bojenje ---</option>
-                                                        <option value="107">Unicolor</option>
-                                                        <option value="107">Unicolor Hi index</option>
-                                                        <option value="107">Color po uzorku</option>
-                                                        <option value="107">Color po uzorku Hi index</option>
-                                                        <option value="107">Gradient</option>
-                                                        <option value="107">Gradient Hi index</option>
-                                                        <option value="107" default></option>
-
-                                                        <option value="108" default></option>
-                                                        <option value="108">UltraGlide</option>
-                                                        <option value="108">NanoGlide</option>
-                                                        <option value="108">PolarGlide</option>
-                                                        <option value="108">BlueGlide</option>
-                                                        <option value="108">PureGlide</option>
-                                                        <option value="108">UltraGlide BackSide</option>
-                                                        <option value="108">Mirror/UltraBS</option>
-                                                        <option value="108" disabled>--- Bojenje ---</option>
-                                                        <option value="108">Unicolor</option>
-                                                        <option value="108">Unicolor Hi index</option>
-                                                        <option value="108">Color po uzorku</option>
-                                                        <option value="108">Color po uzorku Hi index</option>
-                                                        <option value="108">Gradient</option>
-                                                        <option value="108">Gradient Hi index</option>
-                                                        <option value="108" default></option>
-
-                                                        <option value="109" default></option>
-                                                        <option value="109">MultiPlus</option>
-                                                        <option value="109">UltraGlide</option>
-                                                        <option value="109">NanoGlide</option>
-                                                        <option value="109">PolarGlide</option>
-                                                        <option value="109">BlueGlide</option>
-                                                        <option value="109">PureGlide</option>
-                                                        <option value="109">UltraGlide BackSide</option>
-                                                        <option value="109">Mirror/UltraBS</option>
-                                                        <option value="109" disabled>--- Bojenje ---</option>
-                                                        <option value="109">Unicolor</option>
-                                                        <option value="109">Unicolor Hi index</option>
-                                                        <option value="109">Color po uzorku</option>
-                                                        <option value="109">Color po uzorku Hi index</option>
-                                                        <option value="109">Gradient</option>
-                                                        <option value="109">Gradient Hi index</option>
-                                                        <option value="109" default></option>
-                                                    </select>
+                                                        <option>Unicolor</option>
+                                                        <option>Unicolor Hi index</option>
+                                                        <option>Color po uzorku</option>
+                                                        <option>Color po uzorku Hi index</option>
+                                                        <option>Gradient</option>
+                                                        <option>Gradient Hi index</option>
+                                                    </datalist>
                                                 </div>
                                             </div>
 
@@ -1238,15 +774,9 @@ include '../modules/header.php';
     $('#select1').hide();
     var $select_lagspec = $('#select_lagspec'),
         $select2 = $('#select2'),
-        $select3 = $('#select3'),
         $select4 = $('#select4'),
         $select12 = $('#select12'),
-        $select15 = $('#select15'),
-        $select16 = $('#select16'),
-        $options1 = $select3.find('option');
     $options2 = $select4.find('option');
-    $options3 = $select15.find('option');
-    $options4 = $select16.find('option');
 
 
     $('#ifSpecijala,#ifSpecijalaTr').hide();
@@ -1280,21 +810,6 @@ include '../modules/header.php';
 
     $select2.on('change', function() {
         $select4.html($options2.filter('[value="' + this.value + '"]'));
-    }).trigger('change');
-
-    $select4.on('change', function() {
-        var id = $(this).children(":selected").attr("id");
-        $select3.html($options1.filter('[value="' + id + '"]'));
-    }).trigger('change');
-
-    $select4.on('change', function() {
-        var id = $(this).children(":selected").attr("id");
-        $select15.html($options3.filter('[value="' + id + '"]'));
-    }).trigger('change');
-
-    $select4.on('change', function() {
-        var id1 = $(this).children(":selected").attr("id");
-        $select16.html($options4.filter('[value="' + id1 + '"]'));
     }).trigger('change');
 
     $select12.on('change', function() {
