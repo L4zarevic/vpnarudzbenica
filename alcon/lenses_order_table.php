@@ -73,6 +73,14 @@ if (mysqli_num_rows($result1) > 0) {
     echo "<button type='button' onclick='sendAlconBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Alcon BiH</button>&nbsp;&nbsp;";
 }
 
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_alcon WHERE dobavljac="alcon-srbija"');
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+if (mysqli_num_rows($result2) > 0) {
+    echo "<button type='button' onclick='sendAlconSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Alcon Srbija</button>&nbsp;&nbsp;";
+}
+
 echo "</br>";
 echo "</br>";
 

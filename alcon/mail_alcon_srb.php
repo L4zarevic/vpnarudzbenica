@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_object($result)) {
 $schema_insert .= '</tbody>';
 file_put_contents('../orders/alcon/narudzbenica_alcon_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
-$to = "narudzba@mojaoptika.com";
+$to = "kontaktna.sociva@opticus-oculus.com";
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
 $stmt->bind_param('i', $idKorisnika);

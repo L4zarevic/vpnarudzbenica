@@ -56,6 +56,16 @@ function novih_narudzbi_moptic($con)
     }
 }
 
+function novih_narudzbi_alcon($con)
+{
+    $stmt = $con->prepare('SELECT COUNT(ID) AS brojRedova FROM narudzbenica_alcon');
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_object()) {
+        echo $row->brojRedova;
+    }
+}
+
 ?>
 
 <head>
@@ -114,7 +124,7 @@ function novih_narudzbi_moptic($con)
                 <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
+                <a class="nav-link collapsed" href="alcon/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
                 <div class="sidebar-heading"></br></div>
                 <div class="sidebar-heading"> Istorijat narudžbi </div>
@@ -149,8 +159,8 @@ function novih_narudzbi_moptic($con)
                     <i class="fas fa-eye"></i> <span>Alcon</span> </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">BiH</a>
-                        <a class="collapse-item" href="#">Srbija</a>
+                        <a class="collapse-item" href="alcon/alcon_history_bih.php">BiH</a>
+                        <a class="collapse-item" href="alcon/alcon_history_srb.php">Srbija</a>
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
@@ -256,9 +266,9 @@ function novih_narudzbi_moptic($con)
                         </div>
 
                         <div class="card">
-                            <a href="#"><img src="images/alcon.svg" alt="Alcon" style="width:100%">
+                            <a href="alcon/index.php"><img src="images/alcon.svg" alt="Alcon" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: &nbsp;#</label>
+                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_alcon($con); ?></label>
                                 </div>
                             </a>
                         </div>

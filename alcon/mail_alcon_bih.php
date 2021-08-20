@@ -69,7 +69,7 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/alcon/narudzbenica_alcon_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "oktal-pharma@oktal-pharma.ba";
+$to = "provision.vgd@gmail.com";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
