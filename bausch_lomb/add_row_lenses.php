@@ -32,7 +32,7 @@ $mjesto_isporuke = $arS[14];
 
 $napomena = str_replace('\n', " ", $napomena1);
 
-$stmt = $con->prepare('INSERT INTO narudzbenica_bausch_lomb (od_os,tip,sph,cyl,ugao,bc,td,jm,kolicina,mpc,broj_naloga,napomena,komitenti_radnje,dobavljac,mjesto_isporuke) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+$stmt = $con->prepare('INSERT INTO narudzbenica_bl (od_os,tip,sph,cyl,ugao,bc,td,jm,kolicina,mpc,broj_naloga,napomena,komitenti_radnje,dobavljac,mjesto_isporuke) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 $stmt->bind_param('ssssssssissssss', $od_os, $tip, $sph, $cyl, $ugao, $bc, $td, $jm, $kolicina, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke);
 $stmt->execute();
 if (mysqli_error($con)) {

@@ -9,7 +9,7 @@ $idKorisnika = $ar[0];
 
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
-$stmt = $con->prepare('SELECT * FROM narudzbenica_bausch_lomb');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_bl');
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -65,20 +65,20 @@ echo "</table>";
 echo "</div>";
 echo "</br>";
 
-$stmt1 = $con->prepare('SELECT * FROM narudzbenica_bausch_lomb WHERE dobavljac="bausch_lomb-bih"');
+$stmt1 = $con->prepare('SELECT * FROM narudzbenica_bl WHERE dobavljac="bausch_lomb-bih"');
 $stmt1->execute();
 $result1 = $stmt1->get_result();
 
 if (mysqli_num_rows($result1) > 0) {
-    echo "<button type='button' onclick='sendBauschLombBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Bausch Lomb BiH</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendBauschLombBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Bausch & Lomb BiH</button>&nbsp;&nbsp;";
 }
 
-$stmt2 = $con->prepare('SELECT * FROM narudzbenica_bausch_lomb WHERE dobavljac="bausch_lomb-srbija"');
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_bl WHERE dobavljac="bausch_lomb-srbija"');
 $stmt2->execute();
 $result2 = $stmt2->get_result();
 
 if (mysqli_num_rows($result2) > 0) {
-    echo "<button type='button' onclick='sendBauschLombSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Bausch Lomb Srbija</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendBauschLombSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Bausch & Lomb Srbija</button>&nbsp;&nbsp;";
 }
 
 echo "</br>";

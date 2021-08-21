@@ -17,14 +17,14 @@ mysqli_set_charset($con, 'utf8');
 $user_message = mysqli_real_escape_string($con, $_REQUEST['user_message']);
 
 $stmt = $con->prepare('SELECT od_os,tip,sph,cyl,ugao,bc,td,jm,kolicina,mjesto_isporuke,napomena
-FROM mojaopt_vpnarudzbenica.narudzbenica_bausch_lomb
+FROM mojaopt_vpnarudzbenica.narudzbenica_bl
 WHERE dobavljac="bausch_lomb-bih"');
 
 $stmt->execute();
 $result = $stmt->get_result();
 
 $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-$schema_insert .= '<h2>Narudžbenica - Bausch Lomb</h2>';
+$schema_insert .= '<h2>Narudžbenica - Bausch & Lomb</h2>';
 $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
 $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
 $schema_insert .= '<br/>';
@@ -116,7 +116,7 @@ $body .= "--" . $separator . "--";
 if (mail($to, $subject, $body, $headers)) {
 
   //Arhiviranje naružbe i slanje potvrdnog email-a
-  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_bausch_lomb WHERE dobavljac="bausch_lomb-bih"');
+  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_bl WHERE dobavljac="bausch_lomb-bih"');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
@@ -176,7 +176,7 @@ if (mail($to, $subject, $body, $headers)) {
   $header .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
   $subject1 = "eNarudzbenica - Narudzba je poslata";
 
-  $message = "Narudzbenica - Bausch Lomb BiH \n";
+  $message = "Narudzbenica - Bausch & Lomb BiH \n";
   $message .= "Narudzba od: " . $imeKorisnika . "\n";
   $message .= "Datum narudzbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
   $message .= "------------------------ \n" . $eol;
@@ -196,11 +196,11 @@ if (mail($to, $subject, $body, $headers)) {
 
   mail($email, $subject1, $nmessage, $header);
 
-  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_bausch_lomb (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Bausch Lomb - BiH")');
+  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_bl (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Bausch & Lomb - BiH")');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 
-  $stmt = $con->prepare('DELETE FROM `narudzbenica_bausch_lomb` WHERE dobavljac = "bausch_lomb-bih"');
+  $stmt = $con->prepare('DELETE FROM `narudzbenica_bl` WHERE dobavljac = "bausch_lomb-bih"');
 
   $stmt->execute();
   if (mysqli_error($con)) {

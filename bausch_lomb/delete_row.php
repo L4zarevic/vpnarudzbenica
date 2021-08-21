@@ -7,7 +7,7 @@ $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
 
 $id_stavke = mysqli_real_escape_string($con, $_REQUEST['stavka']);
-$stmt = $con->prepare('DELETE FROM `narudzbenica_bausch_lomb` WHERE ID=?');
+$stmt = $con->prepare('DELETE FROM `narudzbenica_bl` WHERE ID=?');
 $stmt->bind_param('i',$id_stavke);
 $stmt->execute();
 if (mysqli_error($con)) {

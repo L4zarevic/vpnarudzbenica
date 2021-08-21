@@ -10,19 +10,19 @@ mysqli_set_charset($con, 'utf8');
 $id_stavke = mysqli_real_escape_string($con, $_REQUEST['id']);
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
-    $stmt1 = $con->prepare('UPDATE istorijat_bausch_lomb SET realizovana="&check;", IDKorisnika_realizovao=? WHERE ID=?');
+    $stmt1 = $con->prepare('UPDATE istorijat_bl SET realizovana="&check;", IDKorisnika_realizovao=? WHERE ID=?');
     $stmt1->bind_param('ii', $idKorisnika, $id_stavke);
     $stmt1->execute();
 }
 
 if (isset($_REQUEST['napomena'])) {
     $napomena = mysqli_real_escape_string($con, $_REQUEST['napomena']);
-    $stmt2 = $con->prepare('UPDATE istorijat_bausch_lomb SET napomena=? WHERE ID=?');
+    $stmt2 = $con->prepare('UPDATE istorijat_bl SET napomena=? WHERE ID=?');
     $stmt2->bind_param('si', $napomena, $id_stavke);
     $stmt2->execute();
 }
 
-$stmt = $con->prepare('SELECT * FROM istorijat_bausch_lomb WHERE ID=?');
+$stmt = $con->prepare('SELECT * FROM istorijat_bl WHERE ID=?');
 $stmt->bind_param('i', $id_stavke);
 $stmt->execute();
 $result = $stmt->get_result();

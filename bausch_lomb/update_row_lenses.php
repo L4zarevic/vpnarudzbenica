@@ -31,7 +31,7 @@ $id_stavke = $arS[15];
 
 $napomena = str_replace('\n', " ", $napomena1);
 
-$stmt = $con->prepare('UPDATE narudzbenica_bausch_lomb SET od_os=?,tip=?,sph=?,cyl=?,ugao=?,bc=?,td=?,jm=?,kolicina=?,mpc=?,broj_naloga=?,napomena=?,komitenti_radnje=?,dobavljac=?,mjesto_isporuke=? WHERE ID=?');
+$stmt = $con->prepare('UPDATE narudzbenica_bl SET od_os=?,tip=?,sph=?,cyl=?,ugao=?,bc=?,td=?,jm=?,kolicina=?,mpc=?,broj_naloga=?,napomena=?,komitenti_radnje=?,dobavljac=?,mjesto_isporuke=? WHERE ID=?');
 $stmt->bind_param('ssssssssissssssi', $od_os, $tip, $sph, $cyl, $ugao, $bc, $td, $jm, $kolicina, $mpc, $broj_naloga, $napomena, $komitenti_radnje, $dobavljac, $mjesto_isporuke, $id_stavke);
 $stmt->execute();
 if (mysqli_error($con)) {
