@@ -13,7 +13,7 @@
         <a class="nav-link collapsed" href="../hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
         <a class="nav-link collapsed" href="../johnson_johnson/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
         <a class="nav-link collapsed" href="../alcon/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
-        <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+        <a class="nav-link collapsed" href="../bausch_lomb/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
         <div class="sidebar-heading"></br></div>
         <div class="sidebar-heading"> Istorijat narudžbi </div>
         <a class="nav-link collapsed" href="../moptic/moptic_history.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-glasses"></i> <span>M-Optic</span></a>
