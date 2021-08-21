@@ -69,7 +69,7 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/bausch_lomb/narudzbenica_bausch_lomb_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "";
+$to = "office@grossoptic.rs";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
@@ -122,7 +122,7 @@ if (mail($to, $subject, $body, $headers)) {
   $result1 = $stmt1->get_result();
 
   $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-  $schema_insert .= '<h2>Narudžbenica - Bausch Lomb</h2>';
+  $schema_insert .= '<h2>Narudžbenica - Bausch & Lomb</h2>';
   $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
   $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
   $schema_insert .= '<br/>';

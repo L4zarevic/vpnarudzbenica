@@ -7,7 +7,7 @@ mysqli_set_charset($con, 'utf8');
 
 function nije_realizovano($con)
 {
-  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch Lomb - Srbija' AND realizovana=''");
+  $stmt = $con->prepare("SELECT COUNT(ID) AS brojRedova FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch & Lomb - Srbija' AND realizovana=''");
   $stmt->execute();
   $result = $stmt->get_result();
   while ($row = $result->fetch_object()) {
@@ -30,7 +30,7 @@ $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 $adjacents = "2";
 
-$result_count = mysqli_query($con, "SELECT COUNT(*) As total_records FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch Lomb - Srbija'");
+$result_count = mysqli_query($con, "SELECT COUNT(*) As total_records FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch & Lomb - Srbija'");
 $total_records = mysqli_fetch_array($result_count);
 $total_records = $total_records['total_records'];
 $total_no_of_pages = ceil($total_records / $total_records_per_page);
@@ -38,12 +38,12 @@ $second_last = $total_no_of_pages - 1;
 
 if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
   if ($_GET['realizovano'] == "asc") {
-    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch Lomb - Srbija' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch & Lomb - Srbija' ORDER BY realizovana ASC LIMIT $offset, $total_records_per_page");
   } else {
-    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch Lomb - Srbija' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
+    $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch & Lomb - Srbija' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
   }
 } else {
-  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch Lomb - Srbija' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
+  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_bausch_lomb WHERE dobavljac = 'Bausch & Lomb - Srbija' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
 }
 $stmt->execute();
 $result = $stmt->get_result();
@@ -71,7 +71,7 @@ $result = $stmt->get_result();
 
           <!-- Page Heading -->
 
-          <h1 class="h3 mb-4 text-gray-800">Bausch Lomb - Srbija</h1>
+          <h1 class="h3 mb-4 text-gray-800">Bausch & Lomb - Srbija</h1>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">

@@ -24,7 +24,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-$schema_insert .= '<h2>Narudžbenica - Bausch Lomb</h2>';
+$schema_insert .= '<h2>Narudžbenica - Bausch & Lomb</h2>';
 $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
 $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
 $schema_insert .= '<br/>';
@@ -122,7 +122,7 @@ if (mail($to, $subject, $body, $headers)) {
   $result1 = $stmt1->get_result();
 
   $schema_insert = '<html><head><meta charset="utf-8"></head><body>';
-  $schema_insert .= '<h2>Narudžbenica - Bausch Lomb</h2>';
+  $schema_insert .= '<h2>Narudžbenica - Bausch & Lomb</h2>';
   $schema_insert .= '<br/>Narudžba od: ' . $imeKorisnika . '<br/>';
   $schema_insert .= 'Datum narudžbe: ' . date("d.m.Y") . ' u ' . date('H:i') . '<br/>';
   $schema_insert .= '<br/>';
@@ -176,7 +176,7 @@ if (mail($to, $subject, $body, $headers)) {
   $header .= "Content-Type: multipart/mixed; charset=utf-8; boundary=\"" . $separator . "\"";
   $subject1 = "eNarudzbenica - Narudzba je poslata";
 
-  $message = "Narudzbenica - Bausch Lomb BiH \n";
+  $message = "Narudzbenica - Bausch & Lomb Srbija \n";
   $message .= "Narudzba od: " . $imeKorisnika . "\n";
   $message .= "Datum narudzbe: " . date("d.m.Y") . " u " . date('H:i') . "\n";
   $message .= "------------------------ \n" . $eol;
@@ -196,7 +196,7 @@ if (mail($to, $subject, $body, $headers)) {
 
   mail($email, $subject1, $nmessage, $header);
 
-  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_bausch_lomb (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Bausch Lomb - Srbija")');
+  $stmt2 = $con->prepare('INSERT INTO mojaopt_vpnarudzbenica.istorijat_bausch_lomb (IDKorisnika,narudzba,datum,dobavljac) VALUES (?,?,?,"Bausch & Lomb - Srbija")');
   $stmt2->bind_param('iss', $idKorisnika, $schema_insert, date("Y-m-d"));
   $stmt2->execute();
 

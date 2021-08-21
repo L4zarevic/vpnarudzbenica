@@ -52,11 +52,11 @@
             </div>
         </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-            <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
+            <i class="fas fa-eye"></i> <span>Bausch & Lomb</span> </a>
         <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">BiH</a>
-                <a class="collapse-item" href="#">Srbija</a>
+                <a class="collapse-item" href="../bausch_lomb/bausch_lomb_history_bih.php">BiH</a>
+                <a class="collapse-item" href="../bausch_lomb/bausch_lomb_history_srb.php">Srbija</a>
             </div>
         </div>
     </li>
