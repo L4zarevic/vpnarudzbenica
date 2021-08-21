@@ -9,7 +9,7 @@ $idKorisnika = $ar[0];
 
 $con = OpenCon();
 mysqli_set_charset($con, 'utf8');
-$stmt = $con->prepare('SELECT * FROM narudzbenica_alcon');
+$stmt = $con->prepare('SELECT * FROM narudzbenica_jj');
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -65,12 +65,20 @@ echo "</table>";
 echo "</div>";
 echo "</br>";
 
-$stmt1 = $con->prepare('SELECT * FROM narudzbenica_alcon ');
+$stmt1 = $con->prepare('SELECT * FROM narudzbenica_jj WHERE dobavljac="johnson_johnson-bih"');
 $stmt1->execute();
 $result1 = $stmt1->get_result();
 
 if (mysqli_num_rows($result1) > 0) {
-    echo "<button type='button' onclick='sendAlconBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Alcon BiH</button>&nbsp;&nbsp;";
+    echo "<button type='button' onclick='sendJohnsonJohnsonBiH()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Johnson & Johnson BiH</button>&nbsp;&nbsp;";
+}
+
+$stmt2 = $con->prepare('SELECT * FROM narudzbenica_jj WHERE dobavljac="johnson_johnson-srbija"');
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+if (mysqli_num_rows($result2) > 0) {
+    echo "<button type='button' onclick='sendJohnsonJohnsonSrbija()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i>  Pošalji - Johnson & Johnson Srbija</button>&nbsp;&nbsp;";
 }
 
 echo "</br>";

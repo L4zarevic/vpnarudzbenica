@@ -55,6 +55,15 @@ function novih_narudzbi_moptic($con)
         echo $row->brojRedova;
     }
 }
+function novih_narudzbi_johnson_johnson($con)
+{
+    $stmt = $con->prepare('SELECT COUNT(ID) AS brojRedova FROM narudzbenica_jj');
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_object()) {
+        echo $row->brojRedova;
+    }
+}
 
 function novih_narudzbi_alcon($con)
 {
@@ -123,7 +132,7 @@ function novih_narudzbi_alcon($con)
                 <a class="nav-link collapsed" href="poloptic/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Pol Optic</span> </a>
                 <a class="nav-link collapsed" href="essilor/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Essilor</span> </a>
                 <a class="nav-link collapsed" href="hoya/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-glasses"></i> <span>Hoya</span> </a>
-                <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
+                <a class="nav-link collapsed" href="johnson_johnson/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
                 <a class="nav-link collapsed" href="alcon/index.php" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Alcon</span></a>
                 <a class="nav-link collapsed" href="#" d data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-eye"></i> <span>Bausch Lomb</span> </a>
                 <div class="sidebar-heading"></br></div>
@@ -151,8 +160,8 @@ function novih_narudzbi_alcon($con)
                     <i class="fas fa-eye"></i> <span>Johnson & Johnson</span> </a>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">BiH</a>
-                        <a class="collapse-item" href="#">Srbija</a>
+                        <a class="collapse-item" href="johnson_johnson/johnson_johnson_history_bih.php">BiH</a>
+                        <a class="collapse-item" href="johnson_johnson/johnson_johnson_history_srb.php">Srbija</a>
                     </div>
                 </div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
@@ -258,9 +267,9 @@ function novih_narudzbi_alcon($con)
                     </br>
                     <div class="cards">
                         <div class="card">
-                            <a href="#"><img src="images/j&j.svg" alt="Johnson & Johnson" style="width:100%">
+                            <a href="johnson_johnson/index.php"><img src="images/j&j.svg" alt="Johnson & Johnson" style="width:100%">
                                 <div class="container">
-                                    <label>Novih narudžbi: &nbsp;#</label>
+                                    <label>Novih narudžbi: &nbsp;<?php echo novih_narudzbi_johnson_johnson($con); ?></label>
                                 </div>
                             </a>
                         </div>

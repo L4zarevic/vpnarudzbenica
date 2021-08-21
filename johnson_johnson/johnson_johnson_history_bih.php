@@ -43,7 +43,7 @@ if (isset($_GET['realizovano']) && $_GET['realizovano'] != "") {
     $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - BiH' ORDER BY realizovana DESC LIMIT $offset, $total_records_per_page");
   }
 } else {
-  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj  WHERE dobavljac = 'Johnson & Johnson - BiH' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
+  $stmt = $con->prepare("SELECT ID,IDKorisnika,datum,realizovana FROM istorijat_jj WHERE dobavljac = 'Johnson & Johnson - BiH' ORDER BY ID DESC LIMIT $offset, $total_records_per_page");
 }
 $stmt->execute();
 $result = $stmt->get_result();
@@ -71,7 +71,7 @@ $result = $stmt->get_result();
 
           <!-- Page Heading -->
 
-          <h1 class="h3 mb-4 text-gray-800">Johnson & Johnson - BiH</h1>
+          <h1 class="h3 mb-4 text-gray-800">Johnson & Johnson BiH</h1>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
