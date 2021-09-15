@@ -116,7 +116,7 @@ $result = $stmt->get_result();
                 </table>
               </div>
               <div class="row">
-                <div class="form-group col-md-9">
+                <div class="form-group col-md-6">
                   <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
                     <strong>Stranica <?php echo $page_no . " od " . $total_no_of_pages; ?></strong>
                   </div>
