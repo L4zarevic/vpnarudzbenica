@@ -27,7 +27,7 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
-$schema_insert .= '<th>OD/OS/Ou</th>';
+$schema_insert .= '<th>OD/OS/OU</th>';
 $schema_insert .= "<th>Vrsta \nsočiva</th>";
 $schema_insert .= "<th>Vrsta \nmaterijala</th>";
 $schema_insert .= '<th>SPH</th>';
