@@ -69,7 +69,7 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/bausch_lomb/narudzbenica_bausch_lomb_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "office@grossoptic.rs";
+$to = "rico-grossoptic@blic.net";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
