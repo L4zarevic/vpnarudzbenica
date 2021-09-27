@@ -108,6 +108,14 @@ $result3 = $stmt3->get_result();
 if (mysqli_num_rows($result3) > 0) {
     echo "<button type='button' onclick='sendPolopticNoviSad()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Novi Sad</button>";
 }
+
+$stmt4 = $con->prepare('SELECT * FROM narudzbenica_pol WHERE dobavljac="pol-bojana" ');
+$stmt4->execute();
+$result4 = $stmt4->get_result();
+
+if (mysqli_num_rows($result3) > 0) {
+    echo "<button type='button' onclick='sendPolopticBojana()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Bojana</button>";
+}
 echo "</br>";
 echo "</br>";
 

@@ -677,6 +677,7 @@ include '../modules/header.php';
                                                     <option default>pol-sarajevo</option>
                                                     <option>pol-beograd</option>
                                                     <option>pol-novi sad</option>
+                                                    <option>pol-bojana</option>
                                                 </select>
                                             </div>
                                             <div class="md-form mb-5">

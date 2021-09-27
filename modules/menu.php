@@ -24,6 +24,7 @@
                 <a class="collapse-item" href="../poloptic/pol_history_sa.php">Sarajevo</a>
                 <a class="collapse-item" href="../poloptic/pol_history_bg.php">Beograd</a>
                 <a class="collapse-item" href="../poloptic/pol_history_ns.php">Novi Sad</a>
+                <a class="collapse-item" href="../poloptic/pol_history_bojana.php">Bojana C.</a>
             </div>
         </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
