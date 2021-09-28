@@ -113,7 +113,7 @@ $stmt4 = $con->prepare('SELECT * FROM narudzbenica_pol WHERE dobavljac="pol-boja
 $stmt4->execute();
 $result4 = $stmt4->get_result();
 
-if (mysqli_num_rows($result3) > 0) {
+if (mysqli_num_rows($result4) > 0) {
     echo "<button type='button' onclick='sendPolopticBojana()' class='btn btn-primary send'><i class='fa fa-paper-plane'></i> Pošalji - POL Bojana</button>";
 }
 echo "</br>";
