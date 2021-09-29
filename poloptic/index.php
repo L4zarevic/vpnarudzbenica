@@ -252,62 +252,20 @@ include '../modules/header.php';
                                                     <label id="labelPrecnik">Prečnik mm</label><label class="obavezna_polja">*</label>
                                                     <select name="precnik1" title="Unesite prečnik" class="form-control" id="select9">
                                                         <option default></option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
+                                                        <?php
+                                                        for ($x = 50; $x <= 75; $x++) {
+                                                            echo  "<option>" . $x . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
 
                                                     <select name="precnik2" title="Unesite prečnik" class="form-control" id="select10">
                                                         <option default></option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
+                                                        <?php
+                                                        for ($x = 50; $x <= 75; $x++) {
+                                                            echo  "<option>" . $x . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
 
@@ -777,7 +735,7 @@ include '../modules/header.php';
         $select2 = $('#select2'),
         $select4 = $('#select4'),
         $select12 = $('#select12'),
-    $options2 = $select4.find('option');
+        $options2 = $select4.find('option');
 
 
     $('#ifSpecijala,#ifSpecijalaTr').hide();
