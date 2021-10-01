@@ -200,9 +200,8 @@ function novih_narudzbi_bausch_lomb($con)
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                    <?php include 'modules/email_list.php'; ?>
+                    <a href="" data-toggle="modal" id="emailIcon" data-target="#modalEmail"><i class="fa fa-envelope" title="Email adrese dobavljača" aria-hidden="true"></i></a>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
