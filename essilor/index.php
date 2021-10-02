@@ -23,7 +23,6 @@ include '../modules/header.php';
                         </div>
                         </br>
                         <div class="companyInfo"> <img id="logo" src="../images/essilor.png">
-                            <!-- <p>“M-OPTIC” d.o.o.</br> ul. Majevička br. 29, 76300 Bijeljina</br> <strong>Tel:</strong> +387 55 222 999, 222 990, 490 010</br> <strong>Fax:</strong> +387 55 222 998</br> <strong>Email:</strong> <a href="mailto:mopticvp@mojaoptika.com">mopticvp@mojaoptika.com</a></br> <a href="https://mojaoptika.com">www.mojaoptika.com</a></p>-->
                             </br>
                             </br>
                             <label>*Označene kolone se ne šalju dobavljaču</label>
@@ -153,16 +152,11 @@ include '../modules/header.php';
                                                     <label>Baza</label>
                                                     <select name="baza" title="Unesite bazu sočiva" class="form-control" id="select7">
                                                         <option default></option>
-                                                        <option>4</option>
-                                                        <option>4.5</option>
-                                                        <option>5</option>
-                                                        <option>5.5</option>
-                                                        <option>6</option>
-                                                        <option>6.5</option>
-                                                        <option>7</option>
-                                                        <option>7.5</option>
-                                                        <option>8</option>
-                                                        <option>8.5</option>
+                                                        <?php
+                                                        for ($x = 4.0; $x <= 8.5; $x = $x + 0.5) {
+                                                            echo  "<option>" . $x . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
 
@@ -172,62 +166,20 @@ include '../modules/header.php';
                                                     <label id="labelPrecnik">Prečnik mm</label><label class="obavezna_polja">*</label>
                                                     <select name="precnik1" title="Unesite prečnik" class="form-control" id="select9">
                                                         <option default></option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
+                                                        <?php
+                                                        for ($x = 50; $x <= 75; $x++) {
+                                                            echo  "<option>" . $x . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
 
                                                     <select name="precnik2" title="Unesite prečnik" class="form-control" id="select10">
                                                         <option default></option>
-                                                        <option>50</option>
-                                                        <option>51</option>
-                                                        <option>52</option>
-                                                        <option>53</option>
-                                                        <option>54</option>
-                                                        <option>55</option>
-                                                        <option>56</option>
-                                                        <option>57</option>
-                                                        <option>58</option>
-                                                        <option>59</option>
-                                                        <option>60</option>
-                                                        <option>61</option>
-                                                        <option>62</option>
-                                                        <option>63</option>
-                                                        <option>64</option>
-                                                        <option>65</option>
-                                                        <option>66</option>
-                                                        <option>67</option>
-                                                        <option>68</option>
-                                                        <option>69</option>
-                                                        <option>70</option>
-                                                        <option>71</option>
-                                                        <option>72</option>
-                                                        <option>73</option>
-                                                        <option>74</option>
-                                                        <option>75</option>
+                                                        <?php
+                                                        for ($x = 50; $x <= 75; $x++) {
+                                                            echo  "<option>" . $x . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
 
@@ -237,29 +189,11 @@ include '../modules/header.php';
                                                         <label id='label_visina'>Visina ugradnje / Koridor</label><label class="obavezna_polja">*</label>
                                                         <select name="visina" title="Visina ugradnje (ili koridor) Unesite Visinu ugradnje za progresive: 'Infini i sve progresive iz Orange Linea' ili koridor za klasične progresive (Futura,Pollux i Polaris)" class="form-control" id="select5">
                                                             <option default></option>
-                                                            <option>13</option>
-                                                            <option>14</option>
-                                                            <option>15</option>
-                                                            <option>16</option>
-                                                            <option>17</option>
-                                                            <option>18</option>
-                                                            <option>19</option>
-                                                            <option>20</option>
-                                                            <option>21</option>
-                                                            <option>22</option>
-                                                            <option>23</option>
-                                                            <option>24</option>
-                                                            <option>25</option>
-                                                            <option>26</option>
-                                                            <option>27</option>
-                                                            <option>28</option>
-                                                            <option>29</option>
-                                                            <option>30</option>
-                                                            <option>31</option>
-                                                            <option>32</option>
-                                                            <option>33</option>
-                                                            <option>34</option>
-                                                            <option>35</option>
+                                                            <?php
+                                                            for ($x = 13; $x <= 35; $x++) {
+                                                                echo  "<option>" . $x . "</option>";
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
 
@@ -285,134 +219,17 @@ include '../modules/header.php';
                                                         <datalist id="listaSph">
                                                             <option default></option>
                                                             <option> 0.00</option>
-                                                            <option>+0.25</option>
-                                                            <option>+0.50</option>
-                                                            <option>+0.75</option>
-                                                            <option>+1.00</option>
-                                                            <option>+1.25</option>
-                                                            <option>+1.50</option>
-                                                            <option>+1.75</option>
-                                                            <option>+2.00</option>
-                                                            <option>+2.25</option>
-                                                            <option>+2.50</option>
-                                                            <option>+2.75</option>
-                                                            <option>+3.00</option>
-                                                            <option>+3.25</option>
-                                                            <option>+3.50</option>
-                                                            <option>+3.75</option>
-                                                            <option>+4.00</option>
-                                                            <option>+4.25</option>
-                                                            <option>+4.50</option>
-                                                            <option>+4.75</option>
-                                                            <option>+5.00</option>
-                                                            <option>+5.25</option>
-                                                            <option>+5.50</option>
-                                                            <option>+5.75</option>
-                                                            <option>+6.00</option>
-                                                            <option>+6.25</option>
-                                                            <option>+6.50</option>
-                                                            <option>+6.75</option>
-                                                            <option>+7.00</option>
-                                                            <option>+7.25</option>
-                                                            <option>+7.50</option>
-                                                            <option>+7.75</option>
-                                                            <option>+8.00</option>
-                                                            <option>+8.25</option>
-                                                            <option>+8.50</option>
-                                                            <option>+8.75</option>
-                                                            <option>+9.00</option>
-                                                            <option>+9.25</option>
-                                                            <option>+9.50</option>
-                                                            <option>+9.75</option>
-                                                            <option>+10.00</option>
-                                                            <option>+10.25</option>
-                                                            <option>+10.50</option>
-                                                            <option>+10.75</option>
-                                                            <option>+11.00</option>
-                                                            <option>+11.25</option>
-                                                            <option>+11.50</option>
-                                                            <option>+11.75</option>
-                                                            <option>+12.00</option>
-                                                            <option>+12.50</option>
-                                                            <option>+13.00</option>
-                                                            <option>+13.50</option>
-                                                            <option>+14.00</option>
-                                                            <option>+14.50</option>
-                                                            <option>+15.00</option>
-                                                            <option>+15.50</option>
-                                                            <option>+16.00</option>
+                                                            <?php
+                                                            for ($x = 0.25; $x <= 16.00; $x = $x + 0.25) {
+                                                                echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                            }
+                                                            ?>
                                                             <option> 0.00</option>
-                                                            <option>-0.25</option>
-                                                            <option>-0.50</option>
-                                                            <option>-0.75</option>
-                                                            <option>-1.00</option>
-                                                            <option>-1.25</option>
-                                                            <option>-1.50</option>
-                                                            <option>-1.75</option>
-                                                            <option>-2.00</option>
-                                                            <option>-2.25</option>
-                                                            <option>-2.50</option>
-                                                            <option>-2.75</option>
-                                                            <option>-3.00</option>
-                                                            <option>-3.25</option>
-                                                            <option>-3.50</option>
-                                                            <option>-3.75</option>
-                                                            <option>-4.00</option>
-                                                            <option>-4.25</option>
-                                                            <option>-4.50</option>
-                                                            <option>-4.75</option>
-                                                            <option>-5.00</option>
-                                                            <option>-5.25</option>
-                                                            <option>-5.50</option>
-                                                            <option>-5.75</option>
-                                                            <option>-6.00</option>
-                                                            <option>-6.25</option>
-                                                            <option>-6.50</option>
-                                                            <option>-6.75</option>
-                                                            <option>-7.00</option>
-                                                            <option>-7.25</option>
-                                                            <option>-7.50</option>
-                                                            <option>-7.75</option>
-                                                            <option>-8.00</option>
-                                                            <option>-8.25</option>
-                                                            <option>-8.50</option>
-                                                            <option>-8.75</option>
-                                                            <option>-9.00</option>
-                                                            <option>-9.25</option>
-                                                            <option>-9.50</option>
-                                                            <option>-9.75</option>
-                                                            <option>-10.00</option>
-                                                            <option>-10.25</option>
-                                                            <option>-10.50</option>
-                                                            <option>-10.75</option>
-                                                            <option>-11.00</option>
-                                                            <option>-11.25</option>
-                                                            <option>-11.50</option>
-                                                            <option>-11.75</option>
-                                                            <option>-12.00</option>
-                                                            <option>-12.25</option>
-                                                            <option>-12.50</option>
-                                                            <option>-12.75</option>
-                                                            <option>-13.00</option>
-                                                            <option>-13.25</option>
-                                                            <option>-13.50</option>
-                                                            <option>-13.75</option>
-                                                            <option>-14.00</option>
-                                                            <option>-14.25</option>
-                                                            <option>-14.50</option>
-                                                            <option>-14.75</option>
-                                                            <option>-15.00</option>
-                                                            <option>-15.25</option>
-                                                            <option>-15.50</option>
-                                                            <option>-15.75</option>
-                                                            <option>-16.00</option>
-                                                            <option>-16.25</option>
-                                                            <option>-16.50</option>
-                                                            <option>-16.75</option>
-                                                            <option>-17.00</option>
-                                                            <option>-17.25</option>
-                                                            <option>-17.50</option>
-                                                            <option>-17.75</option>
+                                                            <?php
+                                                            for ($x = 0.25; $x <= 17.75; $x = $x + 0.25) {
+                                                                echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                            }
+                                                            ?>
                                                             <option>-18.00</option>
                                                             <option>-18.50</option>
                                                             <option>-19.00</option>
@@ -438,55 +255,17 @@ include '../modules/header.php';
                                                         <datalist id="listaCyl">
                                                             <option default></option>
                                                             <option>0.00</option>
-                                                            <option>+0.25</option>
-                                                            <option>+0.50</option>
-                                                            <option>+0.75</option>
-                                                            <option>+1.00</option>
-                                                            <option>+1.25</option>
-                                                            <option>+1.50</option>
-                                                            <option>+1.75</option>
-                                                            <option>+2.00</option>
-                                                            <option>+2.25</option>
-                                                            <option>+2.50</option>
-                                                            <option>+2.75</option>
-                                                            <option>+3.00</option>
-                                                            <option>+3.25</option>
-                                                            <option>+3.50</option>
-                                                            <option>+3.75</option>
-                                                            <option>+4.00</option>
-                                                            <option>+4.25</option>
-                                                            <option>+4.50</option>
-                                                            <option>+4.75</option>
-                                                            <option>+5.00</option>
-                                                            <option>+5.25</option>
-                                                            <option>+5.50</option>
-                                                            <option>+5.75</option>
-                                                            <option>+6.00</option>
+                                                            <?php
+                                                            for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                                echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                            }
+                                                            ?>
                                                             <option> 0.00</option>
-                                                            <option>-0.25</option>
-                                                            <option>-0.50</option>
-                                                            <option>-0.75</option>
-                                                            <option>-1.00</option>
-                                                            <option>-1.25</option>
-                                                            <option>-1.50</option>
-                                                            <option>-1.75</option>
-                                                            <option>-2.00</option>
-                                                            <option>-2.25</option>
-                                                            <option>-2.50</option>
-                                                            <option>-2.75</option>
-                                                            <option>-3.00</option>
-                                                            <option>-3.25</option>
-                                                            <option>-3.50</option>
-                                                            <option>-3.75</option>
-                                                            <option>-4.00</option>
-                                                            <option>-4.25</option>
-                                                            <option>-4.50</option>
-                                                            <option>-4.75</option>
-                                                            <option>-5.00</option>
-                                                            <option>-5.25</option>
-                                                            <option>-5.50</option>
-                                                            <option>-5.75</option>
-                                                            <option>-6.00</option>
+                                                            <?php
+                                                            for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                                echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                            }
+                                                            ?>
                                                         </datalist>
                                                     </div>
                                                 </div>
@@ -498,20 +277,11 @@ include '../modules/header.php';
                                                     <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
                                                     <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
                                                         <option default></option>
-                                                        <option>0.75</option>
-                                                        <option>1.00</option>
-                                                        <option>1.25</option>
-                                                        <option>1.50</option>
-                                                        <option>1.75</option>
-                                                        <option>2.00</option>
-                                                        <option>2.25</option>
-                                                        <option>2.50</option>
-                                                        <option>2.75</option>
-                                                        <option>3.00</option>
-                                                        <option>3.25</option>
-                                                        <option>3.50</option>
-                                                        <option>3.75</option>
-                                                        <option>4.00</option>
+                                                        <?php
+                                                        for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
+                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>

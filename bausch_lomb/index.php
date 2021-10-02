@@ -23,7 +23,6 @@ include '../modules/header.php';
                         </div>
                         </br>
                         <div class="companyInfo"> <img id="logo" src="../images/bausch_and_lomb.svg" style="width:100%">
-                            <!-- <p>“M-OPTIC” d.o.o.</br> ul. Majevička br. 29, 76300 Bijeljina</br> <strong>Tel:</strong> +387 55 222 999, 222 990, 490 010</br> <strong>Fax:</strong> +387 55 222 998</br> <strong>Email:</strong> <a href="mailto:mopticvp@mojaoptika.com">mopticvp@mojaoptika.com</a></br> <a href="https://mojaoptika.com">www.mojaoptika.com</a></p>-->
                             </br>
                             </br>
                         </div>
@@ -120,134 +119,17 @@ include '../modules/header.php';
                                                     <datalist id="listaSph">
                                                         <option default></option>
                                                         <option> 0.00</option>
-                                                        <option>+0.25</option>
-                                                        <option>+0.50</option>
-                                                        <option>+0.75</option>
-                                                        <option>+1.00</option>
-                                                        <option>+1.25</option>
-                                                        <option>+1.50</option>
-                                                        <option>+1.75</option>
-                                                        <option>+2.00</option>
-                                                        <option>+2.25</option>
-                                                        <option>+2.50</option>
-                                                        <option>+2.75</option>
-                                                        <option>+3.00</option>
-                                                        <option>+3.25</option>
-                                                        <option>+3.50</option>
-                                                        <option>+3.75</option>
-                                                        <option>+4.00</option>
-                                                        <option>+4.25</option>
-                                                        <option>+4.50</option>
-                                                        <option>+4.75</option>
-                                                        <option>+5.00</option>
-                                                        <option>+5.25</option>
-                                                        <option>+5.50</option>
-                                                        <option>+5.75</option>
-                                                        <option>+6.00</option>
-                                                        <option>+6.25</option>
-                                                        <option>+6.50</option>
-                                                        <option>+6.75</option>
-                                                        <option>+7.00</option>
-                                                        <option>+7.25</option>
-                                                        <option>+7.50</option>
-                                                        <option>+7.75</option>
-                                                        <option>+8.00</option>
-                                                        <option>+8.25</option>
-                                                        <option>+8.50</option>
-                                                        <option>+8.75</option>
-                                                        <option>+9.00</option>
-                                                        <option>+9.25</option>
-                                                        <option>+9.50</option>
-                                                        <option>+9.75</option>
-                                                        <option>+10.00</option>
-                                                        <option>+10.25</option>
-                                                        <option>+10.50</option>
-                                                        <option>+10.75</option>
-                                                        <option>+11.00</option>
-                                                        <option>+11.25</option>
-                                                        <option>+11.50</option>
-                                                        <option>+11.75</option>
-                                                        <option>+12.00</option>
-                                                        <option>+12.50</option>
-                                                        <option>+13.00</option>
-                                                        <option>+13.50</option>
-                                                        <option>+14.00</option>
-                                                        <option>+14.50</option>
-                                                        <option>+15.00</option>
-                                                        <option>+15.50</option>
-                                                        <option>+16.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 16.00; $x = $x + 0.25) {
+                                                            echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
                                                         <option> 0.00</option>
-                                                        <option>-0.25</option>
-                                                        <option>-0.50</option>
-                                                        <option>-0.75</option>
-                                                        <option>-1.00</option>
-                                                        <option>-1.25</option>
-                                                        <option>-1.50</option>
-                                                        <option>-1.75</option>
-                                                        <option>-2.00</option>
-                                                        <option>-2.25</option>
-                                                        <option>-2.50</option>
-                                                        <option>-2.75</option>
-                                                        <option>-3.00</option>
-                                                        <option>-3.25</option>
-                                                        <option>-3.50</option>
-                                                        <option>-3.75</option>
-                                                        <option>-4.00</option>
-                                                        <option>-4.25</option>
-                                                        <option>-4.50</option>
-                                                        <option>-4.75</option>
-                                                        <option>-5.00</option>
-                                                        <option>-5.25</option>
-                                                        <option>-5.50</option>
-                                                        <option>-5.75</option>
-                                                        <option>-6.00</option>
-                                                        <option>-6.25</option>
-                                                        <option>-6.50</option>
-                                                        <option>-6.75</option>
-                                                        <option>-7.00</option>
-                                                        <option>-7.25</option>
-                                                        <option>-7.50</option>
-                                                        <option>-7.75</option>
-                                                        <option>-8.00</option>
-                                                        <option>-8.25</option>
-                                                        <option>-8.50</option>
-                                                        <option>-8.75</option>
-                                                        <option>-9.00</option>
-                                                        <option>-9.25</option>
-                                                        <option>-9.50</option>
-                                                        <option>-9.75</option>
-                                                        <option>-10.00</option>
-                                                        <option>-10.25</option>
-                                                        <option>-10.50</option>
-                                                        <option>-10.75</option>
-                                                        <option>-11.00</option>
-                                                        <option>-11.25</option>
-                                                        <option>-11.50</option>
-                                                        <option>-11.75</option>
-                                                        <option>-12.00</option>
-                                                        <option>-12.25</option>
-                                                        <option>-12.50</option>
-                                                        <option>-12.75</option>
-                                                        <option>-13.00</option>
-                                                        <option>-13.25</option>
-                                                        <option>-13.50</option>
-                                                        <option>-13.75</option>
-                                                        <option>-14.00</option>
-                                                        <option>-14.25</option>
-                                                        <option>-14.50</option>
-                                                        <option>-14.75</option>
-                                                        <option>-15.00</option>
-                                                        <option>-15.25</option>
-                                                        <option>-15.50</option>
-                                                        <option>-15.75</option>
-                                                        <option>-16.00</option>
-                                                        <option>-16.25</option>
-                                                        <option>-16.50</option>
-                                                        <option>-16.75</option>
-                                                        <option>-17.00</option>
-                                                        <option>-17.25</option>
-                                                        <option>-17.50</option>
-                                                        <option>-17.75</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 17.75; $x = $x + 0.25) {
+                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
                                                         <option>-18.00</option>
                                                         <option>-18.50</option>
                                                         <option>-19.00</option>
