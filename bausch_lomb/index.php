@@ -109,7 +109,23 @@ include '../modules/header.php';
 
                                             <div class="md-form mb-5">
                                                 <label>Tip/vrsta</label><label class="obavezna_polja">*</label>
-                                                <input name="tip" type="text" class="form-control" id="tip">
+                                                <input list="listaTip" name="tip" type="text" class="form-control" id="tip">
+                                                <datalist id="listaTip">
+                                                    <?php
+
+                                                    require_once '../connection.php';
+                                                    $con = OpenCon();
+                                                    mysqli_set_charset($con, 'utf8');
+
+                                                    $stmt = $con->prepare('SELECT tip FROM sociva WHERE ID_proizvodjaca=3');
+                                                    $stmt->execute();
+                                                    $result = $stmt->get_result();
+                                                    while ($row = $result->fetch_object()) {
+                                                        echo "<option>" . $row->tip . "</option>";
+                                                    }
+
+                                                    ?>
+                                                </datalist>
                                             </div>
 
                                             <div class="md-form mb-5">
@@ -155,55 +171,17 @@ include '../modules/header.php';
                                                     <datalist id="listaCyl">
                                                         <option default></option>
                                                         <option>0.00</option>
-                                                        <option>+0.25</option>
-                                                        <option>+0.50</option>
-                                                        <option>+0.75</option>
-                                                        <option>+1.00</option>
-                                                        <option>+1.25</option>
-                                                        <option>+1.50</option>
-                                                        <option>+1.75</option>
-                                                        <option>+2.00</option>
-                                                        <option>+2.25</option>
-                                                        <option>+2.50</option>
-                                                        <option>+2.75</option>
-                                                        <option>+3.00</option>
-                                                        <option>+3.25</option>
-                                                        <option>+3.50</option>
-                                                        <option>+3.75</option>
-                                                        <option>+4.00</option>
-                                                        <option>+4.25</option>
-                                                        <option>+4.50</option>
-                                                        <option>+4.75</option>
-                                                        <option>+5.00</option>
-                                                        <option>+5.25</option>
-                                                        <option>+5.50</option>
-                                                        <option>+5.75</option>
-                                                        <option>+6.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                            echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
                                                         <option> 0.00</option>
-                                                        <option>-0.25</option>
-                                                        <option>-0.50</option>
-                                                        <option>-0.75</option>
-                                                        <option>-1.00</option>
-                                                        <option>-1.25</option>
-                                                        <option>-1.50</option>
-                                                        <option>-1.75</option>
-                                                        <option>-2.00</option>
-                                                        <option>-2.25</option>
-                                                        <option>-2.50</option>
-                                                        <option>-2.75</option>
-                                                        <option>-3.00</option>
-                                                        <option>-3.25</option>
-                                                        <option>-3.50</option>
-                                                        <option>-3.75</option>
-                                                        <option>-4.00</option>
-                                                        <option>-4.25</option>
-                                                        <option>-4.50</option>
-                                                        <option>-4.75</option>
-                                                        <option>-5.00</option>
-                                                        <option>-5.25</option>
-                                                        <option>-5.50</option>
-                                                        <option>-5.75</option>
-                                                        <option>-6.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
                                                     </datalist>
                                                 </div>
                                             </div>

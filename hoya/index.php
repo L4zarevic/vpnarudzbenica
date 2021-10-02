@@ -244,7 +244,7 @@ include '../modules/header.php';
                                                         <label>CYL</label>
                                                         <input list="listaCyl" name="cyl" title="Unesite Cilindričnu dioptriju" type="text" class="form-control" id="cyl">
                                                         <datalist id="listaCyl">
-                                                        <option default></option>
+                                                            <option default></option>
                                                             <option>0.00</option>
                                                             <?php
                                                             for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
@@ -267,7 +267,7 @@ include '../modules/header.php';
 
                                                     <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
                                                     <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
-                                                    <option default></option>
+                                                        <option default></option>
                                                         <?php
                                                         for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
                                                             echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
@@ -276,8 +276,6 @@ include '../modules/header.php';
                                                     </select>
                                                 </div>
                                             </div>
-
-
 
                                             <div class="md-form mb-5">
                                                 <label>Jedinica mjere</label>
@@ -293,13 +291,10 @@ include '../modules/header.php';
                                                 <input name="tretman1" title="Unesite tretman" maxlength="255" type="text" class="form-control" id="tretman1" required>
                                             </div>
 
-
-
                                             <div class="md-form mb-5">
                                                 <label>Tretmani i bojenja #2</label>
                                                 <input name="tretman2" title="Unesite tretman" maxlength="255" type="text" class="form-control" id="tretman2" required>
                                             </div>
-
 
                                             <div class="md-form mb-5">
                                                 <label id='label_mpc'>MPC po komadu</label>
@@ -393,10 +388,7 @@ include '../modules/header.php';
                             </br>
                             </br>
                             </br>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>

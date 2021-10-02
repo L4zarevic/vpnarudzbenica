@@ -237,7 +237,6 @@ include '../modules/header.php';
                                                             echo  "<option>" . $x . "</option>";
                                                         }
                                                         ?>
-
                                                     </select>
                                                 </div>
 
@@ -359,6 +358,7 @@ include '../modules/header.php';
                                                     <label>Add / Dig.</label><label id="label_zvjezdica2" class="obavezna_polja">*</label>
                                                     <input list="addDigList" name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="addDig">
                                                     <datalist id="addDigList">
+                                                        <option default></option>
                                                         <?php
                                                         for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
                                                             echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";

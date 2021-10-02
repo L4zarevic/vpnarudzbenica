@@ -110,7 +110,23 @@ include '../modules/header.php';
 
                                             <div class="md-form mb-5">
                                                 <label>Tip/vrsta</label><label class="obavezna_polja">*</label>
-                                                <input name="tip" type="text" class="form-control" id="tip">
+                                                <input list="listaTip" name="tip" type="text" class="form-control" id="tip">
+                                                <datalist id="listaTip">
+                                                    <?php
+
+                                                    require_once '../connection.php';
+                                                    $con = OpenCon();
+                                                    mysqli_set_charset($con, 'utf8');
+
+                                                    $stmt = $con->prepare('SELECT tip FROM sociva WHERE ID_proizvodjaca=2');
+                                                    $stmt->execute();
+                                                    $result = $stmt->get_result();
+                                                    while ($row = $result->fetch_object()) {
+                                                        echo "<option>" . $row->tip . "</option>";
+                                                    }
+
+                                                    ?>
+                                                </datalist>
                                             </div>
 
                                             <div class="md-form mb-5">
