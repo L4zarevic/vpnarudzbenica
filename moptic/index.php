@@ -47,52 +47,16 @@ include '../modules/header.php';
                                                 <label>Komitent/radnja</label>
                                                 <input list="listaKomitenata" name="komitenti_radnje" title="Unesite komitenta/radnju" type="text" class="form-control" id="komitenti_radnje">
                                                 <datalist id='listaKomitenata'>
-                                                    <option>Centar - Bijeljina</option>
-                                                    <option>Mihajlović - Bijeljina</option>
-                                                    <option>Delta - Banja Luka</option>
-                                                    <option>Emporium - Banja Luka</option>
-                                                    <option>Mercator - Banja Luka</option>
-                                                    <option>Boska - Banja Luka</option>
-                                                    <option>Brčko</option>
-                                                    <option>Galerija - Beograd</option>
-                                                    <option>Big - Novi Sad</option>
-                                                    <option>Plaza - Kragujevac</option>
-                                                    <option>Novaoptik - Novi Grad</option>
-                                                    <option>Optika Isić - Orašje</option>
-                                                    <option>Lens d.o.o. - Kalesija</option>
-                                                    <option>Lens Optic - Tuzla</option>
-                                                    <option>Lotica d.o.o. - Travnik</option>
-                                                    <option>Lux Optika - Novi Grad</option>
-                                                    <option>Mak d.o.o. - Bihać</option>
-                                                    <option>OOptiks - Tuzla</option>
-                                                    <option>Optika Vid - Prijedor</option>
-                                                    <option>Optika Lukić - Bijeljina</option>
-                                                    <option>Optika Omazić - Livno</option>
-                                                    <option>Optika Visus - Lukavac</option>
-                                                    <option>Optika Čakrama - Maglaj</option>
-                                                    <option>Optika Đurbuzović - Sarajevo</option>
-                                                    <option>Optika Galić - Široki Brijeg</option>
-                                                    <option>Optika Karić - Konjic</option>
-                                                    <option>Optika Monako d.o.o - Brčko</option>
-                                                    <option>Optika Una - Banja Luka</option>
-                                                    <option>Optika Šimić - Prskalo d.o.o.- Ljubuški</option>
-                                                    <option>OR Optika - Gradačac</option>
-                                                    <option>Opto centar d.o.o. - Sarajevo</option>
-                                                    <option>OR N&S Optik - Tuzla</option>
-                                                    <option>OR Optika Samouk - Goradžde</option>
-                                                    <option>PR Optika Malinić - Prijedor</option>
-                                                    <option>SPPR Optika Visus - Ugljevik</option>
-                                                    <option>STR Optika Topić - Gračanica</option>
-                                                    <option>SZR Optika i foto - Vogošća</option>
-                                                    <option>SZR Optika - Sarajevo</option>
-                                                    <option>SZR Optika Iris - Mostar</option>
-                                                    <option>SZTR Optika Aleksić - Modriča</option>
-                                                    <option>SZTR Optika Pajić - Bratunac</option>
-                                                    <option>TR Optika Iris - Srebrenik</option>
-                                                    <option>ZR Optika Miro - Teslić</option>
-                                                    <option>ZTOR A&S - Derventa</option>
-                                                    <option>ZTR Optika Kojić - Zvornik</option>
-                                                    <option>ZTR Očna optika Vid - Zvornik</option>
+                                                    <?php
+                                                    $con = OpenCon();
+                                                    mysqli_set_charset($con, 'utf8');
+                                                    $stmt = $con->prepare('SELECT naziv FROM komitenti');
+                                                    $stmt->execute();
+                                                    $result = $stmt->get_result();
+                                                    while ($row = $result->fetch_object()) {
+                                                        echo "<option>$row->naziv</option>";
+                                                    }
+                                                    ?>
                                                 </datalist>
                                             </div>
                                             <div class="md-form mb-5">
@@ -139,232 +103,74 @@ include '../modules/header.php';
 
 
                                             <div class="md-form mb-5">
-                                                <label>SPH</label>
-                                                <select name="sph" title="Unesite Sfernu dioptriju sa popisa" class="form-control" id="select11">
-                                                    <option default></option>
-                                                    <option> 0.00</option>
-                                                    <option>+0.25</option>
-                                                    <option>+0.50</option>
-                                                    <option>+0.75</option>
-                                                    <option>+1.00</option>
-                                                    <option>+1.25</option>
-                                                    <option>+1.50</option>
-                                                    <option>+1.75</option>
-                                                    <option>+2.00</option>
-                                                    <option>+2.25</option>
-                                                    <option>+2.50</option>
-                                                    <option>+2.75</option>
-                                                    <option>+3.00</option>
-                                                    <option>+3.25</option>
-                                                    <option>+3.50</option>
-                                                    <option>+3.75</option>
-                                                    <option>+4.00</option>
-                                                    <option>+4.25</option>
-                                                    <option>+4.50</option>
-                                                    <option>+4.75</option>
-                                                    <option>+5.00</option>
-                                                    <option>+5.25</option>
-                                                    <option>+5.50</option>
-                                                    <option>+5.75</option>
-                                                    <option>+6.00</option>
-                                                    <option>+6.25</option>
-                                                    <option>+6.50</option>
-                                                    <option>+6.75</option>
-                                                    <option>+7.00</option>
-                                                    <option>+7.25</option>
-                                                    <option>+7.50</option>
-                                                    <option>+7.75</option>
-                                                    <option>+8.00</option>
-                                                    <option>+8.25</option>
-                                                    <option>+8.50</option>
-                                                    <option>+8.75</option>
-                                                    <option>+9.00</option>
-                                                    <option>+9.25</option>
-                                                    <option>+9.50</option>
-                                                    <option>+9.75</option>
-                                                    <option>+10.00</option>
-                                                    <option>+10.25</option>
-                                                    <option>+10.50</option>
-                                                    <option>+10.75</option>
-                                                    <option>+11.00</option>
-                                                    <option>+11.25</option>
-                                                    <option>+11.50</option>
-                                                    <option>+11.75</option>
-                                                    <option>+12.00</option>
-                                                    <option>+12.50</option>
-                                                    <option>+13.00</option>
-                                                    <option>+13.50</option>
-                                                    <option>+14.00</option>
-                                                    <option>+14.50</option>
-                                                    <option>+15.00</option>
-                                                    <option>+15.50</option>
-                                                    <option>+16.00</option>
-                                                    <option> 0.00</option>
-                                                    <option>-0.25</option>
-                                                    <option>-0.50</option>
-                                                    <option>-0.75</option>
-                                                    <option>-1.00</option>
-                                                    <option>-1.25</option>
-                                                    <option>-1.50</option>
-                                                    <option>-1.75</option>
-                                                    <option>-2.00</option>
-                                                    <option>-2.25</option>
-                                                    <option>-2.50</option>
-                                                    <option>-2.75</option>
-                                                    <option>-3.00</option>
-                                                    <option>-3.25</option>
-                                                    <option>-3.50</option>
-                                                    <option>-3.75</option>
-                                                    <option>-4.00</option>
-                                                    <option>-4.25</option>
-                                                    <option>-4.50</option>
-                                                    <option>-4.75</option>
-                                                    <option>-5.00</option>
-                                                    <option>-5.25</option>
-                                                    <option>-5.50</option>
-                                                    <option>-5.75</option>
-                                                    <option>-6.00</option>
-                                                    <option>-6.25</option>
-                                                    <option>-6.50</option>
-                                                    <option>-6.75</option>
-                                                    <option>-7.00</option>
-                                                    <option>-7.25</option>
-                                                    <option>-7.50</option>
-                                                    <option>-7.75</option>
-                                                    <option>-8.00</option>
-                                                    <option>-8.25</option>
-                                                    <option>-8.50</option>
-                                                    <option>-8.75</option>
-                                                    <option>-9.00</option>
-                                                    <option>-9.25</option>
-                                                    <option>-9.50</option>
-                                                    <option>-9.75</option>
-                                                    <option>-10.00</option>
-                                                    <option>-10.25</option>
-                                                    <option>-10.50</option>
-                                                    <option>-10.75</option>
-                                                    <option>-11.00</option>
-                                                    <option>-11.25</option>
-                                                    <option>-11.50</option>
-                                                    <option>-11.75</option>
-                                                    <option>-12.00</option>
-                                                    <option>-12.25</option>
-                                                    <option>-12.50</option>
-                                                    <option>-12.75</option>
-                                                    <option>-13.00</option>
-                                                    <option>-13.25</option>
-                                                    <option>-13.50</option>
-                                                    <option>-13.75</option>
-                                                    <option>-14.00</option>
-                                                    <option>-14.25</option>
-                                                    <option>-14.50</option>
-                                                    <option>-14.75</option>
-                                                    <option>-15.00</option>
-                                                    <option>-15.25</option>
-                                                    <option>-15.50</option>
-                                                    <option>-15.75</option>
-                                                    <option>-16.00</option>
-                                                    <option>-16.25</option>
-                                                    <option>-16.50</option>
-                                                    <option>-16.75</option>
-                                                    <option>-17.00</option>
-                                                    <option>-17.25</option>
-                                                    <option>-17.50</option>
-                                                    <option>-17.75</option>
-                                                    <option>-18.00</option>
-                                                    <option>-18.50</option>
-                                                    <option>-19.00</option>
-                                                    <option>-19.50</option>
-                                                    <option>-20.00</option>
-                                                    <option>-20.50</option>
-                                                    <option>-21.00</option>
-                                                    <option>-21.50</option>
-                                                    <option>-22.00</option>
-                                                    <option>-23.00</option>
-                                                    <option>-24.00</option>
-                                                    <option>-25.00</option>
-                                                    <option>-26.00</option>
-                                                    <option>-27.00</option>
-                                                    <option>-28.00</option>
-                                                    <option>-29.00</option>
-                                                    <option>-30.00</option>
-                                                </select>
-
-                                                <label>CYL</label>
-                                                <select name="cyl" title="Unesite Cilindričnu dioptriju sa popisa" class="form-control" id="select12">
-                                                    <option default></option>
-                                                    <option> 0.00</option>
-                                                    <option>+0.25</option>
-                                                    <option>+0.50</option>
-                                                    <option>+0.75</option>
-                                                    <option>+1.00</option>
-                                                    <option>+1.25</option>
-                                                    <option>+1.50</option>
-                                                    <option>+1.75</option>
-                                                    <option>+2.00</option>
-                                                    <option>+2.25</option>
-                                                    <option>+2.50</option>
-                                                    <option>+2.75</option>
-                                                    <option>+3.00</option>
-                                                    <option>+3.25</option>
-                                                    <option>+3.50</option>
-                                                    <option>+3.75</option>
-                                                    <option>+4.00</option>
-                                                    <option>+4.25</option>
-                                                    <option>+4.50</option>
-                                                    <option>+4.75</option>
-                                                    <option>+5.00</option>
-                                                    <option>+5.25</option>
-                                                    <option>+5.50</option>
-                                                    <option>+5.75</option>
-                                                    <option>+6.00</option>
-                                                    <option> 0.00</option>
-                                                    <option>-0.25</option>
-                                                    <option>-0.50</option>
-                                                    <option>-0.75</option>
-                                                    <option>-1.00</option>
-                                                    <option>-1.25</option>
-                                                    <option>-1.50</option>
-                                                    <option>-1.75</option>
-                                                    <option>-2.00</option>
-                                                    <option>-2.25</option>
-                                                    <option>-2.50</option>
-                                                    <option>-2.75</option>
-                                                    <option>-3.00</option>
-                                                    <option>-3.25</option>
-                                                    <option>-3.50</option>
-                                                    <option>-3.75</option>
-                                                    <option>-4.00</option>
-                                                    <option>-4.25</option>
-                                                    <option>-4.50</option>
-                                                    <option>-4.75</option>
-                                                    <option>-5.00</option>
-                                                    <option>-5.25</option>
-                                                    <option>-5.50</option>
-                                                    <option>-5.75</option>
-                                                    <option>-6.00</option>
-                                                </select>
+                                                <div class="sfera">
+                                                    <label>SPH</label>
+                                                    <input list="listaSph" name="sph" title="Unesite Sfernu dioptriju" type="text" class="form-control" id="sph">
+                                                    <datalist id="listaSph">
+                                                        <option default></option>
+                                                        <option> 0.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 16.00; $x = $x + 0.25) {
+                                                            echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
+                                                        <option> 0.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 17.75; $x = $x + 0.25) {
+                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
+                                                        <option>-18.00</option>
+                                                        <option>-18.50</option>
+                                                        <option>-19.00</option>
+                                                        <option>-19.50</option>
+                                                        <option>-20.00</option>
+                                                        <option>-20.50</option>
+                                                        <option>-21.00</option>
+                                                        <option>-21.50</option>
+                                                        <option>-22.00</option>
+                                                        <option>-23.00</option>
+                                                        <option>-24.00</option>
+                                                        <option>-25.00</option>
+                                                        <option>-26.00</option>
+                                                        <option>-27.00</option>
+                                                        <option>-28.00</option>
+                                                        <option>-29.00</option>
+                                                        <option>-30.00</option>
+                                                    </datalist>
+                                                </div>
+                                                <div class="cilindar">
+                                                    <label>CYL</label>
+                                                    <input list="listaCyl" name="cyl" title="Unesite Cilindričnu dioptriju" type="text" class="form-control" id="cyl">
+                                                    <datalist id="listaCyl">
+                                                        <option default></option>
+                                                        <option>0.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                            echo  "<option>+" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
+                                                        <option> 0.00</option>
+                                                        <?php
+                                                        for ($x = 0.25; $x <= 6.00; $x = $x + 0.25) {
+                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        }
+                                                        ?>
+                                                    </datalist>
+                                                </div>
                                             </div>
 
                                             <div class="md-form mb-5">
                                                 <label>Add / Dig.</label>
-                                                <select name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="select13">
+                                                <input list="addDigList" name="add" title="Dodajte adiciju ili digresiju za office progresive" class="form-control" id="addDig">
+                                                <datalist id="addDigList">
                                                     <option default></option>
-                                                    <option>0.75</option>
-                                                    <option>1.00</option>
-                                                    <option>1.25</option>
-                                                    <option>1.50</option>
-                                                    <option>1.75</option>
-                                                    <option>2.00</option>
-                                                    <option>2.25</option>
-                                                    <option>2.50</option>
-                                                    <option>2.75</option>
-                                                    <option>3.00</option>
-                                                    <option>3.25</option>
-                                                    <option>3.50</option>
-                                                    <option>3.75</option>
-                                                    <option>4.00</option>
-                                                </select>
+                                                    <?php
+                                                    for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
+                                                        echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                    }
+                                                    ?>
+                                                </datalist>
                                             </div>
 
                                             <div class="md-form mb-5">
