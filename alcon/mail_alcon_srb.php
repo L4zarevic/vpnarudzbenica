@@ -32,7 +32,7 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
-$schema_insert .= '<th>Od/Os</th>';
+$schema_insert .= '<th>OD/OS</th>';
 $schema_insert .= '<th>Tip/vrsta</th>';
 $schema_insert .= '<th>SPH</th>';
 $schema_insert .= '<th>CYL</th>';
@@ -68,7 +68,16 @@ while ($row = mysqli_fetch_object($result)) {
 $schema_insert .= '</tbody>';
 file_put_contents('../orders/alcon/narudzbenica_alcon_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
-$to = "kontaktna.sociva@opticus-oculus.com";
+//// Email adresa dobaljača ///////
+$to="";
+$stmt_email = $con->prepare('SELECT email FROM email_dobavljaca WHERE naziv_dobavljaca="alcon-srbija"');
+$stmt_email->execute();
+$result_email = $stmt_email->get_result();
+while ($row_email = $result_email->fetch_object()) {
+  $to = $row_email->email;
+}
+//$to = "kontaktna.sociva@opticus-oculus.com";
+///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
 $stmt->bind_param('i', $idKorisnika);

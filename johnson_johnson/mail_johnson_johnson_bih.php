@@ -32,7 +32,7 @@ $schema_insert .= '<table rules="all" style="border-color:#000;" cellpadding="2"
 $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
-$schema_insert .= '<th>Od/Os</th>';
+$schema_insert .= '<th>OD/OS</th>';
 $schema_insert .= '<th>Tip/vrsta</th>';
 $schema_insert .= '<th>SPH</th>';
 $schema_insert .= '<th>CYL</th>';
@@ -69,7 +69,14 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/johnson_johnson/narudzbenica_johnson_johnson_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "oktal-pharma@oktal-pharma.ba";
+$to="";
+$stmt_email = $con->prepare('SELECT email FROM email_dobavljaca WHERE naziv_dobavljaca="johnson_johnson-bih"');
+$stmt_email->execute();
+$result_email = $stmt_email->get_result();
+while ($row_email = $result_email->fetch_object()) {
+  $to = $row_email->email;
+}
+//$to = "oktal-pharma@oktal-pharma.ba";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');

@@ -87,7 +87,14 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/hoya/narudzbenica_hoya_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "office@mobioptika.rs";
+$to="";
+$stmt_email = $con->prepare('SELECT email FROM email_dobavljaca WHERE naziv_dobavljaca="hoya-srbija"');
+$stmt_email->execute();
+$result_email = $stmt_email->get_result();
+while ($row_email = $result_email->fetch_object()) {
+  $to = $row_email->email;
+}
+//$to = "office@mobioptika.rs";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');

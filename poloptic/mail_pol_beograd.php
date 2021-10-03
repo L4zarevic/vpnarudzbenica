@@ -33,7 +33,7 @@ $schema_insert .= '<thead>';
 $schema_insert .= '<tr>';
 $schema_insert .= '<th>R.br.</th>';
 $schema_insert .= '<th>Lag-Spec</th>';
-$schema_insert .= '<th>Od/Os/Ou</th>';
+$schema_insert .= '<th>OD/OS/OU</th>';
 $schema_insert .= '<th>Vrsta soč.</th>';
 $schema_insert .= '<th>Dizajn</th>';
 $schema_insert .= '<th>PRL/OCHT</th>';
@@ -89,7 +89,14 @@ $schema_insert .= '</tbody>';
 file_put_contents('../orders/poloptic/narudzbenica_Pol_' . $imeKorisnika . '_' . date("d.m.Y_H.i") . '.html', $schema_insert);
 
 //// Email adresa dobaljača ///////
-$to = "order@poloptic.com";
+$to="";
+$stmt_email = $con->prepare('SELECT email FROM email_dobavljaca WHERE naziv_dobavljaca="pol-beograd"');
+$stmt_email->execute();
+$result_email = $stmt_email->get_result();
+while ($row_email = $result_email->fetch_object()) {
+  $to = $row_email->email;
+}
+//$to = "order@poloptic.com";
 ///////////////////////////////////
 
 $stmt = $con->prepare('SELECT email FROM mojaopt_vpnarudzbenica.korisnici WHERE ID =?');
