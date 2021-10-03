@@ -16,7 +16,6 @@
                         </u>
                         <?php
 
-                        require_once '../connection.php';
                         $con = OpenCon();
                         mysqli_set_charset($con, 'utf8');
 
