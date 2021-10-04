@@ -167,7 +167,7 @@ include '../modules/header.php';
                                                     <option default></option>
                                                     <?php
                                                     for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
-                                                        echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                        echo  "<option>" . sprintf('%0.2f', $x) . "</option>";
                                                     }
                                                     ?>
                                                 </datalist>

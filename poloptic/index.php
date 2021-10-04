@@ -325,7 +325,7 @@ include '../modules/header.php';
                                                         <option default></option>
                                                         <?php
                                                         for ($x = 0.75; $x <= 4.00; $x = $x + 0.25) {
-                                                            echo  "<option>-" . sprintf('%0.2f', $x) . "</option>";
+                                                            echo  "<option>" . sprintf('%0.2f', $x) . "</option>";
                                                         }
                                                         ?>
                                                     </datalist>
@@ -420,52 +420,16 @@ include '../modules/header.php';
                                                 <input list="listaMjestaIsporuke" name="mjesto_isporuke" title="Unesite mjesto isporuke" type="text" class="form-control" id="mjesto_isporuke">
                                                 <datalist id='listaMjestaIsporuke'>
                                                     <option>Bijeljina</option>
-                                                    <option>Centar - Bijeljina</option>
-                                                    <option>Mihajlović - Bijeljina</option>
-                                                    <option>Delta - Banja Luka</option>
-                                                    <option>Emporium - Banja Luka</option>
-                                                    <option>Mercator - Banja Luka</option>
-                                                    <option>Boska - Banja Luka</option>
-                                                    <option>Brčko</option>
-                                                    <option>Galerija - Beograd</option>
-                                                    <option>Big - Novi Sad</option>
-                                                    <option>Plaza - Kragujevac</option>
-                                                    <option>Novaoptik - Novi Grad</option>
-                                                    <option>Optika Isić - Orašje</option>
-                                                    <option>Lens d.o.o. - Kalesija</option>
-                                                    <option>Lens Optic - Tuzla</option>
-                                                    <option>Lotica d.o.o. - Travnik</option>
-                                                    <option>Lux Optika - Novi Grad</option>
-                                                    <option>Mak d.o.o. - Bihać</option>
-                                                    <option>OOptiks - Tuzla</option>
-                                                    <option>Optika Vid - Prijedor</option>
-                                                    <option>Optika Lukić - Bijeljina</option>
-                                                    <option>Optika Omazić - Livno</option>
-                                                    <option>Optika Visus - Lukavac</option>
-                                                    <option>Optika Čakrama - Maglaj</option>
-                                                    <option>Optika Đurbuzović - Sarajevo</option>
-                                                    <option>Optika Galić - Široki Brijeg</option>
-                                                    <option>Optika Karić - Konjic</option>
-                                                    <option>Optika Monako d.o.o - Brčko</option>
-                                                    <option>Optika Una - Banja Luka</option>
-                                                    <option>Optika Šimić - Prskalo d.o.o.- Ljubuški</option>
-                                                    <option>OR Optika - Gradačac</option>
-                                                    <option>Opto centar d.o.o. - Sarajevo</option>
-                                                    <option>OR N&S Optik - Tuzla</option>
-                                                    <option>OR Optika Samouk - Goradžde</option>
-                                                    <option>PR Optika Malinić - Prijedor</option>
-                                                    <option>SPPR Optika Visus - Ugljevik</option>
-                                                    <option>STR Optika Topić - Gračanica</option>
-                                                    <option>SZR Optika i foto - Vogošća</option>
-                                                    <option>SZR Optika - Sarajevo</option>
-                                                    <option>SZR Optika Iris - Mostar</option>
-                                                    <option>SZTR Optika Aleksić - Modriča</option>
-                                                    <option>SZTR Optika Pajić - Bratunac</option>
-                                                    <option>TR Optika Iris - Srebrenik</option>
-                                                    <option>ZR Optika Miro - Teslić</option>
-                                                    <option>ZTOR A&S - Derventa</option>
-                                                    <option>ZTR Optika Kojić - Zvornik</option>
-                                                    <option>ZTR Očna optika Vid - Zvornik</option>
+                                                    <?php
+                                                    $con = OpenCon();
+                                                    mysqli_set_charset($con, 'utf8');
+                                                    $stmt = $con->prepare('SELECT naziv FROM komitenti');
+                                                    $stmt->execute();
+                                                    $result = $stmt->get_result();
+                                                    while ($row = $result->fetch_object()) {
+                                                        echo "<option>$row->naziv</option>";
+                                                    }
+                                                    ?>
                                                 </datalist>
                                             </div>
                                         </div>
