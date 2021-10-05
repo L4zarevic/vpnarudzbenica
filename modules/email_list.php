@@ -3,7 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 id="add_edit_label" class="modal-title w-100 font-weight-bold text-primary ml-5">Email adrese
+                    <h4 class="modal-title w-100 font-weight-bold text-primary ml-5">Email adrese
                         dobavljača</h4>
                     <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
