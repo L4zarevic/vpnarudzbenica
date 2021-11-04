@@ -143,7 +143,7 @@ $body .= "--" . $separator . "--";
 if (mail($to, $subject, $body, $headers)) {
 
   //Arhiviranje naružbe i slanje potvrdnog email-a
-  $stmt1 = $con->prepare(''SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol WHERE dobavljac="pol-bojana" ORDER BY lag_spec ASC'');
+  $stmt1 = $con->prepare('SELECT * FROM mojaopt_vpnarudzbenica.narudzbenica_pol WHERE dobavljac="pol-bojana" ORDER BY lag_spec ASC');
 
   $stmt1->execute();
   $result1 = $stmt1->get_result();
