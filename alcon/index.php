@@ -166,6 +166,7 @@ include '../modules/header.php';
                                                 <label>Jedinica mjere</label>
                                                 <select name="jm" title="Unesite jedinicu mjere" class="form-control" id="select14">
                                                     <option default>kutija</option>
+                                                    <option>kom</option>
                                                 </select>
                                                 <label>Količina</label><label class="obavezna_polja">*</label>
                                                 <input name="kolicina" maxlength="2" title="Unesite potrebnu količinu." type="text" class="form-control" id="kolicina">
