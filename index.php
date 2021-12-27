@@ -310,7 +310,7 @@ function novih_narudzbi_bausch_lomb($con)
                 <div class='container my-auto'>
                     <div class='copyright text-center my-auto'>
                         <?php echo "<span>Copyright &copy; M-Оptic d.o.o. " . date("Y") . "</span></br>"; ?>
-                        <span>Za sve probleme u vezi aplikacije, pišite na email: <a href='mailto:nemanja.lazarevic@mojaoptika.com'>nemanja.lazarevic@mojaoptika.com</a></span>
+                        <span>Za sve probleme u vezi aplikacije, pišite na email: <a href='mailto:lazarevic.nemanja96@gmail.com'>lazarevic.nemanja96@gmail.com</a></span>
                     </div>
                 </div>
             </footer>
