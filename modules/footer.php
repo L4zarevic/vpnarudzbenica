@@ -2,7 +2,7 @@
 echo "<div class='container my-auto'>";
 echo "<div class='copyright text-center my-auto'>";
 echo "<span>Copyright &copy; M-Оptic d.o.o. " . date("Y") . "</span></br>";
-echo "<span>Za sve probleme u vezi aplikacije, pišite na email: <a href='mailto:nemanja.lazarevic@mojaoptika.com'>nemanja.lazarevic@mojaoptika.com</a></span>";
+echo "<span>Za sve probleme u vezi aplikacije, pišite na email: <a href='mailto:lazarevic.nemanja96@gmail.com'>lazarevic.nemanja96@gmail.com</a></span>";
 echo "</div>";
 echo "</div>";
 echo "</footer>"; ?></div>
